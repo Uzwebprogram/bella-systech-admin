@@ -9,6 +9,9 @@ import UslugySlice from "./uslugy/index"
 import AparatSlice from "./aparat/index"
 import CompanySlice from "./company/index"
 import PereparatSlice from "./pereparat/index"
+import PartnersSlice from "./partners/index"
+import AparatProductSlice from "./product-aparat/index"
+import DescriptionProductSlice from "./product-aparat/description/index"
 export const store = configureStore({
   reducer: {
     admin: authSlice,
@@ -20,6 +23,9 @@ export const store = configureStore({
     uslugy : UslugySlice,
     aparat : AparatSlice,
     company : CompanySlice,
-    pereparat : PereparatSlice
+    pereparat : PereparatSlice,
+    partners : PartnersSlice,
+    aparatproduct : AparatProductSlice,
+    descriptionproduct : DescriptionProductSlice
   },
 });

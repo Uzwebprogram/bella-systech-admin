@@ -32,7 +32,43 @@ export const UploadImage = createAsyncThunk("AparatProduct/upload", async (e) =>
   formData.append("upload_preset", "v0khd47o");
   try {
     return await axios
-      .post("https://api.cloudinary.com/v1_1/deunojdib/upload", formData)
+      .post("https://api.cloudinary.com/v1_1/dsdkp3672/upload", formData)
+      .then((response) => response?.data.secure_url);
+  } catch (error) {
+    return error;
+  }
+});
+export const UploadImage2 = createAsyncThunk("Aparat/upload2", async (e) => {
+  const formData = new FormData();
+  formData.append("file", e.target.files[0]);
+  formData.append("upload_preset", "v0khd47o");
+  try {
+    return await axios
+      .post("https://api.cloudinary.com/v1_1/dsdkp3672/upload", formData)
+      .then((response) => response?.data.secure_url);
+  } catch (error) {
+    return error;
+  }
+});
+export const UploadImage3 = createAsyncThunk("Aparat/upload3", async (e) => {
+  const formData = new FormData();
+  formData.append("file", e.target.files[0]);
+  formData.append("upload_preset", "v0khd47o");
+  try {
+    return await axios
+      .post("https://api.cloudinary.com/v1_1/dsdkp3672/upload", formData)
+      .then((response) => response?.data.secure_url);
+  } catch (error) {
+    return error;
+  }
+});
+export const UploadPdf = createAsyncThunk("Aparat/pdfupload", async (e) => {
+  const formData = new FormData();
+  formData.append("file", e.target.files[0]);
+  formData.append("upload_preset", "v0khd47o");
+  try {
+    return await axios
+      .post("https://api.cloudinary.com/v1_1/dsdkp3672/upload", formData)
       .then((response) => response?.data.secure_url);
   } catch (error) {
     return error;
@@ -50,6 +86,7 @@ const AparatProductSlice = createSlice({
     AparatProductPost: {
       Success: false,
       Error: false,
+      data: [],
       loading: false,
     },
     AparatProductDelete: {
@@ -63,6 +100,24 @@ const AparatProductSlice = createSlice({
       Success: false,
     },
     uploadAparatProduct: {
+      Error: false,
+      Loading: false,
+      Success: false,
+      data: "",
+    },
+    uploadAparatProduct2: {
+      Error: false,
+      Loading: false,
+      Success: false,
+      data: "",
+    },
+    uploadAparatProduct3: {
+      Error: false,
+      Loading: false,
+      Success: false,
+      data: "",
+    },
+    uploadAparatProductPdf: {
       Error: false,
       Loading: false,
       Success: false,
@@ -92,6 +147,7 @@ const AparatProductSlice = createSlice({
     [AparatProductPost.fulfilled]: (state, action) => {
       state.AparatProductPost.loading = false;
       state.AparatProductPost.Success = true;
+      state.AparatProductPost.data = action.payload;
       state.AparatProductPost.Error = false;
     },
     [AparatProductPost.rejected]: (state, action) => {
@@ -142,6 +198,51 @@ const AparatProductSlice = createSlice({
       state.uploadAparatProduct.Error = true;
       state.uploadAparatProduct.Success = false;
       state.uploadAparatProduct.Loading = false;
+    },
+    [UploadImage2.pending]: (state, action) => {
+      state.uploadAparatProduct2.Loading = true;
+    },
+    [UploadImage2.fulfilled]: (state, action) => {
+      state.uploadAparatProduct2.Error = false;
+      state.uploadAparatProduct2.Success = true;
+      state.uploadAparatProduct2.Loading = false;
+      state.uploadAparatProduct2.data = action.payload;
+      // console.log( );
+    },
+    [UploadImage2.rejected]: (state, action) => {
+      state.uploadAparatProduct2.Error = true;
+      state.uploadAparatProduct2.Success = false;
+      state.uploadAparatProduct2.Loading = false;
+    },
+    [UploadImage3.pending]: (state, action) => {
+      state.uploadAparatProduct3.Loading = true;
+    },
+    [UploadImage3.fulfilled]: (state, action) => {
+      state.uploadAparatProduct3.Error = false;
+      state.uploadAparatProduct3.Success = true;
+      state.uploadAparatProduct3.Loading = false;
+      state.uploadAparatProduct3.data = action.payload;
+      // console.log( );
+    },
+    [UploadImage3.rejected]: (state, action) => {
+      state.uploadAparatProduct3.Error = true;
+      state.uploadAparatProduct3.Success = false;
+      state.uploadAparatProduct3.Loading = false;
+    },
+    [UploadPdf.pending]: (state, action) => {
+      state.uploadAparatProductPdf.Loading = true;
+    },
+    [UploadPdf.fulfilled]: (state, action) => {
+      state.uploadAparatProductPdf.Error = false;
+      state.uploadAparatProductPdf.Success = true;
+      state.uploadAparatProductPdf.Loading = false;
+      state.uploadAparatProductPdf.data = action.payload;
+      // console.log( );
+    },
+    [UploadPdf.rejected]: (state, action) => {
+      state.uploadAparatProductPdf.Error = true;
+      state.uploadAparatProductPdf.Success = false;
+      state.uploadAparatProductPdf.Loading = false;
     },
   },
 });

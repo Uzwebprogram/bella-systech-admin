@@ -34,7 +34,7 @@ export const UploadCategoryImage = createAsyncThunk("CategoryImg/upload", async 
   formData.append("upload_preset", "v0khd47o");
   try {
     return await axios
-      .post("https://api.cloudinary.com/v1_1/deunojdib/upload", formData)
+      .post("https://api.cloudinary.com/v1_1/dsdkp3672/upload", formData)
       .then((response) => response?.data.secure_url);
   } catch (error) {
     return error;

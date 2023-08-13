@@ -153,7 +153,7 @@ input:focus {
 /* STEP CSS */
 .step_content {
   padding: 10px;
-  height: 90dvh;
+  height: 66dvh;
   overflow-y: auto;
 }
 
