@@ -7,12 +7,15 @@ import { LoadingOutlined } from "@ant-design/icons";
 import "./styles.css";
 import { VerticalAlignBottom } from "@mui/icons-material";
 
-const ImageUpload = () => {
-  const dispatch = useDispatch();
-  const dataProject = useSelector((state) => state.product?.uploadProjects);
-  const HandleChange = async (e) => {
-    await dispatch(UploadImage(e));
-  };
+const ImageUpload = ({HandleChange , HandleChange2 , HandleChange3  }) => {
+  // const dispatch = useDispatch();
+  // const data = useSelector((state) => state.product?.uploadProjects);
+  // const HandleChange = async (e) => {
+  //   await dispatch(UploadImage(e));
+  // };
+  const data =  useSelector((state) => state.aparatproduct?.uploadAparatProduct)
+  const data2 =  useSelector((state) => state.aparatproduct?.uploadAparatProduct2)
+  const data3 =  useSelector((state) => state.aparatproduct?.uploadAparatProduct3)
 
   const antIcon = (
     <LoadingOutlined
@@ -30,11 +33,11 @@ const ImageUpload = () => {
         <Row>
           <Col lg={4}>
             <div className="upload_cover">
-              {dataProject.Loading == true ? (
+              {data?.Loading == true ? (
                 <div className="upload_spinss">
                   <Spin indicator={antIcon} />
                 </div>
-              ) : dataProject.Success == true ? (
+              ) : data?.Success == true ? (
                 <Image
                   style={{
                     aspectRatio: "16 / 9",
@@ -42,7 +45,7 @@ const ImageUpload = () => {
                     zIndex: "99999999",
                     verticalAlign: "initial",
                   }}
-                  src={dataProject.data}
+                  src={data?.data}
                 />
               ) : (
                 <div className="upload_none_img">
@@ -60,11 +63,11 @@ const ImageUpload = () => {
           </Col>
           <Col lg={4}>
             <div className="upload_cover">
-              {dataProject.Loading == true ? (
+              {data2?.Loading == true ? (
                 <div className="upload_spinss">
                   <Spin indicator={antIcon} />
                 </div>
-              ) : dataProject.Success == true ? (
+              ) : data2?.Success == true ? (
                 <Image
                   style={{
                     aspectRatio: "16 / 9",
@@ -72,12 +75,12 @@ const ImageUpload = () => {
                     zIndex: "99999999",
                     verticalAlign: "initial",
                   }}
-                  src={dataProject.data}
+                  src={data2?.data}
                 />
               ) : (
                 <div className="upload_none_img">
                   <>
-                    <input type="file" id="file2" onChange={HandleChange} />
+                    <input type="file" id="file2" onChange={HandleChange2} />
                     <label for="file2" class="custom-file-upload">
                       <span className="upload_span-download">
                         <ion-icon name="cloud-download-outline"></ion-icon>
@@ -90,11 +93,11 @@ const ImageUpload = () => {
           </Col>
           <Col lg={4}>
             <div className="upload_cover">
-              {dataProject.Loading == true ? (
+              {data3?.Loading == true ? (
                 <div className="upload_spinss">
                   <Spin indicator={antIcon} />
                 </div>
-              ) : dataProject.Success == true ? (
+              ) : data3?.Success == true ? (
                 <Image
                   style={{
                     aspectRatio: "16 / 9",
@@ -102,12 +105,12 @@ const ImageUpload = () => {
                     zIndex: "99999999",
                     verticalAlign: "initial",
                   }}
-                  src={dataProject.data}
+                  src={data3?.data}
                 />
               ) : (
                 <div className="upload_none_img">
                   <>
-                    <input type="file" id="file3" onChange={HandleChange} />
+                    <input type="file" id="file3" onChange={HandleChange3} />
                     <label for="file3" class="custom-file-upload">
                       <span className="upload_span-download">
                         <ion-icon name="cloud-download-outline"></ion-icon>

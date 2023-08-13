@@ -32,12 +32,13 @@ export const UploadImage = createAsyncThunk("Aparat/upload", async (e) => {
   formData.append("upload_preset", "v0khd47o");
   try {
     return await axios
-      .post("https://api.cloudinary.com/v1_1/deunojdib/upload", formData)
+      .post("https://api.cloudinary.com/v1_1/dsdkp3672/upload", formData)
       .then((response) => response?.data.secure_url);
   } catch (error) {
     return error;
   }
 });
+
 const AparatSlice = createSlice({
   name: "Aparat",
   initialState: {
@@ -68,7 +69,9 @@ const AparatSlice = createSlice({
       Success: false,
       data: "",
     },
+   
   },
+
   extraReducers: {
     // get
     [AparatGet.pending]: (state, action) => {

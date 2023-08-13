@@ -3,11 +3,7 @@ import CommonBtn from "../../common/CommonBtn";
 import ModalCommon from "../../common/Modal/Modal";
 import { Wrapper } from "./styled-index";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  ProductPost,
-  ProductGet,
-  UploadImage,
-} from "../../../redux/products/index";
+
 import { CategoryGet } from "../../../redux/category/index";
 import { Row, Col } from "react-grid-system";
 import SelectCommon from "../../common/select/index";
@@ -19,67 +15,110 @@ import { LoadingOutlined } from "@ant-design/icons";
 import { Button, message, Steps, theme } from "antd";
 import styled from "styled-components";
 import ImageUpload from "./upload";
-
+import { AparatGet } from "../../../redux/aparat";
+import { CompanyGet } from "../../../redux/company";
+import { PartnersGet } from "../../../redux/partners";
+import {AparatProductGet, AparatProductPost , UploadImage, UploadImage2, UploadImage3 , UploadPdf} from "../../../redux/product-aparat"
+import DescriptionAparatProduct from "./description";
+import AparatProduct from "./aparat";
+import { DescriptionProductPost } from "../../../redux/product-aparat/description";
 function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   const dispatch = useDispatch();
+  const [descriptionUzYoutube , setDescriptionUzYoutube] = useState();
+  const [descriptionRuYoutube , setDescriptionRuYoutube] = useState();
+  const [descriptionEnYoutube , setDescriptionEnYoutube] = useState();
+  const [YoutubeLink , setYouteLink] = useState();
+  const [current, setCurrent] = useState(0);
+  const AparatProductGetsPost = useSelector((state) => state.aparatproduct.AparatProductPost.data)
+  // !!! aparat-product api !!!
   const [titleUz, setTitleUz] = useState();
   const [titleRu, setTitleRU] = useState();
   const [titleEn, setTitleEn] = useState();
   const [productTypeUz, setProductTypeUz] = useState();
   const [productTypeRu, setProductTypeRu] = useState();
   const [productTypeEn, setProductTypeEn] = useState();
-  const [contentsUz, setContentsUz] = useState();
-  const [contentsRu, setContentsRu] = useState();
-  const [contentsEn, setContentsEn] = useState();
+  const [companystate , setCompanyState] = useState();
+  const [categoryaparatstate , setCategoryAparatState] = useState();
+  const [partnerstate , setPartnersState] = useState();
   const [salecount, setsalecount] = useState();
+  console.log(current);
+  const next = async (e) => {
+    e.preventDefault();
+    if (current == 0) {
+      const body = {
+        name_uz: titleUz,
+        name_ru: titleRu,
+        name_en: titleEn,
+        description_uz: productTypeUz,
+        description_ru: productTypeRu,
+        description_en: productTypeEn,
+        image1: dataImage1.data,
+        image2: dataImage2.data,
+        image3: dataImage3.data,
+        pdf: dataPdf.data,
+        product_benefits: salecount,
+        company : companystate,
+        category_aparat: categoryaparatstate,
+        partners : partnerstate
+      };
+      await dispatch(AparatProductPost(body));
+      dispatch(AparatProductGet());
+      setCurrent(current + 1);
+    } else if (current == 1) {
+      const body = {
+        description_uz: descriptionUzYoutube,
+        description_ru: descriptionRuYoutube,
+        description_en: descriptionEnYoutube,
+        youtube_link : YoutubeLink,
+        aparat : AparatProductGetsPost?.data?.data?.id
+      };
+      await dispatch(DescriptionProductPost(body))
+      setCurrent(current + 1);
 
-  // category get
-  const categoryGets = useSelector((state) => state.category.categoryGet.data);
+    }
 
+  };
+  const AparatCategoryGets = useSelector((state) => state.aparat.AparatGet.data);
   useEffect(() => {
-    dispatch(CategoryGet());
+    dispatch(AparatGet());
   }, []);
-  // category get
-
-  const dataProject = useSelector((state) => state.product?.uploadProjects);
-
+  const CompanyGets = useSelector((state) => state.company.CompanyGet.data);
   useEffect(() => {
-    dispatch(ProductGet());
+    dispatch(CompanyGet());
   }, []);
+    const PartnersGets = useSelector((state) => state.partners.PartnersGet.data)
+    useEffect(() => {
+      dispatch(PartnersGet());
+    }, []);
+
+    const dataImage1 =  useSelector((state) => state.aparatproduct?.uploadAparatProduct)
   const HandleChange = async (e) => {
     await dispatch(UploadImage(e));
   };
-
-  // window.localStorage.setItem('categoryId', selectId)
-
+  const dataImage2 =  useSelector((state) => state.aparatproduct?.uploadAparatProduct2)
+  const HandleChange2 = async (e) => {
+    await dispatch(UploadImage2(e));
+  };
+  const dataImage3 =  useSelector((state) => state.aparatproduct?.uploadAparatProduct3)
+  const HandleChange3 = async (e) => {
+    await dispatch(UploadImage3(e));
+  };
+  const dataPdf =  useSelector((state) => state.aparatproduct?.uploadAparatProductPdf)
+  const HandleChangePdf = async (e) => {
+    await dispatch(UploadPdf(e));
+  };
   const SelectChange = (e) => {
-    setSelectId(e);
-    window.localStorage.setItem("selectId", e);
+    setCompanyState(e);
   };
 
-  // product post
-  const productPost = useSelector((state) => state.product);
-  const HandleSubmit = async (e) => {
-    e.preventDefault();
-    const body = {
-      title_uz: titleUz,
-      title_ru: titleRu,
-      title_en: titleEn,
-      description_uz: productTypeUz,
-      description_ru: productTypeRu,
-      description_en: productTypeEn,
-      description2_uz: contentsUz,
-      description2_ru: contentsRu,
-      description2_en: contentsEn,
-      image: dataProject.data,
-      category: selectId,
-      sale_count: salecount,
-    };
-    console.log(body);
-    await dispatch(ProductPost(body));
-    dispatch(ProductGet());
-    HandleClose();
+  const SelectChange2 = (e) => {
+    setCategoryAparatState(e);
   };
+  const SelectChange3 = (e) => {
+    setPartnersState(e);
+  };
+  // !!! aparat-product api !!!
+
   const antIcon = (
     <LoadingOutlined
       style={{
@@ -91,203 +130,44 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   );
 
   const options = [];
-  categoryGets.map((elem) =>
+  AparatCategoryGets.map((elem) =>
     options.push({
       value: elem.id,
       label: elem.title_ru,
     })
   );
-  // product post
+  const optionsCompany = [];
+  CompanyGets.map((elem) =>
+  optionsCompany.push({
+      value: elem.id,
+      label: elem.title_ru,
+    })
+  );
+
+  const OptionPartners = [];
+  PartnersGets.map((elem) =>
+  OptionPartners.push({
+      value: elem.id,
+      label: elem.name_ru,
+    })
+  );
 
   // STEPS CODE
   const steps = [
     {
       title: "First",
       content: (
-        <>
-          <Wrapper onSubmit={HandleSubmit}>
-            <div className="input_wrap">
-              <div className="scrool">
-                <Row className="row">
-                  <Col className="col" lg={12}>
-                    <ImageUpload />
-                  </Col>
-                  <Col className="col" lg={6}>
-                    <div>
-                      <h4>Выбрать компания</h4>
-                      <div className="selects">
-                        <SelectCommon
-                          onChange={SelectChange}
-                          placeholder="Выбрать"
-                          options={options}
-                        />
-                      </div>
-                    </div>
-                  </Col>
-                  <Col className="col" lg={6}>
-                    <div>
-                      <h4>Выбрать категория апарат</h4>
-                      <div className="selects">
-                        <SelectCommon
-                          onChange={SelectChange}
-                          placeholder="Выбрать"
-                          options={options}
-                        />
-                      </div>
-                    </div>
-                  </Col>
-                  <Col className="col" lg={6}>
-                    <div>
-                      <h4>Выбрать партнеры</h4>
-                      <div className="selects">
-                        <SelectCommon
-                          onChange={SelectChange}
-                          placeholder="Выбрать"
-                          options={options}
-                        />
-                      </div>
-                    </div>
-                  </Col>
-                  <Col className="col" lg={6}>
-                    <h4>PDF-файл</h4>
-                    <InputCommon
-                      className="file_input"
-                      type="file"
-                      id="fileupload"
-                      required
-                      onChange={(e) => setTitleEn(e.currentTarget.value)}
-                    />
-                  </Col>
-                  <Col className="col" lg={4}>
-                    <h4>Имя продукта</h4>
-                    <InputCommon
-                      type="text"
-                      placeholder="узбекский"
-                      required
-                      onChange={(e) => setTitleUz(e.currentTarget.value)}
-                    />
-                  </Col>
-                  <Col className="col" lg={4}>
-                    <h4>*</h4>
-
-                    <InputCommon
-                      type="text"
-                      placeholder="русский"
-                      required
-                      onChange={(e) => setTitleRU(e.currentTarget.value)}
-                    />
-                  </Col>
-                  <Col className="col" lg={4}>
-                    <h4>*</h4>
-                    <InputCommon
-                      type="text"
-                      placeholder="английский"
-                      required
-                      onChange={(e) => setTitleEn(e.currentTarget.value)}
-                    />
-                  </Col>
-                  <Col className="col" lg={12}>
-                    <h4>Oписание</h4>
-                    <textarea
-                      className="textarea_products"
-                      placeholder="узбекский"
-                      required
-                      onChange={(e) => setProductTypeUz(e.currentTarget.value)}
-                      rows="10"
-                      cols="120"
-                    ></textarea>
-                  </Col>
-                  <Col className="col" lg={12}>
-                    <textarea
-                      className="textarea_products"
-                      placeholder="русский"
-                      required
-                      onChange={(e) => setProductTypeRu(e.currentTarget.value)}
-                      rows="10"
-                      cols="120"
-                    ></textarea>
-                  </Col>
-                  <Col className="col" lg={12}>
-                    <textarea
-                      className="textarea_products"
-                      placeholder="английский"
-                      required
-                      onChange={(e) => setProductTypeEn(e.currentTarget.value)}
-                      rows="10"
-                      cols="120"
-                    ></textarea>
-                  </Col>
-                  <Col className="col" lg={12}>
-                    <h4>Преимущества</h4>
-                    <textarea
-                      className="textarea_products"
-                      placeholder="печатание"
-                      required
-                      onChange={(e) => setProductTypeEn(e.currentTarget.value)}
-                      rows="10"
-                      cols="120"
-                    ></textarea>
-                  </Col>
-
-                  {/* <Col className="col" lg={4}>
-                    <h4>описание 2</h4>
-                    <textarea
-                      className="textarea_products"
-                      placeholder="узбекский"
-                      required
-                      onChange={(e) => setContentsUz(e.currentTarget.value)}
-                      rows="10"
-                      cols="120"
-                    ></textarea>
-                  </Col>
-                  <Col className="col" lg={4}>
-                    <h4>*</h4>
-                    <textarea
-                      className="textarea_products"
-                      placeholder="русский"
-                      required
-                      onChange={(e) => setContentsRu(e.currentTarget.value)}
-                      rows="10"
-                      cols="120"
-                    ></textarea>
-                  </Col>
-                  <Col className="col" lg={4}>
-                    <h4>*</h4>
-                    <textarea
-                      className="textarea_products"
-                      placeholder="английский"
-                      required
-                      onChange={(e) => setContentsEn(e.currentTarget.value)}
-                      rows="10"
-                      cols="120"
-                    ></textarea>
-                  </Col> */}
-                  {/* <InputCommon
-                    type="number"
-                    placeholder="процент скидки"
-                    required
-                    onChange={(e) => setsalecount(e.currentTarget.value)}
-                  /> */}
-                </Row>
-                <CommonBtn
-                  type="submit"
-                  style={{
-                    margin: "20px auto 0 auto",
-                    padding: "12px 40px",
-                    border: "2px solid #fff",
-                  }}
-                >
-                  Добавить
-                </CommonBtn>
-              </div>
-            </div>
-          </Wrapper>
-        </>
+          <>
+          <AparatProduct  setTitleUz={setTitleUz} setTitleRU={setTitleRU} setTitleEn={setTitleEn} setProductTypeUz={setProductTypeUz} setProductTypeRu={setProductTypeRu} setProductTypeEn={setProductTypeEn} setsalecount={setsalecount} HandleChange={HandleChange} HandleChange2={HandleChange2} HandleChange3={HandleChange3} options={options} optionsCompany={optionsCompany} OptionPartners={OptionPartners} SelectChange={SelectChange} SelectChange2={SelectChange2} SelectChange3={SelectChange3}  HandleChangePdf={HandleChangePdf}/>
+          </>
       ),
     },
+
     {
       title: "Second",
-      content: "Second-content",
+      content: <>
+      <DescriptionAparatProduct  setDescriptionRuYoutube={setDescriptionRuYoutube} setDescriptionUzYoutube={setDescriptionUzYoutube} setDescriptionEnYoutube={setDescriptionEnYoutube} setYouteLink={setYouteLink} />
+      </>,
     },
     {
       title: "Third",
@@ -304,11 +184,7 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   ];
 
   const { token } = theme.useToken();
-  const [current, setCurrent] = useState(0);
 
-  const next = () => {
-    setCurrent(current + 1);
-  };
   const prev = () => {
     setCurrent(current - 1);
   };
@@ -340,7 +216,7 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
           }}
         >
           {current < steps.length - 1 && (
-            <Button type="primary" onClick={() => next()}>
+            <Button type="primary" onClick={next}>
               Next
             </Button>
           )}
@@ -350,16 +226,6 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
               onClick={() => message.success("Processing complete!")}
             >
               Done
-            </Button>
-          )}
-          {current > 0 && (
-            <Button
-              style={{
-                margin: "0 8px",
-              }}
-              onClick={() => prev()}
-            >
-              Previous
             </Button>
           )}
         </div>
