@@ -9,6 +9,7 @@ import Delete from "./delete";
 import ProductAddForm from "./post";
 import Put from "./put";
 import TableAdd from "./table";
+import CardAdd from "./card";
 function AparatProductsComponent({ open, handleClose }) {
   const dispatch = useDispatch();
   const [selectId, setSelectId] = useState(null);
@@ -55,6 +56,10 @@ function AparatProductsComponent({ open, handleClose }) {
         setLoadings={setLoadings}
         selectId={selectId}
       /> */}
+      <CardAdd
+        HandleDelete={HandleDelete}
+        onClickPut={handlePutModal}
+      />
       <Delete
         productId={productId}
         openDelete={openDelete}
