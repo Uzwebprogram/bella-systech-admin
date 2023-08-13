@@ -262,7 +262,7 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
           padding: '15px 50px'
         }}
       >
-        ©2023 Created by Supersite
+        ©2023 Created by Software System Pro
       </Footer>
     </Layout>
   );
