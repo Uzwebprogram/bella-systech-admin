@@ -288,7 +288,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                         padding: "10px 20px"
                     }}
                 >
-                    ©2023 Created by Supersite
+                    ©2023 Created by Software System Pro
                 </Footer>
             </Layout>
         </Layout>
