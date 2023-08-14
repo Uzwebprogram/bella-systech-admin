@@ -12,6 +12,7 @@ import PereparatSlice from "./pereparat/index"
 import PartnersSlice from "./partners/index"
 import AparatProductSlice from "./product-aparat/index"
 import DescriptionProductSlice from "./product-aparat/description/index"
+import ParametrProductSlice from "./product-aparat/parametr/index"
 export const store = configureStore({
   reducer: {
     admin: authSlice,
@@ -26,6 +27,7 @@ export const store = configureStore({
     pereparat : PereparatSlice,
     partners : PartnersSlice,
     aparatproduct : AparatProductSlice,
-    descriptionproduct : DescriptionProductSlice
+    descriptionproduct : DescriptionProductSlice,
+    parametr : ParametrProductSlice
   },
 });
