@@ -22,6 +22,7 @@ import {AparatProductGet, AparatProductPost , UploadImage, UploadImage2, UploadI
 import DescriptionAparatProduct from "./description";
 import AparatProduct from "./aparat";
 import { DescriptionProductPost } from "../../../redux/product-aparat/description";
+import Parametr from "./parametr";
 function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   const dispatch = useDispatch();
   const [descriptionUzYoutube , setDescriptionUzYoutube] = useState();
@@ -74,7 +75,10 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
       };
       await dispatch(DescriptionProductPost(body))
       setCurrent(current + 1);
+    }
+    else if (current == 2) {
 
+      setCurrent(current + 1);
     }
 
   };
@@ -171,7 +175,7 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
     },
     {
       title: "Third",
-      content: "Third-content",
+      content: <Parametr/>,
     },
     {
       title: "Fourth",
