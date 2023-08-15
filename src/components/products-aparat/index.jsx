@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
-  ProductDelete,
-  ProductPut,
-  ProductGet,
-} from "../../redux/products/index";
+  AparatProductDelete,
+  AparatProductPut,
+  AparatProductGet,
+} from "../../redux/product-aparat/index";
 import Delete from "./delete";
 import ProductAddForm from "./post";
 import Put from "./put";
@@ -13,6 +13,7 @@ import CardAdd from "./card";
 function AparatProductsComponent({ open, handleClose }) {
   const dispatch = useDispatch();
   const [selectId, setSelectId] = useState(null);
+  console.log('sid', selectId)
   const [productId, setProductId] = useState();
   const [loadings, setLoadings] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
@@ -23,7 +24,7 @@ function AparatProductsComponent({ open, handleClose }) {
   };
 
   useEffect(() => {
-    dispatch(ProductGet());
+    dispatch(AparatProductGet());
   }, []);
 
   const [openPut, setOpenPut] = useState(false);
@@ -35,9 +36,8 @@ function AparatProductsComponent({ open, handleClose }) {
     setOpenPut(true);
   };
   const HandleDelete = async (e) => {
-    await dispatch(ProductDelete(e.currentTarget.id));
-    dispatch(ProductGet());
-    setLoadings(true);
+    await dispatch(AparatProductDelete(e.target.id));
+    dispatch(AparatProductGet());
   };
 
   return (
@@ -59,6 +59,7 @@ function AparatProductsComponent({ open, handleClose }) {
       <CardAdd
         HandleDelete={HandleDelete}
         onClickPut={handlePutModal}
+        selectId={selectId}
       />
       <Delete
         productId={productId}

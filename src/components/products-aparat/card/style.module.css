@@ -19,10 +19,7 @@
 .card_section::-webkit-scrollbar-thumb:hover {
   background: #df2027;
 }
-.card span,
-p {
-  color: #000;
-}
+
 
 .card_row {
   margin: 0 !important;
@@ -49,13 +46,13 @@ p {
 }
 
 .card_img_wrap {
-  width: 35%;
+  width: auto;
 }
 
 .card_img_wrap > img {
   box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.05);
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  height: 209px;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -65,7 +62,9 @@ p {
 }
 
 .card_content_wrap {
-  width: 62%;
+  width: auto;
+  max-width: 60%;
+  padding-left: 20px;
 }
 .card_title {
   margin: 0;
@@ -73,8 +72,12 @@ p {
   font-style: italic;
 }
 
+.card_description{
+  color: #000;
+  font-size: 14px;
+}
 .card_time {
-  width: 35%;
+  /* width: 35%; */
   background: #fff;
   padding: 5px;
   border-radius: 10px;
@@ -90,17 +93,26 @@ p {
   font-weight: bold;
   display: flex;
   align-items: center;
+  color: #000;
+  font-size: 11px;
 }
 
 .card_date_span > i {
   margin: 0 10px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .card_time_span {
   margin-left: 10px;
   font-weight: bold;
   font-style: italic;
+  color: #df2027;
+  display: flex;
+  align-items: center;
+}
+
+.card_time_span > i{
+  font-size: 16px;
 }
 
 .card_time {
@@ -109,8 +121,12 @@ p {
   justify-content: space-between;
 }
 
-.time_box{
-  margin-bottom: 10px;
+.time_box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 10px; */
 }
 
 .card_drop {
@@ -121,18 +137,20 @@ p {
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
+  box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.05);
 }
 
 .card_details {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-direction: column;
   height: 100%;
 }
 
 .card_details_item {
   width: 100%;
+  margin: 5px 0;
   background: #fff;
   padding: 6px 10px;
   border-radius: 10px;
@@ -145,7 +163,7 @@ p {
 
 .card_details_item > span {
   font-size: 11px;
-  /* color: #fff; */
+  color: #000;
 }
 
 .card_details_item > h4 {
@@ -156,7 +174,8 @@ p {
 }
 
 .card_desc {
-  margin-top: 20px;
+  width: 100%;
+  margin-top: 10px;
   background: #fff;
   padding: 15px;
   border-radius: 20px;
@@ -171,7 +190,7 @@ p {
   box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.05);
 }
 
-.card_more_btn{
+.card_more_btn {
   border: none;
   background: none;
   display: flex;
@@ -180,10 +199,10 @@ p {
   font-size: 14px;
 }
 
-.card_more_btn > span{
+.card_more_btn > span {
   margin-left: 10px;
 }
 
-.card_more_btn > i{
+.card_more_btn > i {
   font-size: 18px;
 }

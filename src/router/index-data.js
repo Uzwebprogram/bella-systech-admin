@@ -11,6 +11,7 @@ const Project = lazy(() => import("../pages/projects/index"))
 const Aparat = lazy(() => import("./../pages/aparat/index"))
 const Peraparat = lazy(() => import("./../pages/pereparat/index"))
 const AparatProduct = lazy(() => import("./../pages/product-aparat/index"))
+const AparatProductMore = lazy(() => import('../pages/product-aparat-more/index'))
 const cookie = new Cookies();
 
 
@@ -46,29 +47,35 @@ export const RouterData = [
     component: cookie.get("token") ? <Blog /> : null,
   },
   {
-    id: 6,
+    id: 7,
     path: "/project",
     component: cookie.get("token") ? <Project /> : null,
   },
   {
-    id: 6,
+    id: 8,
     path: "/news",
     component: cookie.get("token") ? <News /> : null,
   },
   {
-    id: 6,
+    id: 9,
     path: "/category-aparat",
     component: cookie.get("token") ? <Aparat /> : null,
   },
   {
-    id: 6,
+    id: 10,
     path: "/category-pereparat",
     component: cookie.get("token") ? <Peraparat /> : null,
   },
   {
-    id: 6,
+    id: 11,
     path: "/aparat-product",
     component: cookie.get("token") ? <AparatProduct /> : null,
   },
+  {
+    id:12,
+    path: "/aparat-product-more/:id",
+    component: cookie.get("token") ? <AparatProductMore /> : null,
+  },
 ];
+
 
