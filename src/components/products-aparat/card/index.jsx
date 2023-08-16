@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const CardAdd = ({ onClickPut }) => {
-    const checks = window.localStorage.getItem("checked")
     const [messageApi, contextHolder] = message.useMessage();
     const key = 'updatable';
     const openMessage = () => {
