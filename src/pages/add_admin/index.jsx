@@ -24,7 +24,7 @@ function AddAdmin() {
   const handleOpen = () => setOpen(true);
   return (
     window.localStorage.getItem("checked") == 'false' ? <HorizontalSidebar>
-      <WrapperContainer style={{ marginTop: "112px" }}>
+      <WrapperContainer style={{ marginTop: "90px" }}>
         <HeaderTopCommon
           title={"Админ"}
           onClick={handleOpen}

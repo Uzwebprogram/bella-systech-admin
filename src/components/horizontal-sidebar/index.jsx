@@ -259,7 +259,7 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
           background: "transparent",
           color: "#3045A5",
           fontWeight: '500',
-          padding: '15px 50px'
+          padding: '5px 50px'
         }}
       >
         ©2023 Created by Software System Pro

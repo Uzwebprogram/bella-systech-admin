@@ -22,7 +22,7 @@ function Blog() {
 
 
     window.localStorage.getItem("checked") == 'false' ? <HorizontalSidebar>
-      <WrapperContainer style={{ marginTop: "112px" }}>
+      <WrapperContainer style={{ marginTop: "90px" }}>
         <HeaderTopCommon
           title={"блог"}
           onClick={showDrawer}

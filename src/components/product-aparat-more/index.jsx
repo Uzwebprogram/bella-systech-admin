@@ -271,6 +271,16 @@ const ProductAparatMoreComponent = () => {
                             <p><span className={styles.language}>UZ:</span>  {partner.description_uz}</p>
                             <hr />
                           </Col>
+                          <Col className={styles.card_partner_col} lg={12}>
+                            <h6 className={styles.company_mini_title}>
+                              #Видео партнеров
+                            </h6>
+                            <div className={styles.card_partner_video_wrap}>
+                              <iframe width="100%" height="450" src="https://www.youtube.com/embed/MY6ZZIn93V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                            </div>
+                            <hr />
+                          </Col>
                         </Row>
                       ))
                     }

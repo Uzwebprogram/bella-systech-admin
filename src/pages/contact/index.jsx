@@ -19,7 +19,7 @@ function Partner() {
 
 
     window.localStorage.getItem("checked") == 'false' ? <HorizontalSidebar>
-      <WrapperContainer style={{ marginTop: "112px" }}>
+      <WrapperContainer style={{ marginTop: "90px" }}>
         <HeaderTopCommon title={"Контакт"} onClick={handleOpen} isBtn={false} />
         <ContactComponent handleClose={handleClose} open={open} />
       </WrapperContainer>

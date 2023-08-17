@@ -1,6 +1,6 @@
 .card_more_section {
-  max-height: 600px;
-  height: 62dvh;
+  /* max-height: 600px; */
+  height: 68dvh;
   overflow-y: scroll;
 }
 
@@ -142,4 +142,16 @@
 
 .card_partner_col > p {
   color: #000;
+}
+
+.card_partner_video_wrap{
+  margin-top: 10px;
+}
+
+.card_partner_video_wrap > iframe{
+  border-radius: 20px !important;
+  -webkit-border-radius: 20px !important;
+  -moz-border-radius: 20px !important;
+  -ms-border-radius: 20px !important;
+  -o-border-radius: 20px !important;
 }

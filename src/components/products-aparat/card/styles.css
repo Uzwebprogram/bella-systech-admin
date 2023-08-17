@@ -3,12 +3,19 @@
   font-size: 30px;
 }
 
-
-.ant-dropdown-menu{
+.ant-dropdown-menu {
   padding: 10px !important;
   border-radius: 20px !important;
   -webkit-border-radius: 20px !important;
   -moz-border-radius: 20px !important;
   -ms-border-radius: 20px !important;
   -o-border-radius: 20px !important;
+}
+
+.anticon-close-circle {
+  color: #000 !important;
+}
+
+.anticon-calendar {
+  color: #a1a1a1 !important;
 }
