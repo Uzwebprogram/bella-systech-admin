@@ -23,13 +23,13 @@ function AparatProduct() {
 
 
     window.localStorage.getItem("checked") == 'false' ? <HorizontalSidebar>
-      <WrapperContainer style={{ marginTop: "112px" }}>
+      <WrapperContainer style={{ marginTop: "90px" }}>
         <HeaderTopCommon
           title={"апарат"}
           onClick={showDrawer}
           textBtn={"Добавить апарат"}
         />
-        <AparatProductsComponent handleClose={onClose} open={open} />
+        <AparatProductsComponent handleClose={onClose} open={open} cols={4} contentWidth="65%" />
       </WrapperContainer>
     </HorizontalSidebar> : <VerticalSidebar>
       <WrapperContainer>
@@ -38,7 +38,7 @@ function AparatProduct() {
           onClick={showDrawer}
           textBtn={"Добавить апарат"}
         />
-        <AparatProductsComponent handleClose={onClose} open={open} />
+        <AparatProductsComponent handleClose={onClose} open={open} cols={6} contentWidth="72%" />
       </WrapperContainer>
     </VerticalSidebar>
   );

@@ -10,7 +10,7 @@ import ProductAddForm from "./post";
 import Put from "./put";
 import TableAdd from "./table";
 import CardAdd from "./card";
-function AparatProductsComponent({ open, handleClose }) {
+function AparatProductsComponent({ open, handleClose, cols, contentWidth }) {
   const dispatch = useDispatch();
   const [selectId, setSelectId] = useState(null);
   console.log('sid', selectId)
@@ -57,6 +57,8 @@ function AparatProductsComponent({ open, handleClose }) {
         selectId={selectId}
       /> */}
       <CardAdd
+        contentWidth={contentWidth}
+        cols={cols}
         HandleDelete={HandleDelete}
         onClickPut={handlePutModal}
         selectId={selectId}

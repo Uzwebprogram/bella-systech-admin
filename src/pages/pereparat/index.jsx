@@ -23,7 +23,7 @@ function Peraparat() {
 
 
     window.localStorage.getItem("checked") == 'false' ? <HorizontalSidebar>
-      <WrapperContainer style={{ marginTop: "112px" }}>
+      <WrapperContainer style={{ marginTop: "90px" }}>
         <HeaderTopCommon
           title={"перепарат"}
           onClick={showDrawer}

@@ -41,6 +41,7 @@ export const GlobalStyle = createGlobalStyle`
 
 export const WrapperContainer = styled.div`
   width: 100%;
+  padding-top: 100px;
   background: #fff;
   border: 1px solid #eeeeee;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05);

@@ -285,7 +285,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                         background: "transparent",
                         color: "#3045A5",
                         fontWeight: '500',
-                        padding: "10px 20px"
+                        padding: "5px 20px"
                     }}
                 >
                     ©2023 Created by Software System Pro

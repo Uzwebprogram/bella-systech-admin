@@ -20,7 +20,7 @@ function ProductAparatMore() {
     return (
 
         window.localStorage.getItem("checked") == 'false' ? <HorizontalSidebar>
-            <WrapperContainer style={{ marginTop: "112px" }}>
+            <WrapperContainer style={{ marginTop: "90px" }}>
                 <HeaderTopCommon
                     title={"Страница с подробностями об Апарате"}
                     isBtn={false}
