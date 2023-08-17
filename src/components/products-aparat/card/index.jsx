@@ -1,18 +1,63 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './style.module.css'
 import './styles.css'
 import { Col, Row } from 'react-grid-system'
-import { Dropdown, Space, Popover } from 'antd';
-import { AparatProductGet } from '../../../redux/product-aparat';
+import { Dropdown, Space, message } from 'antd';
+import { AparatProductGet, AparatProductDelete } from '../../../redux/product-aparat';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
-const CardAdd = ({ HandleDelete, onClickPut }) => {
+const CardAdd = ({ onClickPut }) => {
+    const checks = window.localStorage.getItem("checked")
+    const [messageApi, contextHolder] = message.useMessage();
+    const key = 'updatable';
+    const openMessage = () => {
+        messageApi.open({
+            key,
+            type: 'loading',
+            content: 'Loading...',
+        });
+        setTimeout(() => {
+            messageApi.open({
+                key,
+                type: 'success',
+                content: 'Продукт удален успешно!',
+                duration: 2,
+            });
+        }, 1000);
+    };
     const arr = [1, 2, 3, 4]
+    const [ids, setIds] = useState()
+    console.log(ids, 'id')
     const dispatch = useDispatch()
-    const aparatProductGetState = useSelector((state) => state.ap)
+    const aparatProductGetState = useSelector((state) => state.aparatproduct.AparatProductGet?.data)
+    console.log(aparatProductGetState)
     useEffect(() => {
         dispatch(AparatProductGet())
     }, [])
+
+    const DateFormat = (date) => {
+        var d = new Date(date),
+            month = "" + (d.getMonth() + 1),
+            day = "" + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2) month = "0" + month;
+        if (day.length < 2) day = "0" + day;
+
+        return [day, month, year].join(".");
+    };
+
+    const handleId = (e) => {
+        e.preventDefault()
+        setIds(e.currentTarget.id)
+    }
+
+    const HandleDelete = async (e) => {
+        await dispatch(AparatProductDelete(e.currentTarget.id));
+        dispatch(AparatProductGet());
+        openMessage()
+    };
 
     const items = [
         {
@@ -88,12 +133,16 @@ const CardAdd = ({ HandleDelete, onClickPut }) => {
                 //         </button>
                 //     </Popover>
                 // </Space>
-                <button
-                    // id={elem.id}
-                    className={styles.card_more_btn}>
-                    <i class='bx bxs-trash'></i>
-                    <span>Удалить</span>
-                </button>
+                <>
+                    {contextHolder}
+                    <button
+                        onClick={HandleDelete}
+                        id={ids}
+                        className={styles.card_more_btn}>
+                        <i class='bx bxs-trash'></i>
+                        <span>Удалить</span>
+                    </button>
+                </>
             ),
             key: '3',
         }
@@ -103,73 +152,71 @@ const CardAdd = ({ HandleDelete, onClickPut }) => {
             <div className={styles.card_section}>
                 <Row className={styles.card_row}>
                     {
-                        arr.map(() => (
+                        aparatProductGetState.map((elem) => (
                             <Col className={styles.card_col} lg={6}>
-                                <div className={styles.card}>
-                                    <div className={styles.card_content_bigwrapp}>
-                                        <div className={styles.time_box}>
-                                            <div className={styles.card_time}>
-                                                <span className={styles.card_date_span}>
-                                                    <i class='bx bx-calendar'></i>
-                                                    01.08.2023
+                                <NavLink className={styles.card_more_page_link} to={`/aparat-product-more/${elem.id}`}>
+                                    <div className={styles.card}>
+                                        <div className={styles.card_content_bigwrapp}>
 
-                                                    <span className={styles.card_time_span}>
-                                                        12:00
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <div className={styles.card_drop}>
-                                                <Dropdown
-                                                    placement="bottomRight"
-                                                    menu={{
-                                                        items,
-                                                    }}
-                                                // trigger={['click']}
-                                                >
-                                                    <a onClick={(e) => e.preventDefault()}>
-                                                        <Space>
-                                                            <i class='bx bx-dots-horizontal-rounded' ></i>
-                                                        </Space>
-                                                    </a>
-                                                </Dropdown>
+                                            <div>
+                                                <div className={styles.card_img_wrap}>
 
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className={styles.card_img_wrap}>
+                                                    <img
+                                                        src={elem.image1}
+                                                        style={{ aspectRatio: 3 / 4 }}
+                                                        alt="" />
+                                                </div>
+                                                <div className={styles.card_content_wrap}>
+                                                    <div className={styles.card_details}>
+                                                        {/* <div className={styles.card_details_item}> */}
+                                                        <div className={styles.time_box}>
+                                                            <div className={styles.card_time}>
+                                                                <span className={styles.card_date_span}>
+                                                                    <i class='bx bx-calendar'></i>
+                                                                    {DateFormat(elem.updateAt)}
 
-                                                <img
-                                                    src="https://picsum.photos/id/1/1920/1280"
-                                                    style={{ aspectRatio: 4 / 3 }}
-                                                    alt="" />
-                                            </div>
-                                            <div className={styles.card_content_wrap}>
-                                                <div className={styles.card_details}>
-                                                    <div className={styles.card_details_item}>
-                                                        <span>Product company</span>
-                                                        <h4>Company name</h4>
-                                                    </div>
-                                                    <div className={styles.card_details_item}>
-                                                        <span>Product category</span>
-                                                        <h4>Category name</h4>
-                                                    </div>
-                                                    <div className={styles.card_details_item}>
-                                                        <span>Product partner</span>
-                                                        <h4>Partner name</h4>
+                                                                    <span className={styles.card_time_span}>
+                                                                        <i class='bx bxs-watch' ></i>
+                                                                        {elem.updateAt.slice(11, 19)}
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div className={styles.card_drop}>
+                                                                <Dropdown
+                                                                    placement="bottomRight"
+                                                                    trigger={['click']}
+                                                                    menu={{ items }}
+                                                                >
+                                                                    <a id={elem.id} onClick={handleId}>
+                                                                        <Space>
+                                                                            <i class='bx bx-dots-horizontal-rounded' ></i>
+                                                                        </Space>
+                                                                    </a>
+                                                                </Dropdown>
+
+                                                            </div>
+                                                            {/* </div> */}
+                                                        </div>
+                                                        <div className={styles.card_details_item}>
+                                                            <span>Company</span>
+                                                            <h4>{elem.company.name}</h4>
+                                                        </div>
+                                                        <div className={styles.card_details_item}>
+                                                            <span>Category</span>
+                                                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, in.</h4>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className={styles.card_desc}>
-                                            <h4 className={styles.card_title}>Name Products Card Design</h4>
-                                            <p className={styles.card_description}>
-                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                                Necessitatibus eaque eos perspiciatis accusamus laudantium deserunt quibusdam,
-                                                dignissimos voluptatem voluptas quis.
-                                            </p>
+                                            <div className={styles.card_desc}>
+                                                <h4 className={styles.card_title}>{elem.name_ru}</h4>
+                                                <p className={styles.card_description}>
+                                                    {elem.description_ru}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </NavLink>
                             </Col>
                         ))
                     }
