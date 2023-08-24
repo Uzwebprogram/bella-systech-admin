@@ -1,21 +1,15 @@
 import React, { useState } from "react";
 import { Spin, Input, Image } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { UploadImage } from "../../../../redux/products/index";
 import { Col, Row } from "react-grid-system";
 import { LoadingOutlined } from "@ant-design/icons";
 import "./styles.css";
 import { VerticalAlignBottom } from "@mui/icons-material";
 
-const ImageUpload = ({HandleChange , HandleChange2 , HandleChange3  }) => {
-  // const dispatch = useDispatch();
-  // const data = useSelector((state) => state.product?.uploadProjects);
-  // const HandleChange = async (e) => {
-  //   await dispatch(UploadImage(e));
-  // };
-  const data =  useSelector((state) => state.aparatproduct?.uploadAparatProduct)
-  const data2 =  useSelector((state) => state.aparatproduct?.uploadAparatProduct2)
-  const data3 =  useSelector((state) => state.aparatproduct?.uploadAparatProduct3)
+const ImageUploadDesign = ({HandleChange , HandleChange2 }) => {
+
+  const data =  useSelector((state) =>  state.design?.uploadDesignProduct)
+  const data2 =  useSelector((state) =>  state.design?.uploadDesignProduct2)
 
   const antIcon = (
     <LoadingOutlined
@@ -91,36 +85,6 @@ const ImageUpload = ({HandleChange , HandleChange2 , HandleChange3  }) => {
               )}
             </div>
           </Col>
-          <Col lg={4}>
-            <div className="upload_cover">
-              {data3?.Loading == true ? (
-                <div className="upload_spinss">
-                  <Spin indicator={antIcon} />
-                </div>
-              ) : data3?.Success == true ? (
-                <Image
-                  style={{
-                    aspectRatio: "16 / 9",
-                    borderRadius: "20px",
-                    zIndex: "99999999",
-                    verticalAlign: "initial",
-                  }}
-                  src={data3?.data}
-                />
-              ) : (
-                <div className="upload_none_img">
-                  <>
-                    <input type="file" id="file3" onChange={HandleChange3} />
-                    <label for="file3" class="custom-file-upload">
-                      <span className="upload_span-download">
-                        <ion-icon name="cloud-download-outline"></ion-icon>
-                      </span>
-                    </label>
-                  </>
-                </div>
-              )}
-            </div>
-          </Col>
           <Col lg={12}>
             <div className="infor_box">
               <p>
@@ -139,4 +103,4 @@ const ImageUpload = ({HandleChange , HandleChange2 , HandleChange3  }) => {
   );
 };
 
-export default ImageUpload;
+export default ImageUploadDesign;

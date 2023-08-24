@@ -10,6 +10,7 @@ import ProductAddForm from "./post";
 import Put from "./put";
 import TableAdd from "./table";
 import CardAdd from "./card";
+import { PhotosProductGet } from "../../redux/product-aparat/photos";
 function AparatProductsComponent({ open, handleClose, cols, contentWidth }) {
   const dispatch = useDispatch();
   const [selectId, setSelectId] = useState(null);
@@ -27,6 +28,7 @@ function AparatProductsComponent({ open, handleClose, cols, contentWidth }) {
     dispatch(AparatProductGet());
   }, []);
 
+  
   const [openPut, setOpenPut] = useState(false);
   const onClosePut = () => {
     setOpenPut(false);

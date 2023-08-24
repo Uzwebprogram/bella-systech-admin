@@ -13,6 +13,9 @@ import PartnersSlice from "./partners/index"
 import AparatProductSlice from "./product-aparat/index"
 import DescriptionProductSlice from "./product-aparat/description/index"
 import ParametrProductSlice from "./product-aparat/parametr/index"
+import SampleSlice from "./product-aparat/sample"
+import PhotosSlice from "./product-aparat/photos"
+import DesignProductSlice from "./product-aparat/design"
 export const store = configureStore({
   reducer: {
     admin: authSlice,
@@ -28,6 +31,9 @@ export const store = configureStore({
     partners : PartnersSlice,
     aparatproduct : AparatProductSlice,
     descriptionproduct : DescriptionProductSlice,
-    parametr : ParametrProductSlice
+    parametr : ParametrProductSlice,
+    sample : SampleSlice,
+    photos : PhotosSlice,
+    design : DesignProductSlice
   },
 });

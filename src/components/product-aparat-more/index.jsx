@@ -6,16 +6,70 @@ import { Image } from 'antd';
 import { Col, Row } from 'react-grid-system';
 import { AparatProductGet } from '../../redux/product-aparat/index';
 import { useDispatch, useSelector } from 'react-redux';
-
+import DraverCommon from '../common/Drawer';
+import { useState } from 'react';
+import AparatProductPut from './put/aparat';
+import AparatProductPuts from './put/aparat';
+import DescriptionAparatProductPut from './put/description';
+import SampleProductPut from './put/sample';
+import SampleProductPuts from './put/sample';
+import PhotosProductPuts from './put/photos';
+import { PhotosProductGet } from '../../redux/product-aparat/photos';
+import {DesignProductGet} from "../../redux/product-aparat/design"
+import DesignProductPut from './put/design';
+import DesignProductPuts from './put/design';
+import ParametrPut from './put/parametr';
+import { ParametrProductGet } from '../../redux/product-aparat/parametr';
 const ProductAparatMoreComponent = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
+  const [openAparat , setOpenAparat] = useState(false);
+  const [openAparatProduct , setOpenAparatProduct] = useState(false);
+  const [openSampleProduct , setOpenSampleProduct] = useState(false);
+  const [openPhotosProduct , setOpenPhotosProduct] = useState(false);
+  const [openParametrProduct , setOpenParametrProduct] = useState(false);
+  const [putAparatId , setPutAparatId] = useState();
+  const [putDesign , setPutDesign] = useState();
   const aparatProductGetState = useSelector((state) => state.aparatproduct.AparatProductGet?.data)
   const filterAparat = aparatProductGetState.filter(elem => elem.id == id)
-  console.log(filterAparat)
+  useEffect(() => {
+    dispatch(DesignProductGet())
+  }, [])
+  
   useEffect(() => {
     dispatch(AparatProductGet())
   }, [])
+  useEffect(() => {
+    dispatch(PhotosProductGet())
+  }, [])
+  useEffect(() => {
+    dispatch(ParametrProductGet())
+  }, [])
+  
+  const HandlePutModal = (e) => {
+    setPutAparatId(e.target.id)
+    setOpenAparat(true)
+  }
+  const HandlePutModalDescription = (e) => {
+    setPutAparatId(e.target.id)
+    setOpenAparatProduct(true)
+  }
+  const HandlePutModalSample = (e) => {
+    setPutAparatId(e.target.id)
+    setOpenSampleProduct(true)
+  }
+  const HandlePutModalPhotos = (e) => {
+    setPutAparatId(e.target.id)
+    setOpenPhotosProduct(true)
+  }
+  const HandlePutModalDesign = (e) => {
+    setPutAparatId(e.target.id)
+    setPutDesign(true)
+  }
+  const HandlePutModalParametr = (e) => {
+    setPutAparatId(e.target.id)
+    setOpenParametrProduct(true)
+  }
   return (
     <>
       <div className={styles.card_more_section}>
@@ -25,7 +79,10 @@ const ProductAparatMoreComponent = () => {
               <Row className={styles.card_more_row}>
                 <Col lg={12} className={styles.card_more_col}>
                   <div className={styles.card_more_col_item}>
+                    <div className={styles.Top_edit}>
                     <h6 className={styles.product_mini_title}>Имя товара</h6>
+                    <button id={elem.id} onClick={HandlePutModal}><i id={elem.id} class='bx bx-edit-alt'></i></button>
+                    </div>
                     <h4><span className={styles.language}>RU:</span> {elem.name_ru}</h4>
                     <h4><span className={styles.language}>EN:</span> {elem.name_en}</h4>
                     <h4><span className={styles.language}>UZ:</span> {elem.name_uz}</h4>
@@ -121,7 +178,7 @@ const ProductAparatMoreComponent = () => {
                           <Image
                             style={{ aspectRatio: 1 / 1, borderRadius: '25px', height: "176px" }}
                             // src={elem.company.image}
-                            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                            src={elem.image}
                           />
                         </div>
                         <hr />
@@ -173,7 +230,7 @@ const ProductAparatMoreComponent = () => {
                                   <Image
                                     style={{ aspectRatio: 1 / 1, borderRadius: '25px', height: "176px" }}
                                     // src={elem.company.image}
-                                    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                                    src={partner.logo}
                                   />
                                 </div>
                               </div>
@@ -191,7 +248,7 @@ const ProductAparatMoreComponent = () => {
                                       <Image
                                         style={{ aspectRatio: 1 / 1, borderRadius: '25px', height: "176px" }}
                                         // src={partner.image1}
-                                        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                                        src={partner.image1}
                                       />
                                     </div>
 
@@ -199,7 +256,7 @@ const ProductAparatMoreComponent = () => {
                                       <Image
                                         style={{ aspectRatio: 1 / 1, borderRadius: '25px', height: "176px" }}
                                         // src={partner.image2}
-                                        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                                        src={partner.image2}
                                       />
                                     </div>
 
@@ -207,7 +264,7 @@ const ProductAparatMoreComponent = () => {
                                       <Image
                                         style={{ aspectRatio: 1 / 1, borderRadius: '25px', height: "176px" }}
                                         // src={partner.image3}
-                                        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                                        src={partner.image3}
                                       />
                                     </div>
                                   </div>
@@ -279,7 +336,40 @@ const ProductAparatMoreComponent = () => {
                               <iframe width="100%" height="450" src="https://www.youtube.com/embed/MY6ZZIn93V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen></iframe>
                             </div>
+                          </Col>
+                          <Col className={styles.card_partner_col} lg={12}>
+                          <h6 className={styles.company_mini_title}>
+                              #продукт описания
+                            </h6>
+
+                            {elem.descriptions.map((e , index) => <>
+                              <div className={styles.Top_edit}>
+                              <p style={{color:"black"}}>номер : {index + 1}</p>
+                              <button id={e.id} onClick={HandlePutModalDescription}><i id={e.id} class='bx bx-edit-alt'></i></button>
+                              </div>
+                              <p> <span className={styles.language}>RU:</span>  {e.description_ru}            
+                                  </p>
+                        <p><span className={styles.language}>EN:</span>  {e.description_en}</p>
+                        <p><span className={styles.language}>UZ:</span>  {e.description_uz}</p>
+                        <p><span className={styles.language}>ссылка на ютуб:</span>  {e.youtube_link}</p>
                             <hr />
+                            </>)}
+
+                          </Col>
+                          <Col className={styles.card_partner_col} lg={12}>
+                            <h6 className={styles.company_mini_title}>
+                              #Применение товара
+                            </h6>
+                            {elem.sample.map((e , index) => <>
+                              <div className={styles.Top_edit}>
+                              <p style={{color:"black"}}>номер : {index + 1}</p>
+                              <button id={e.id} onClick={HandlePutModalSample}><i id={e.id} class='bx bx-edit-alt'></i></button>
+                              </div>
+                              <p><span className={styles.language}>RU:</span>  {e.name_ru}</p>
+                        <p><span className={styles.language}>EN:</span>  {e.name_en}</p>
+                        <p><span className={styles.language}>UZ:</span>  {e.name_uz}</p>
+                            </>)}
+
                           </Col>
                         </Row>
                       ))
@@ -287,12 +377,146 @@ const ProductAparatMoreComponent = () => {
 
                   </div>
                 </Col>
+                <Col className={styles.card_more_col} lg={12}>
+                  <div className={styles.card_more_col_item}>
+                  {elem.photos.map((elem , index) => 
+                    <>
+                                        <div className={styles.Top_edit}>
+                    <h6 className={styles.product_mini_title}>Фото процедуры</h6>
+                    <button id={elem.id} onClick={HandlePutModalPhotos}><i id={elem.id} class='bx bx-edit-alt'></i></button>
+                    </div>
+                    <Image.PreviewGroup
+                      preview={{
+                        onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),
+                      }}
+                    >
+                      <div className={styles.card_img_cover_wrap}>
+                                            <>
+                                            
+                                                <div className={styles.card_img_covers}>
+                                                <Image
+                                                  style={{ aspectRatio: 6 / 4, borderRadius: '25px', height: "176px" }}
+                                                  src={elem.image1}
+                                                />
+                                              </div>
+                                              <div className={styles.card_img_covers}>
+                                              <Image
+                                                style={{ aspectRatio: 6 / 4, borderRadius: '25px', height: "176px" }}
+                                                src={elem.image2}
+                                              />
+                                            </div>
+                    
+                                            <div className={styles.card_img_covers}>
+                                              <Image
+                                                style={{ aspectRatio: 6 / 4, borderRadius: '25px', height: "176px" }}
+                                                src={elem.image3}
+                                              />
+                                            </div>
+                                                                
+                                            <div className={styles.card_img_covers}>
+                                              <Image
+                                                style={{ aspectRatio: 6 / 4, borderRadius: '25px', height: "176px" }}
+                                                src={elem.image4}
+                                              />
+                                            </div>
+                                            </>
+
+
+                      </div>
+                    </Image.PreviewGroup>
+                    <div className={styles.card_partner_video_wrap}>
+                              <iframe width="100%" height="450" src={elem.video}title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                            </div>
+                    </>
+                  )}
+
+                  </div>
+
+                </Col>
+                <Col className={styles.card_more_col} lg={12}>
+                  <div className={styles.card_more_col_item}>
+  
+                    <Image.PreviewGroup
+                      preview={{
+                        onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),
+                      }}
+                    >
+                      <div className={styles.card_img_cover_wrap}>
+
+                        {elem.design.map((elem , index) => <>
+                          <div key={index} className={styles.card_img_covers}>
+                          <div className={styles.Top_edit}>
+                  <h6 className={styles.product_mini_title}>Доказанный эффект</h6>
+                    <button id={elem.id} onClick={HandlePutModalDesign}><i id={elem.id} class='bx bx-edit-alt'></i></button>
+                    </div>
+                          <Image
+                            style={{ aspectRatio: 13 / 4, borderRadius: '25px', height: "376px" }}
+                            src={elem.before}
+                          />
+
+                        </div>
+
+                        <div className={styles.card_img_covers}>
+
+                          <Image
+                            style={{ aspectRatio: 13 / 4, borderRadius: '25px', height: "376px" }}
+                            src={elem.after}
+                          />
+
+                        </div>
+                        </>)}
+ 
+                      </div>
+                    </Image.PreviewGroup>
+                  </div>
+                </Col>
+                <Col className={styles.card_partner_col} lg={12}>
+                            <h6 className={styles.company_mini_title}>
+                              #Технические параметры
+                            </h6>
+                            {elem.parametr.map((e , index) => <>
+                          <div className={styles.Top_edit}>
+                              <p>номер : {index + 1}</p> 
+                              <button id={e.id} onClick={HandlePutModalParametr}><i id={e.id} class='bx bx-edit-alt'></i></button>
+                              </div>
+                              <p>               
+                              <span className={styles.language}>RU параметры :</span>
+                              {e.parametr_ru}     
+                    </p>
+                    <p>               
+                              <span className={styles.language}>En параметры :</span>
+                              {e.parametr_en}     
+                    </p>
+                    <p>               
+                              <span className={styles.language}>Uz параметры :</span>
+                              {e.parametr_uz}     
+                    </p>
+                    <p>               
+                      <span>
+                    RU информация :</span>  {e.information_ru}
+                    </p>
+                    <p>               
+                      <span>
+                    EN информация :</span>  {e.information_en}
+                    </p>
+                    <p>
+                
+                    UZ информация :  {e.information_uz}</p>
+                            </>)}
+
+                          </Col>
               </Row>
             ))
           }
-
         </div>
       </div >
+            <AparatProductPuts putAparatId={putAparatId} openAparat={openAparat} setOpenAparat={() => setOpenAparat(false)}/>
+            <DescriptionAparatProductPut putAparatId={putAparatId} openAparatProduct={openAparatProduct} setOpenAparatProduct={() => setOpenAparatProduct(false)}/>
+            <SampleProductPuts putAparatId={putAparatId} openAparatProduct={openSampleProduct} setOpenAparatProduct={() => setOpenSampleProduct(false)}/>
+            <PhotosProductPuts putAparatId={putAparatId} openAparatProduct={openPhotosProduct} setOpenAparatProduct={() => setOpenPhotosProduct(false)}/>
+            <DesignProductPuts putAparatId={putAparatId} openAparatProduct={putDesign}  setOpenAparatProduct={() => setPutDesign(false)}/>
+            <ParametrPut putAparatId={putAparatId} openAparatProduct={openParametrProduct} setOpenAparatProduct={() => setOpenParametrProduct(false)}/>
     </>
   )
 }

@@ -23,6 +23,12 @@ import DescriptionAparatProduct from "./description";
 import AparatProduct from "./aparat";
 import { DescriptionProductPost } from "../../../redux/product-aparat/description";
 import Parametr from "./parametr";
+import SampleProductPosts from "./sample";
+import PhotosProduct from "./photos";
+import { PhotosProductGet, PhotosProductPost, UploadImagePhoto, UploadImagePhoto2, UploadImagePhoto3 , UploadImagePhoto4 } from "../../../redux/product-aparat/photos";
+import { LocalFireDepartment } from "@mui/icons-material";
+import {DesignProductPost, UploadImageDesign , UploadImageDesign2} from "./../../../redux/product-aparat/design"
+import DesignProduct from "./design";
 function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   const dispatch = useDispatch();
   const [descriptionUzYoutube , setDescriptionUzYoutube] = useState();
@@ -42,7 +48,9 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   const [categoryaparatstate , setCategoryAparatState] = useState();
   const [partnerstate , setPartnersState] = useState();
   const [salecount, setsalecount] = useState();
-  console.log(current);
+  // ! photos api 
+  const [ YouteLinkPhotos, setYouteLinkPhotos] = useState();
+
   const next = async (e) => {
     e.preventDefault();
     if (current == 0) {
@@ -53,9 +61,9 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
         description_uz: productTypeUz,
         description_ru: productTypeRu,
         description_en: productTypeEn,
-        image1: dataImage1.data,
-        image2: dataImage2.data,
-        image3: dataImage3.data,
+        image1: dataImage1?.data,
+        image2: dataImage2?.data,
+        image3: dataImage3?.data,
         pdf: dataPdf.data,
         product_benefits: salecount,
         company : companystate,
@@ -63,8 +71,21 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
         partners : partnerstate
       };
       await dispatch(AparatProductPost(body));
-      dispatch(AparatProductGet());
-      setCurrent(current + 1);
+        dispatch(AparatProductGet());
+        setCurrent(current + 1);
+        e.target[0].value = null
+        e.target[1].value = null
+        e.target[2].value = null
+        e.target[3].value = null
+        e.target[4].value = null
+        e.target[5].value = null
+        e.target[6].value = null
+        e.target[7].value = null
+        e.target[8].value = null
+        e.target[9].value = null
+        e.target[10].value = null
+        e.target[11].value = null
+
     } else if (current == 1) {
       const body = {
         description_uz: descriptionUzYoutube,
@@ -73,15 +94,52 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
         youtube_link : YoutubeLink,
         aparat : AparatProductGetsPost?.data?.data?.id
       };
+
       await dispatch(DescriptionProductPost(body))
       setCurrent(current + 1);
+      e.target[0].value = null
+      e.target[1].value = null
+      e.target[2].value = null
+      e.target[3].value = null
+      e.target[4].value = null
+      e.target[5].value = null
+      e.target[6].value = null
     }
     else if (current == 2) {
 
       setCurrent(current + 1);
     }
-
+    else if (current == 3) {
+      setCurrent(current + 1);
+    }else if (current == 4) {
+      const body ={
+        image1 : dataImagePhotos1.data,
+        image2 : dataImagePhotos2.data,
+        image3 : dataImagePhotos3.data,
+        image4 : dataImagePhotos4.data, 
+        video : YouteLinkPhotos,
+        aparat : AparatProductGetsPost?.data?.data?.id
+      }
+      await dispatch(PhotosProductPost(body))
+      setCurrent(current + 1);
+      e.target[0].value = null
+      e.target[1].value = null
+      e.target[2].value = null
+      e.target[3].value = null
+      e.target[4].value = null
+      e.target[5].value = null
+    }
   };
+  const DoneSubmit = async () => {
+    const body ={
+      before : dataImageDesign1.data,
+      after : dataImageDesign2.data,
+      aparat : AparatProductGetsPost?.data?.data?.id
+    }
+    await dispatch(DesignProductPost(body))
+    message.success("Завершена обработка!")
+    HandleClose()
+  }
   const AparatCategoryGets = useSelector((state) => state.aparat.AparatGet.data);
   useEffect(() => {
     dispatch(AparatGet());
@@ -123,6 +181,35 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   };
   // !!! aparat-product api !!!
 
+  // ? * ----------------------------------------------------------------------------------------- *//
+
+  // !!! photos-product api !!!
+  const dataImagePhotos1 =  useSelector((state) => state.photos?.uploadPhotosProduct)
+  const HandleChangePhotos = async (e) => {
+    await dispatch(UploadImagePhoto(e));
+  };
+  const dataImagePhotos2 =  useSelector((state) => state.photos?.uploadPhotosProduct2)
+  const HandleChangePhotos2 = async (e) => {
+    await dispatch(UploadImagePhoto2(e));
+  };
+  const dataImagePhotos3 =  useSelector((state) => state.photos?.uploadPhotosProduct3)
+  const HandleChangePhotos3 = async (e) => {
+    await dispatch(UploadImagePhoto3(e));
+  };
+  const dataImagePhotos4 =  useSelector((state) => state.photos?.uploadPhotosProduct4)
+  const HandleChangePhotos4 = async (e) => {
+    await dispatch(UploadImagePhoto4(e));
+  };
+    // !!! design-product api !!!
+    const dataImageDesign1 =  useSelector((state) => state.design?.uploadDesignProduct)
+    const HandleChangeDesigns = async (e) => {
+      await dispatch(UploadImageDesign(e));
+    };
+    const dataImageDesign2 =  useSelector((state) => state.design?.uploadDesignProduct2)
+    const HandleChangeDesign2s = async (e) => {
+      await dispatch(UploadImageDesign2(e));
+    };
+    
   const antIcon = (
     <LoadingOutlined
       style={{
@@ -159,7 +246,7 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   // STEPS CODE
   const steps = [
     {
-      title: "First",
+      title: "Aparat Product",
       content: (
           <>
           <AparatProduct  setTitleUz={setTitleUz} setTitleRU={setTitleRU} setTitleEn={setTitleEn} setProductTypeUz={setProductTypeUz} setProductTypeRu={setProductTypeRu} setProductTypeEn={setProductTypeEn} setsalecount={setsalecount} HandleChange={HandleChange} HandleChange2={HandleChange2} HandleChange3={HandleChange3} options={options} optionsCompany={optionsCompany} OptionPartners={OptionPartners} SelectChange={SelectChange} SelectChange2={SelectChange2} SelectChange3={SelectChange3}  HandleChangePdf={HandleChangePdf}/>
@@ -168,22 +255,26 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
     },
 
     {
-      title: "Second",
+      title: "Description Product",
       content: <>
       <DescriptionAparatProduct  setDescriptionRuYoutube={setDescriptionRuYoutube} setDescriptionUzYoutube={setDescriptionUzYoutube} setDescriptionEnYoutube={setDescriptionEnYoutube} setYouteLink={setYouteLink} />
       </>,
     },
     {
-      title: "Third",
+      title: "Parametr",
       content: <Parametr/>,
     },
     {
-      title: "Fourth",
-      content: "Fourth-content",
+      title: "Sample Product",
+      content:  <SampleProductPosts/>,
     },
     {
       title: "Last",
-      content: "Last-content",
+      content: <PhotosProduct HandleChange={HandleChangePhotos}   HandleChange2={HandleChangePhotos2}   HandleChange3={HandleChangePhotos3}  HandleChange4={HandleChangePhotos4} setYouteLinkPhotos={setYouteLinkPhotos} />,
+    },
+    {
+      title: "product",
+      content: <DesignProduct HandleChange={HandleChangeDesigns}   HandleChange2={HandleChangeDesign2s}/>
     },
   ];
 
@@ -227,7 +318,7 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
           {current === steps.length - 1 && (
             <Button
               type="primary"
-              onClick={() => message.success("Processing complete!")}
+              onClick={DoneSubmit}
             >
               Done
             </Button>
