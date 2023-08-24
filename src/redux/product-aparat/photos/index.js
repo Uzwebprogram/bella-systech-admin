@@ -77,7 +77,7 @@ export const UploadImagePhoto4 = createAsyncThunk("Photos/Image4upload", async (
 const PhotosProductSlice = createSlice({
   name: "PhotosProduct",
   initialState: {
-    PhotosProductGet: {
+    PhotoProductGet: {
       loading: false,
       data: [],
       error: false,
@@ -127,18 +127,18 @@ const PhotosProductSlice = createSlice({
   extraReducers: {
     // get
     [PhotosProductGet.pending]: (state, action) => {
-      state.PhotosProductGet.loading = true;
+      state.PhotoProductGet.loading = true;
     },
     [PhotosProductGet.fulfilled]: (state, action) => {
-      state.PhotosProductGet.loading = false;
-      state.PhotosProductGet.success = true;
-      state.PhotosProductGet.data = action.payload;
-      state.PhotosProductGet.error = false;
+      state.PhotoProductGet.loading = false;
+      state.PhotoProductGet.success = true;
+      state.PhotoProductGet.data = action.payload;
+      state.PhotoProductGet.error = false;
     },
     [PhotosProductGet.rejected]: (state, action) => {
-      state.PhotosProductGet.loading = false;
-      state.PhotosProductGet.error = true;
-      state.PhotosProductGet.success = false;
+      state.PhotoProductGet.loading = false;
+      state.PhotoProductGet.error = true;
+      state.PhotoProductGet.success = false;
     },
     // add
     [PhotosProductPost.pending]: (state, action) => {

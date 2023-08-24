@@ -25,7 +25,7 @@ import { DescriptionProductPost } from "../../../redux/product-aparat/descriptio
 import Parametr from "./parametr";
 import SampleProductPosts from "./sample";
 import PhotosProduct from "./photos";
-import { PhotosProductPost, UploadImagePhoto, UploadImagePhoto2, UploadImagePhoto3 , UploadImagePhoto4 } from "../../../redux/product-aparat/photos";
+import { PhotosProductGet, PhotosProductPost, UploadImagePhoto, UploadImagePhoto2, UploadImagePhoto3 , UploadImagePhoto4 } from "../../../redux/product-aparat/photos";
 import { LocalFireDepartment } from "@mui/icons-material";
 import {DesignProductPost, UploadImageDesign , UploadImageDesign2} from "./../../../redux/product-aparat/design"
 import DesignProduct from "./design";
@@ -50,6 +50,7 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   const [salecount, setsalecount] = useState();
   // ! photos api 
   const [ YouteLinkPhotos, setYouteLinkPhotos] = useState();
+
   const next = async (e) => {
     e.preventDefault();
     if (current == 0) {
@@ -72,6 +73,19 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
       await dispatch(AparatProductPost(body));
         dispatch(AparatProductGet());
         setCurrent(current + 1);
+        e.target[0].value = null
+        e.target[1].value = null
+        e.target[2].value = null
+        e.target[3].value = null
+        e.target[4].value = null
+        e.target[5].value = null
+        e.target[6].value = null
+        e.target[7].value = null
+        e.target[8].value = null
+        e.target[9].value = null
+        e.target[10].value = null
+        e.target[11].value = null
+
     } else if (current == 1) {
       const body = {
         description_uz: descriptionUzYoutube,
@@ -80,8 +94,16 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
         youtube_link : YoutubeLink,
         aparat : AparatProductGetsPost?.data?.data?.id
       };
+
       await dispatch(DescriptionProductPost(body))
       setCurrent(current + 1);
+      e.target[0].value = null
+      e.target[1].value = null
+      e.target[2].value = null
+      e.target[3].value = null
+      e.target[4].value = null
+      e.target[5].value = null
+      e.target[6].value = null
     }
     else if (current == 2) {
 
@@ -100,6 +122,12 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
       }
       await dispatch(PhotosProductPost(body))
       setCurrent(current + 1);
+      e.target[0].value = null
+      e.target[1].value = null
+      e.target[2].value = null
+      e.target[3].value = null
+      e.target[4].value = null
+      e.target[5].value = null
     }
   };
   const DoneSubmit = async () => {

@@ -27,7 +27,21 @@
   font-style: italic;
   color: #df2027;
 }
-
+.Top_edit{
+  display: flex;
+  align-items: center;
+}
+.Top_edit button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.Top_edit i{
+  font-size: 24px;
+}
+.Top_edit p{
+  color: black;
+}
 .card_more_row {
   margin: 0 !important;
 }
