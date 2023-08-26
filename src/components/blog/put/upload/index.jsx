@@ -197,7 +197,7 @@ const ImageUpload = ({
             <div className="infor_box">
               <p>
                 <span>Формат: </span>PNG, JPEG, JPG, SVG. Рекомендуемое
-                разрешение <span>1920x1280</span>  или <span>1280x768</span>
+                разрешение <span>1920x1080</span>  или <span>1280x720</span>
               </p>
               <p>
                 <span>Размер: </span>размер файла не должен превышать <span>5 MB</span>

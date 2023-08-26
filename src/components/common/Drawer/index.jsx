@@ -2,7 +2,7 @@ import React, { Children } from 'react'
 import { Button, Drawer, Space } from 'antd';
 import { useState } from 'react';
 
-const DraverCommon = ({ title, onClose, open, children, addBtn }) => {
+const DraverCommon = ({ title, onClose, open, children, addBtn, width }) => {
 
 
     return (
@@ -10,7 +10,7 @@ const DraverCommon = ({ title, onClose, open, children, addBtn }) => {
             <Drawer
                 title={title}
                 placement="right"
-                width={1200}
+                width={width ? width : 1200}
                 onClose={onClose}
                 open={open}
                 extra={

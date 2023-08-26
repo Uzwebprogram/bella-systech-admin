@@ -81,7 +81,12 @@ const CollapseGet = ({ HandleDelete, onClickPut, cols }) => {
                                     <button
                                         id={partner.id}
                                     >
-                                        <i class="bx bxs-trash"></i>
+                                        <lord-icon
+                                            src="https://cdn.lordicon.com/jmkrnisz.json"
+                                            trigger="hover"
+                                            colors="primary:#121331"
+                                            style={{ width: "25px", height: "25px" }}>
+                                        </lord-icon>
                                     </button>
                                 </div>
                             </Popover>
@@ -101,7 +106,8 @@ const CollapseGet = ({ HandleDelete, onClickPut, cols }) => {
                                         style={{
                                             aspectRatio: 16 / 9,
                                             width: '100%',
-                                            height: "100px"
+                                            height: "100px",
+                                            borderRadius: "20px"
                                         }}
                                     />
                                 </div>
@@ -112,7 +118,8 @@ const CollapseGet = ({ HandleDelete, onClickPut, cols }) => {
                                         style={{
                                             aspectRatio: 16 / 9,
                                             width: '100%',
-                                            height: "100px"
+                                            height: "100px",
+                                            borderRadius: "20px"
                                         }}
                                     />
                                 </div>
@@ -123,7 +130,8 @@ const CollapseGet = ({ HandleDelete, onClickPut, cols }) => {
                                         style={{
                                             aspectRatio: 16 / 9,
                                             width: '100%',
-                                            height: "100px"
+                                            height: "100px",
+                                            borderRadius: "20px"
                                         }}
                                     />
                                 </div>
@@ -134,7 +142,8 @@ const CollapseGet = ({ HandleDelete, onClickPut, cols }) => {
                                         style={{
                                             aspectRatio: 16 / 9,
                                             width: '100%',
-                                            height: "100px"
+                                            height: "100px",
+                                            borderRadius: "20px"
                                         }}
                                     />
                                 </div>

@@ -9,103 +9,85 @@ import { DescriptionProductGet, DescriptionProductPut } from "../../../../redux/
 import CommonBtn from "../../../common/CommonBtn";
 import { useParams } from "react-router-dom";
 import { AparatProductGet } from "../../../../redux/product-aparat";
-const DescriptionAparatProductPut = ({openAparatProduct , setOpenAparatProduct , putAparatId}) => {
-  const [descriptionUzYoutube , setDescriptionUzYoutube] = useState();
-  const [descriptionRuYoutube , setDescriptionRuYoutube] = useState();
-  const [descriptionEnYoutube , setDescriptionEnYoutube] = useState();
-  const [YoutubeLink , setYouteLink] = useState();
+import { Input } from 'antd';
+const { TextArea } = Input;
+const DescriptionAparatProductPut = ({ openAparatProduct, setOpenAparatProduct, putAparatId }) => {
+  const [descriptionUzYoutube, setDescriptionUzYoutube] = useState();
+  const [descriptionRuYoutube, setDescriptionRuYoutube] = useState();
+  const [descriptionEnYoutube, setDescriptionEnYoutube] = useState();
+  const [YoutubeLink, setYouteLink] = useState();
   const dispatch = useDispatch();
-  const {id} = useParams();
+  const { id } = useParams();
   const DescriptionProductGets = useSelector(state => state.descriptionproduct.DescriptionProductGet.data)
   useEffect(() => {
     dispatch(DescriptionProductGet())
   }, [])
   const DescriptionProductGetsFilter = DescriptionProductGets.filter(e => e.id == putAparatId)
 
-  const HandlePutDescription =  async(e) => {
+  const HandlePutDescription = async (e) => {
     e.preventDefault();
     const body = {
       description_uz: descriptionUzYoutube,
       description_ru: descriptionRuYoutube,
       description_en: descriptionEnYoutube,
-      youtube_link : YoutubeLink,
-      aparat : id
+      youtube_link: YoutubeLink,
+      aparat: id
     };
-    await dispatch(DescriptionProductPut({body , id:putAparatId}))
+    await dispatch(DescriptionProductPut({ body, id: putAparatId }))
     dispatch(AparatProductGet())
     setOpenAparatProduct();
 
   }
   return (
-    <DraverCommon open={openAparatProduct} onClose={setOpenAparatProduct} >
-        <Wrapper onSubmit={HandlePutDescription}>
-          {DescriptionProductGetsFilter.map(elem => <>
-            <Row className={styles.row}>
-        <Col className={styles.col} lg={12}>
-          <h4>Преимущества</h4>
-          <textarea
-            className="textarea_products"
-            placeholder="печатание ру"
-            required
-            defaultValue={elem.description_ru}
-            onChange={(e) => setDescriptionRuYoutube(e.currentTarget.value)}
-            rows="10"
-            cols="120"
-          ></textarea>
-        </Col>
-        <Col className="col" lg={12}>
-          <h4>*</h4>
-          <textarea
-            className="textarea_products"
-            placeholder="печатание уз"
-            defaultValue={elem.description_uz}
-            required
-            onChange={(e) => setDescriptionUzYoutube(e.currentTarget.value)}
-            rows="10"
-            cols="120"
-          ></textarea>
-        </Col>
-          <Col className="col" lg={12}>
-          <h4>*</h4>
-          <textarea
-            className="textarea_products"
-            defaultValue={elem.description_en}
-            placeholder="печатание ен"
-            required
-            onChange={(e) => setDescriptionEnYoutube(e.currentTarget.value)}
-            rows="10"
-            cols="120"
-          ></textarea>
-        </Col>
-
-      </Row>
-      <Row className={styles.row}> 
-          <Col className="col" lg={4}>
-                    <h4>youtube линк</h4>
-
-                      <InputCommon
-                        type="text"
-                        defaultValue={elem.youtube_link}
-                        placeholder="youtube линк"
-                        required
-                        onChange={(e) => setYouteLink(e.currentTarget.value)}
-                      />
-                    </Col>
+    <DraverCommon title="Продукт описания изменить" open={openAparatProduct} onClose={setOpenAparatProduct} >
+      <Wrapper onSubmit={HandlePutDescription}>
+        {DescriptionProductGetsFilter.map(elem => <>
+          <Row className={styles.row}>
+            <Col className={styles.col} lg={6}>
+              <div className={styles.col_edit_item}>
+                <h4>Youtube линк</h4>
+                <InputCommon
+                  type="text"
+                  defaultValue={elem.youtube_link}
+                  placeholder="youtube линк"
+                  required
+                  onChange={(e) => setYouteLink(e.currentTarget.value)}
+                />
+              </div>
+            </Col>
+            <Col className={styles.col} lg={12}>
+              <div className={styles.col_edit_item}>
+                <h4>Oписания</h4>
+                <TextArea
+                  defaultValue={elem.description_ru}
+                  onChange={(e) => setDescriptionRuYoutube(e.currentTarget.value)}
+                  autoSize />
+                <TextArea
+                  style={{ margin: "20px 0" }}
+                  defaultValue={elem.description_uz}
+                  onChange={(e) => setDescriptionUzYoutube(e.currentTarget.value)}
+                  autoSize />
+                <TextArea
+                  defaultValue={elem.description_en}
+                  onChange={(e) => setDescriptionEnYoutube(e.currentTarget.value)}
+                  autoSize />
+              </div>
+            </Col>
           </Row>
-          </>)}
+        </>)}
 
- 
-          <CommonBtn
-                type="submit"
-                style={{
-                  margin: "20px auto 0 auto",
-                  padding: "12px 40px",
-                  border: "2px solid #fff",
-                }}
-              >
-                Добавить
-              </CommonBtn>
-        </Wrapper>
+
+        <CommonBtn
+          type="submit"
+          style={{
+            margin: "20px auto 0 auto",
+            padding: "12px 40px",
+            border: "2px solid #fff",
+          }}
+        >
+          Добавить
+        </CommonBtn>
+      </Wrapper>
     </DraverCommon>
   );
 };

@@ -6,10 +6,10 @@ import { LoadingOutlined } from "@ant-design/icons";
 import "./styles.css";
 import { VerticalAlignBottom } from "@mui/icons-material";
 
-const ImageUploadDesign = ({HandleChange , HandleChange2 }) => {
+const ImageUploadDesign = ({ HandleChange, HandleChange2, imgSize, elem }) => {
 
-  const data =  useSelector((state) =>  state.design?.uploadDesignProduct)
-  const data2 =  useSelector((state) =>  state.design?.uploadDesignProduct2)
+  const data = useSelector((state) => state.design?.uploadDesignProduct)
+  const data2 = useSelector((state) => state.design?.uploadDesignProduct2)
 
   const antIcon = (
     <LoadingOutlined
@@ -23,9 +23,9 @@ const ImageUploadDesign = ({HandleChange , HandleChange2 }) => {
   return (
     <>
       <div className="upload_row_wrapp">
-        <h4>Добавить фотографию</h4>
         <Row>
           <Col lg={4}>
+            <h4>До</h4>
             <div className="upload_cover">
               {data?.Loading == true ? (
                 <div className="upload_spinss">
@@ -34,7 +34,8 @@ const ImageUploadDesign = ({HandleChange , HandleChange2 }) => {
               ) : data?.Success == true ? (
                 <Image
                   style={{
-                    aspectRatio: "16 / 9",
+                    aspectRatio: imgSize,
+                    width: "100%",
                     borderRadius: "20px",
                     zIndex: "99999999",
                     verticalAlign: "initial",
@@ -42,20 +43,31 @@ const ImageUploadDesign = ({HandleChange , HandleChange2 }) => {
                   src={data?.data}
                 />
               ) : (
-                <div className="upload_none_img">
-                  <>
-                    <input type="file" id="file1" onChange={HandleChange} />
-                    <label for="file1" class="custom-file-upload">
-                      <span className="upload_span-download">
-                        <ion-icon name="cloud-download-outline"></ion-icon>
-                      </span>
-                    </label>
-                  </>
-                </div>
+                <Image
+                  style={{
+                    width: "100%",
+                    aspectRatio: imgSize,
+                    borderRadius: "20px",
+                    zIndex: "99999999",
+                    verticalAlign: "initial",
+                  }}
+                  src={elem?.before}
+                />
               )}
+            </div>
+            <div className="upload_plus_box">
+              <>
+                <input type="file" id="file1" onChange={HandleChange} />
+                <label for="file1" class="custom-file-upload">
+                  <span className="upload_span-download">
+                    <i class='bx bxs-plus-circle'></i>
+                  </span>
+                </label>
+              </>
             </div>
           </Col>
           <Col lg={4}>
+            <h4>После</h4>
             <div className="upload_cover">
               {data2?.Loading == true ? (
                 <div className="upload_spinss">
@@ -64,7 +76,7 @@ const ImageUploadDesign = ({HandleChange , HandleChange2 }) => {
               ) : data2?.Success == true ? (
                 <Image
                   style={{
-                    aspectRatio: "16 / 9",
+                    aspectRatio: imgSize,
                     borderRadius: "20px",
                     zIndex: "99999999",
                     verticalAlign: "initial",
@@ -72,28 +84,37 @@ const ImageUploadDesign = ({HandleChange , HandleChange2 }) => {
                   src={data2?.data}
                 />
               ) : (
-                <div className="upload_none_img">
-                  <>
-                    <input type="file" id="file2" onChange={HandleChange2} />
-                    <label for="file2" class="custom-file-upload">
-                      <span className="upload_span-download">
-                        <ion-icon name="cloud-download-outline"></ion-icon>
-                      </span>
-                    </label>
-                  </>
-                </div>
+                <Image
+                  style={{
+                    aspectRatio: imgSize,
+                    borderRadius: "20px",
+                    zIndex: "99999999",
+                    verticalAlign: "initial",
+                  }}
+                  src={elem?.after}
+                />
               )}
             </div>
+            <div className="upload_plus_box">
+              <>
+                <input type="file" id="file2" onChange={HandleChange2} />
+                <label for="file2" class="custom-file-upload">
+                  <span className="upload_span-download">
+                    <i class='bx bxs-plus-circle'></i>
+                  </span>
+                </label>
+              </>
+            </div>
           </Col>
-          <Col lg={12}>
+          <Col lg={4}>
             <div className="infor_box">
               <p>
                 <span>Формат: </span>PNG, JPEG, JPG, SVG. Рекомендуемое
-                разрешение <span>1080×1440</span>
+                разрешение <span>1920x1080</span> или <span>1280x720</span>
               </p>
               <p>
                 {" "}
-                <span>Размер: </span>размер файла не должен превышать 5 MB
+                <span>Размер: </span>размер файла не должен превышать <span>5 MB</span>
               </p>
             </div>
           </Col>

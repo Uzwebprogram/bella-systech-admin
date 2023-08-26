@@ -9,6 +9,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import CommonBtn from "../../../common/CommonBtn";
+import { Row, Col } from "react-grid-system";
+import styles from './style.module.css'
 
 const DesignProductPuts = ({
   setOpenAparatProduct,
@@ -19,6 +21,7 @@ const DesignProductPuts = ({
   const { id } = useParams();
   const dataDesign = useSelector(state => state.design.DesignProductGet.data)
   const dataDesignFilter = dataDesign.filter(e => e.id == putAparatId)
+  console.log(dataDesignFilter)
   const DoneSubmit = async (e) => {
     e.preventDefault();
     const body = {
@@ -46,11 +49,22 @@ const DesignProductPuts = ({
     <>
       <DraverCommon open={openAparatProduct} onClose={setOpenAparatProduct}>
         <form onSubmit={DoneSubmit}>
-          {" "}
-          <ImageUploadDesign
-            HandleChange={HandleChangeDesigns}
-            HandleChange2={HandleChangeDesign2s}
-          />
+          {
+            dataDesignFilter.map(elem => (
+              <Row>
+                <Col lg={12}>
+                  <div className={styles.col_edit_item}>
+                    <ImageUploadDesign
+                      elem={elem}
+                      imgSize={16 / 9}
+                      HandleChange={HandleChangeDesigns}
+                      HandleChange2={HandleChangeDesign2s}
+                    />
+                  </div>
+                </Col>
+              </Row>
+            ))
+          }
           <CommonBtn
             type="submit"
             style={{
