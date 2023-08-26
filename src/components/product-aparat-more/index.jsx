@@ -245,41 +245,46 @@ const ProductAparatMoreComponent = () => {
         children: (
           <Row className={styles.card_company_row}>
             <Col className={styles.card_company_col} lg={12}>
-              <h6 className={styles.company_mini_title}>
-                #Имя компании
-              </h6>
-              <h4>{elem.company.name}</h4>
-              <hr />
-            </Col>
-            <Col className={styles.card_company_col} lg={12}>
-              <h6 className={styles.company_mini_title}>
-                #Изображение компании
-              </h6>
-              <div className={styles.company_img_box}>
-                <Image
-                  style={{ aspectRatio: 1 / 1, borderRadius: '25px', height: "176px" }}
-                  // src={elem.company.image}
-                  src={elem.image}
-                />
+              <div className={styles.card_more_col_item}>
+                <h6 className={styles.company_mini_title}>
+                  #Имя компании
+                </h6>
+                <h4>{elem.company.name}</h4>
               </div>
-              <hr />
             </Col>
             <Col className={styles.card_company_col} lg={12}>
-              <h6 className={styles.company_mini_title}>
-                #***
-              </h6>
-              <h4><span className={styles.language}>RU:</span>  {elem.company.title_ru}</h4>
-              <h4><span className={styles.language}>EN:</span>  {elem.company.title_en}</h4>
-              <h4><span className={styles.language}>UZ:</span>  {elem.company.title_uz}</h4>
-              <hr />
+              <div className={styles.card_more_col_item}>
+                <h6 className={styles.company_mini_title}>
+                  #Изображение компании
+                </h6>
+                <div className={styles.company_img_box}>
+                  <Image
+                    style={{ aspectRatio: 1 / 1, borderRadius: '25px', height: "176px" }}
+                    // src={elem.company.image}
+                    src={elem.image}
+                  />
+                </div>
+              </div>
             </Col>
             <Col className={styles.card_company_col} lg={12}>
-              <h6 className={styles.company_mini_title}>
-                #Описание kомпании
-              </h6>
-              <p><span className={styles.language}>RU:</span>  {elem.company.description_ru}</p>
-              <p><span className={styles.language}>EN:</span>  {elem.company.description_en}</p>
-              <p><span className={styles.language}>UZ:</span>  {elem.company.description_uz}</p>
+              <div className={styles.card_more_col_item}>
+                <h6 className={styles.company_mini_title}>
+                  #***
+                </h6>
+                <h4><span className={styles.language}>RU:</span>  {elem.company.title_ru}</h4>
+                <h4><span className={styles.language}>EN:</span>  {elem.company.title_en}</h4>
+                <h4><span className={styles.language}>UZ:</span>  {elem.company.title_uz}</h4>
+              </div>
+            </Col>
+            <Col className={styles.card_company_col} lg={12}>
+              <div className={styles.card_more_col_item}>
+                <h6 className={styles.company_mini_title}>
+                  #Описание kомпании
+                </h6>
+                <p><span className={styles.language}>RU:</span>  {elem.company.description_ru}</p>
+                <p><span className={styles.language}>EN:</span>  {elem.company.description_en}</p>
+                <p><span className={styles.language}>UZ:</span>  {elem.company.description_uz}</p>
+              </div>
             </Col>
           </Row>
         ),
@@ -293,26 +298,30 @@ const ProductAparatMoreComponent = () => {
       itemDesc.push(
         {
           key: e.id,
-          label: `${e.description_ru.slice(0,100)}...`,
+          label: `${e.description_ru.slice(0, 100)}...`,
           children: (
             <>
               <div className={styles.Top_edit}>
-                <p style={{ color: "black", fontWeight: "bold" }}> Описания изменить</p>
+                <p style={{ color: "black", fontWeight: "bold", margin: "0" }}> Описания изменить</p>
                 <button id={e.id} onClick={HandlePutModalDescription}><i id={e.id} class='bx bx-edit-alt'></i></button>
               </div>
-              <p> <span className={styles.language}>RU:</span>  {e.description_ru}
-              </p>
-              <p><span className={styles.language}>EN:</span>  {e.description_en}</p>
-              <p><span className={styles.language}>UZ:</span>  {e.description_uz}</p>
-              <div className={styles.card_partner_video_wrap}>
-                <h6 className={styles.company_mini_title}>
-                  Ссылка на ютуб
-                </h6>
-                <iframe width="560"
-                  height="315"
-                  style={{ marginTop: "10px" }}
-                  src={e.youtube_link} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+              <div className={styles.card_more_col_item} style={{ marginBottom: "20px" }}>
+                <p> <span className={styles.language}>RU:</span>  {e.description_ru}
+                </p>
+                <p><span className={styles.language}>EN:</span>  {e.description_en}</p>
+                <p><span className={styles.language}>UZ:</span>  {e.description_uz}</p>
+              </div>
+              <div className={styles.card_more_col_item}>
+                <div className={styles.card_partner_video_wrap}>
+                  <h6 className={styles.company_mini_title}>
+                    Ссылка на ютуб
+                  </h6>
+                  <iframe width="560"
+                    height="315"
+                    style={{ marginTop: "10px" }}
+                    src={e.youtube_link} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
               </div>
             </>
           ),
@@ -331,12 +340,14 @@ const ProductAparatMoreComponent = () => {
           children: (
             <>
               <div className={styles.Top_edit}>
-                <p style={{ color: "black", fontWeight: "bold" }}> Применение изменить</p>
+                <p style={{ color: "black", fontWeight: "bold", margin: "0" }}> Применение изменить</p>
                 <button id={e.id} onClick={HandlePutModalSample}><i id={e.id} class='bx bx-edit-alt'></i></button>
               </div>
-              <p><span className={styles.language}>RU:</span>  {e.name_ru}</p>
-              <p><span className={styles.language}>EN:</span>  {e.name_en}</p>
-              <p><span className={styles.language}>UZ:</span>  {e.name_uz}</p>
+              <div className={styles.card_more_col_item}>
+                <p><span className={styles.language}>RU:</span>  {e.name_ru}</p>
+                <p><span className={styles.language}>EN:</span>  {e.name_en}</p>
+                <p><span className={styles.language}>UZ:</span>  {e.name_uz}</p>
+              </div>
             </>
           ),
         }
@@ -353,34 +364,37 @@ const ProductAparatMoreComponent = () => {
           children: (
             <>
               <div className={styles.Top_edit}>
-                <p style={{ fontWeight: "bold" }}>Параметры изменить</p>
+                <p style={{ fontWeight: "bold", margin: "0" }}>Технические параметры и Информация изменить</p>
                 <button id={e.id} onClick={HandlePutModalParametr}><i id={e.id} class='bx bx-edit-alt'></i></button>
               </div>
-              <p>
-                <span className={styles.language}>RU параметры :</span>
-                {e.parametr_ru}
-              </p>
-              <p>
-                <span className={styles.language}>EN параметры :</span>
-                {e.parametr_en}
-              </p>
-              <p>
-                <span className={styles.language}>UZ параметры :</span>
-                {e.parametr_uz}
-              </p>
-              <p>------------------------------------------------</p>
-              <p>
-                <span className={styles.language}>
-                  RU информация :</span>  {e.information_ru}
-              </p>
-              <p>
-                <span className={styles.language}>
-                  EN информация :</span>  {e.information_en}
-              </p>
-              <p>
+              <div className={styles.card_more_col_item} style={{ marginBottom: "20px" }}>
+                <p>
+                  <span className={styles.language}>RU параметры :</span>
+                  {e.parametr_ru}
+                </p>
+                <p>
+                  <span className={styles.language}>EN параметры :</span>
+                  {e.parametr_en}
+                </p>
+                <p>
+                  <span className={styles.language}>UZ параметры :</span>
+                  {e.parametr_uz}
+                </p>
+              </div>
+              <div className={styles.card_more_col_item}>
+                <p>
+                  <span className={styles.language}>
+                    RU информация :</span>  {e.information_ru}
+                </p>
+                <p>
+                  <span className={styles.language}>
+                    EN информация :</span>  {e.information_en}
+                </p>
+                <p>
 
-                <span className={styles.language}>
-                  UZ информация :</span>  {e.information_uz}</p>
+                  <span className={styles.language}>
+                    UZ информация :</span>  {e.information_uz}</p>
+              </div>
             </>
           ),
         }
