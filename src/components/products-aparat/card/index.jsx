@@ -36,7 +36,7 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
     const [ids, setIds] = useState()
     const dispatch = useDispatch()
     const aparatProductGetState = useSelector((state) => state.aparatproduct.AparatProductGet?.data)
-    // console.log(aparatProductGetState)
+    console.log(aparatProductGetState)
     useEffect(() => {
         dispatch(AparatProductGet())
     }, [])
@@ -250,7 +250,7 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                 <SelectCommon
                                     className={styles.card_search_select}
                                     onChange={SelectChangeCompany}
-                                    placeholder="Сорт компанию"
+                                    placeholder="Сорт по компанию"
                                     options={optionCompany}
                                 />
                             </Col>
@@ -258,13 +258,13 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                 <SelectCommon
                                     className={styles.card_search_select}
                                     onChange={SelectChangeCategory}
-                                    placeholder="Сорт категории"
+                                    placeholder="Сорт по категории"
                                     options={optionCategory}
                                 />
                             </Col>
                             <Col lg={3}>
                                 <DatePicker
-                                    placeholder='Bыбрать дату'
+                                    placeholder='Сорт по дате'
                                     onChange={(e) => setStartDate(e)}
                                     className={styles.card_search_date_input}
                                 />
@@ -296,11 +296,11 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                                                 <div className={styles.card_time}>
                                                                     <span className={styles.card_date_span}>
                                                                         <i class='bx bx-calendar'></i>
-                                                                        {DateFormat(elem.updateAt)}
+                                                                        {DateFormat(elem.createdAt)}
 
                                                                         <span className={styles.card_time_span}>
                                                                             <i class='bx bxs-watch' ></i>
-                                                                            {elem.updateAt.slice(11, 19)}
+                                                                            {elem.createdAt.slice(11, 19)}
                                                                         </span>
                                                                     </span>
                                                                 </div>
@@ -363,11 +363,11 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                                                 <div className={styles.card_time}>
                                                                     <span className={styles.card_date_span}>
                                                                         <i class='bx bx-calendar'></i>
-                                                                        {DateFormat(elem.updateAt)}
+                                                                        {DateFormat(elem.createdAt)}
 
                                                                         <span className={styles.card_time_span}>
                                                                             <i class='bx bxs-watch' ></i>
-                                                                            {elem.updateAt.slice(11, 19)}
+                                                                            {elem.createdAt.slice(11, 19)}
                                                                         </span>
                                                                     </span>
                                                                 </div>
@@ -431,11 +431,11 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                                                 <div className={styles.card_time}>
                                                                     <span className={styles.card_date_span}>
                                                                         <i class='bx bx-calendar'></i>
-                                                                        {DateFormat(elem.updateAt)}
+                                                                        {DateFormat(elem.createdAt)}
 
                                                                         <span className={styles.card_time_span}>
                                                                             <i class='bx bxs-watch' ></i>
-                                                                            {elem.updateAt.slice(11, 19)}
+                                                                            {elem.createdAt.slice(11, 19)}
                                                                         </span>
                                                                     </span>
                                                                 </div>
@@ -499,11 +499,11 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                                                 <div className={styles.card_time}>
                                                                     <span className={styles.card_date_span}>
                                                                         <i class='bx bx-calendar'></i>
-                                                                        {DateFormat(elem.updateAt)}
+                                                                        {DateFormat(elem.createdAt)}
 
                                                                         <span className={styles.card_time_span}>
                                                                             <i class='bx bxs-watch' ></i>
-                                                                            {elem.updateAt.slice(11, 19)}
+                                                                            {elem.createdAt.slice(11, 19)}
                                                                         </span>
                                                                     </span>
                                                                 </div>
@@ -567,11 +567,11 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                                                 <div className={styles.card_time}>
                                                                     <span className={styles.card_date_span}>
                                                                         <i class='bx bx-calendar'></i>
-                                                                        {DateFormat(elem.updateAt)}
+                                                                        {DateFormat(elem.createdAt)}
 
                                                                         <span className={styles.card_time_span}>
                                                                             <i class='bx bxs-watch' ></i>
-                                                                            {elem.updateAt.slice(11, 19)}
+                                                                            {elem.createdAt.slice(11, 19)}
                                                                         </span>
                                                                     </span>
                                                                 </div>

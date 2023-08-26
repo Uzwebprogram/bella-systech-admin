@@ -26,7 +26,7 @@ export const PartnersPut = createAsyncThunk(
   }
 );
 
-export const UploadImage = createAsyncThunk("Partners/upload", async (e) => {
+export const UploadImage1 = createAsyncThunk("Partners/upload1", async (e) => {
   const formData = new FormData();
   formData.append("file", e.target.files[0]);
   formData.append("upload_preset", "v0khd47o");
@@ -38,6 +38,46 @@ export const UploadImage = createAsyncThunk("Partners/upload", async (e) => {
     return error;
   }
 });
+
+export const UploadImage2 = createAsyncThunk("Partners/upload2", async (e) => {
+  const formData = new FormData();
+  formData.append("file", e.target.files[0]);
+  formData.append("upload_preset", "v0khd47o");
+  try {
+    return await axios
+      .post("https://api.cloudinary.com/v1_1/dsdkp3672/upload", formData)
+      .then((response) => response?.data.secure_url);
+  } catch (error) {
+    return error;
+  }
+});
+
+export const UploadImage3 = createAsyncThunk("Partners/upload3", async (e) => {
+  const formData = new FormData();
+  formData.append("file", e.target.files[0]);
+  formData.append("upload_preset", "v0khd47o");
+  try {
+    return await axios
+      .post("https://api.cloudinary.com/v1_1/dsdkp3672/upload", formData)
+      .then((response) => response?.data.secure_url);
+  } catch (error) {
+    return error;
+  }
+});
+
+export const UploadLogo = createAsyncThunk("Partners/uploadLogo", async (e) => {
+  const formData = new FormData();
+  formData.append("file", e.target.files[0]);
+  formData.append("upload_preset", "v0khd47o");
+  try {
+    return await axios
+      .post("https://api.cloudinary.com/v1_1/dsdkp3672/upload", formData)
+      .then((response) => response?.data.secure_url);
+  } catch (error) {
+    return error;
+  }
+});
+
 const PartnersSlice = createSlice({
   name: "Partners",
   initialState: {
@@ -62,7 +102,25 @@ const PartnersSlice = createSlice({
       Loading: false,
       Success: false,
     },
-    uploadPartners: {
+    uploadImage1: {
+      Error: false,
+      Loading: false,
+      Success: false,
+      data: "",
+    },
+    uploadImage2: {
+      Error: false,
+      Loading: false,
+      Success: false,
+      data: "",
+    },
+    uploadImage3: {
+      Error: false,
+      Loading: false,
+      Success: false,
+      data: "",
+    },
+    uploadLogo: {
       Error: false,
       Loading: false,
       Success: false,
@@ -128,20 +186,64 @@ const PartnersSlice = createSlice({
       state.PartnersPut.Loading = false;
     },
 
-    [UploadImage.pending]: (state, action) => {
-      state.uploadPartners.Loading = true;
+    [UploadImage1.pending]: (state, action) => {
+      state.uploadImage1.Loading = true;
     },
-    [UploadImage.fulfilled]: (state, action) => {
-      state.uploadPartners.Error = false;
-      state.uploadPartners.Success = true;
-      state.uploadPartners.Loading = false;
-      state.uploadPartners.data = action.payload;
-      // console.log( );
+    [UploadImage1.fulfilled]: (state, action) => {
+      state.uploadImage1.Error = false;
+      state.uploadImage1.Success = true;
+      state.uploadImage1.Loading = false;
+      state.uploadImage1.data = action.payload;
     },
-    [UploadImage.rejected]: (state, action) => {
-      state.uploadPartners.Error = true;
-      state.uploadPartners.Success = false;
-      state.uploadPartners.Loading = false;
+    [UploadImage1.rejected]: (state, action) => {
+      state.uploadImage1.Error = true;
+      state.uploadImage1.Success = false;
+      state.uploadImage1.Loading = false;
+    },
+
+    [UploadImage2.pending]: (state, action) => {
+      state.uploadImage2.Loading = true;
+    },
+    [UploadImage2.fulfilled]: (state, action) => {
+      state.uploadImage2.Error = false;
+      state.uploadImage2.Success = true;
+      state.uploadImage2.Loading = false;
+      state.uploadImage2.data = action.payload;
+    },
+    [UploadImage2.rejected]: (state, action) => {
+      state.uploadImage2.Error = true;
+      state.uploadImage2.Success = false;
+      state.uploadImage2.Loading = false;
+    },
+
+    [UploadImage3.pending]: (state, action) => {
+      state.uploadImage3.Loading = true;
+    },
+    [UploadImage3.fulfilled]: (state, action) => {
+      state.uploadImage3.Error = false;
+      state.uploadImage3.Success = true;
+      state.uploadImage3.Loading = false;
+      state.uploadImage3.data = action.payload;
+    },
+    [UploadImage3.rejected]: (state, action) => {
+      state.uploadImage3.Error = true;
+      state.uploadImage3.Success = false;
+      state.uploadImage3.Loading = false;
+    },
+
+    [UploadLogo.pending]: (state, action) => {
+      state.uploadLogo.Loading = true;
+    },
+    [UploadLogo.fulfilled]: (state, action) => {
+      state.uploadLogo.Error = false;
+      state.uploadLogo.Success = true;
+      state.uploadLogo.Loading = false;
+      state.uploadLogo.data = action.payload;
+    },
+    [UploadLogo.rejected]: (state, action) => {
+      state.uploadLogo.Error = true;
+      state.uploadLogo.Success = false;
+      state.uploadLogo.Loading = false;
     },
   },
 });

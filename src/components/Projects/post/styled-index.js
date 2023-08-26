@@ -21,7 +21,7 @@ export const Wrapper = styled.form`
     justify-content: center;
     height: 150px;
     border-radius: 15px;
-    border-style: solid;
+    /* border-style: solid; */
     text-align: center;
     padding: 10px 10px 15px 10px;
     cursor: pointer;

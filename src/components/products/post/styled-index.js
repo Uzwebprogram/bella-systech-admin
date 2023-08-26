@@ -23,8 +23,8 @@ export const Wrapper = styled.form`
     text-align: center;
     /* padding: 15px; */
     cursor: pointer;
-    backdrop-filter: blur(5px) !important;
-    background: rgba(40, 40, 40, 0.6);
+    /* backdrop-filter: blur(5px) !important;
+    background: rgba(40, 40, 40, 0.6); */
   }
   .spins {
     width: 100%;

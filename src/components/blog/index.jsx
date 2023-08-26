@@ -5,7 +5,8 @@ import Delete from "./delete";
 import NewsForm from "./post";
 import Put from "./put";
 import TableAdd from "./table";
-function BlogComponent({ open, handleClose }) {
+import CollapseGet from "./collapse";
+function BlogComponent({ open, handleClose, cols }) {
   const newsdelete = useSelector((state) => state.news);
   const dispatch = useDispatch();
   const [categoryId, setCategoryId] = useState();
@@ -35,7 +36,13 @@ function BlogComponent({ open, handleClose }) {
   return (
     <>
       <NewsForm Open={open} HandleClose={handleClose} />
-      <TableAdd onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} onClickPut={handlePutModal} />
+      {/* <TableAdd onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} onClickPut={handlePutModal} /> */}
+      <CollapseGet
+        cols={cols}
+        onClickDelete={handleDeleteModal}
+        HandleDelete={HandleDelete}
+        onClickPut={handlePutModal}
+      />
       <Delete
         // HandleDelete={HandleDelete}
         openDelete={openDelete}

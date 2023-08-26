@@ -43,7 +43,7 @@ export const RouterData = [
   },
   {
     id: 6,
-    path: "/blog",
+    path: "/partners",
     component: cookie.get("token") ? <Blog /> : null,
   },
   {

@@ -24,20 +24,20 @@ function Blog() {
     window.localStorage.getItem("checked") == 'false' ? <HorizontalSidebar>
       <WrapperContainer style={{ marginTop: "90px" }}>
         <HeaderTopCommon
-          title={"блог"}
+          title={"Партнеры"}
           onClick={showDrawer}
-          textBtn={"Добавить блог"}
+          textBtn={"Добавить партнеры"}
         />
-        <BlogComponent handleClose={onClose} open={open} />
+        <BlogComponent handleClose={onClose} open={open} cols={3} />
       </WrapperContainer>
     </HorizontalSidebar> : <VerticalSidebar>
       <WrapperContainer>
         <HeaderTopCommon
-          title={"блог"}
+          title={"Партнеры"}
           onClick={showDrawer}
-          textBtn={"Добавить блог"}
+          textBtn={"Добавить партнеры"}
         />
-        <BlogComponent handleClose={onClose} open={open} />
+        <BlogComponent handleClose={onClose} open={open} cols={4} />
       </WrapperContainer>
     </VerticalSidebar>
   );

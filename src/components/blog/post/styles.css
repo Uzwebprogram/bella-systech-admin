@@ -46,10 +46,10 @@ select {
   margin-bottom: 20px;
 }
 
-.col {
+/* .col {
   margin-bottom: 5px;
   margin-right: 40px;
-}
+} */
 
 input,
 select {
@@ -80,4 +80,27 @@ input:focus {
 .ant-drawer-title {
   font-size: 30px !important;
   font-weight: bold;
+}
+
+.cl_bg {
+  background-color: #f8f8f8;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+.cl_bg > h4 {
+  margin-top: 0;
+}
+
+.cl_bg > input {
+  margin-bottom: 10px;
+}
+
+.cl_bg > textarea {
+  margin-bottom: 10px;
 }
