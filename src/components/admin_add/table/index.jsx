@@ -42,7 +42,12 @@ export default function TableAdd({ HandleDelete }) {
           >
             <div className="btn-wrap">
               <button id={elem.id}>
-                <i class="bx bxs-trash"></i>
+                <lord-icon
+                  src="https://cdn.lordicon.com/jmkrnisz.json"
+                  trigger="hover"
+                  colors="primary:#121331"
+                  style={{ width: "25px", height: "25px" }}>
+                </lord-icon>
               </button>
             </div>
           </Popover>

@@ -34,7 +34,7 @@ export const Wrapper = styled.form `
     border-radius: 20px;
     text-align: center;
     cursor: pointer;
-    backdrop-filter: blur(5px) !important;
+    /* backdrop-filter: blur(5px) !important; */
     /* background: rgba(40, 40, 40, 0.6); */
   }
   /* .spins {

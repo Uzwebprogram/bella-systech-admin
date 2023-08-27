@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
     display: none;
 }
 label{
-    border-style: dotted;
+    /* border-style: dotted; */
     text-align: center;
     padding: 15px 45px 18px 45px;
     cursor: pointer;

@@ -122,64 +122,64 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                             key: "3",
                             icon: <AppstoreOutlined />,
                             label: (
-                                    <span class="title">Категория</span>
+                                <span class="title">Категория</span>
 
                             ),
                             children: [
                                 {
-                                  type: 'category',
-                                  label: (
-                                    <NavLink
-                                    to={"/category-aparat"}
-                                    className={pathname == "/category-aparat" ? "active" : ""}
-                                >
-                                    <span class="title">Апарат</span>
-                                </NavLink>
-                                  )
+                                    type: 'category',
+                                    label: (
+                                        <NavLink
+                                            to={"/category-aparat"}
+                                            className={pathname == "/category-aparat" ? "active" : ""}
+                                        >
+                                            <span class="title">Апарат</span>
+                                        </NavLink>
+                                    )
                                 },
                                 {
                                     type: 'category',
                                     label: (
-                                      <NavLink
-                                      to={"/category-pereparat"}
-                                      className={pathname == "/category-pereparat" ? "active" : ""}
-                                  >
-                                      <span class="title">препараты</span>
-                                  </NavLink>
+                                        <NavLink
+                                            to={"/category-pereparat"}
+                                            className={pathname == "/category-pereparat" ? "active" : ""}
+                                        >
+                                            <span class="title">Препараты</span>
+                                        </NavLink>
                                     )
-                                  }
-                                ]
+                                }
+                            ]
                         },
                         {
                             key: "4",
                             icon: <ShoppingCartOutlined />,
                             label: (
-                                    <span class="title">Продукт</span>
+                                <span class="title">Продукт</span>
                             ),
-                                                        children: [
+                            children: [
                                 {
-                                  type: 'category',
-                                  label: (
-                                    <NavLink
-                                    to={"/aparat-product"}
-                                    className={pathname == "/aparat-product" ? "active" : ""}
-                                >
-                                    <span class="title">Апарат</span>
-                                </NavLink>
-                                  )
+                                    type: 'category',
+                                    label: (
+                                        <NavLink
+                                            to={"/aparat-product"}
+                                            className={pathname == "/aparat-product" ? "active" : ""}
+                                        >
+                                            <span class="title">Апарат</span>
+                                        </NavLink>
+                                    )
                                 },
                                 {
                                     type: 'category',
                                     label: (
-                                      <NavLink
-                                      to={"/pereparat-product"}
-                                      className={pathname == "/pereparat-product" ? "active" : ""}
-                                  >
-                                      <span class="title">препараты</span>
-                                  </NavLink>
+                                        <NavLink
+                                            to={"/pereparat-product"}
+                                            className={pathname == "/pereparat-product" ? "active" : ""}
+                                        >
+                                            <span class="title">Препараты</span>
+                                        </NavLink>
                                     )
-                                  }
-                                ]
+                                }
+                            ]
                         },
                         {
                             key: "5",
@@ -198,10 +198,10 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                             icon: <ShoppingCartOutlined />,
                             label: (
                                 <NavLink
-                                    to={"/blog"}
-                                    className={pathname == "/blog" ? "active" : ""}
+                                    to={"/partners"}
+                                    className={pathname == "/partners" ? "active" : ""}
                                 >
-                                    <span class="title">блог</span>
+                                    <span class="title">Партнеры</span>
                                 </NavLink>
                             ),
                         },
@@ -262,7 +262,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                                 <a onClick={(e) => e.preventDefault()}>
                                     <Space>
                                         <SettingOutlined />
-                                        <span className="drop_span">Setting</span>
+                                        <span className="drop_span">Настройка</span>
                                     </Space>
                                 </a>
                             </Dropdown>

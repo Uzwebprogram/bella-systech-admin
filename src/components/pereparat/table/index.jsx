@@ -45,13 +45,18 @@ export default function TableAdd({ HandleDelete, onClickPut }) {
               title={
                 <div className="delete_box">
                   <i class='bx bxs-error-circle'></i>
-                  <span>Удалите категория <span>{elem.title_ru}</span></span>
+                  <span>Удалите категория препарат <span>{elem.title_ru}</span></span>
                 </div>
               }
             >
               <div className="btn-wrap">
                 <button id={elem.id}>
-                  <i class="bx bxs-trash"></i>
+                <lord-icon
+                    src="https://cdn.lordicon.com/jmkrnisz.json"
+                    trigger="hover"
+                    colors="primary:#121331"
+                    style={{ width: "25px", height: "25px" }}>
+                  </lord-icon>
                 </button>
               </div>
             </Popover>

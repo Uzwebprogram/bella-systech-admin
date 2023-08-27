@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import { Spin, Input, Image } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { UploadImage } from "../../../../redux/products/index";
 import { Col, Row } from "react-grid-system";
 import { LoadingOutlined } from "@ant-design/icons";
 import "./styles.css";
-import { VerticalAlignBottom } from "@mui/icons-material";
 
-const ImageUpload = ({ HandleChange, HandleChange2, HandleChange3, imgSize, elem }) => {
-  // const dispatch = useDispatch();
-  // const data = useSelector((state) => state.product?.uploadProjects);
-  // const HandleChange = async (e) => {
-  //   await dispatch(UploadImage(e));
-  // };
-  const data = useSelector((state) => state.aparatproduct?.uploadAparatProduct)
-  const data2 = useSelector((state) => state.aparatproduct?.uploadAparatProduct2)
-  const data3 = useSelector((state) => state.aparatproduct?.uploadAparatProduct3)
+
+const ImageUpload = ({
+  HandleChange1,
+  HandleChange2,
+  HandleChange3,
+  HandleLogo,
+  dataProjectLogo,
+  dataProject1,
+  dataProject2,
+  dataProject3,
+  partner
+}) => {
+
 
   const antIcon = (
     <LoadingOutlined
@@ -29,41 +31,80 @@ const ImageUpload = ({ HandleChange, HandleChange2, HandleChange3, imgSize, elem
   return (
     <>
       <div className="upload_row_wrapp">
+
         <Row>
-          <Col lg={2}>
-            <h4>Фотографию 1</h4>
+          <Col lg={3}>
+            <h4>Добавить логотип</h4>
             <div className="upload_cover">
-              {data?.Loading == true ? (
+              {dataProjectLogo?.Loading == true ? (
                 <div className="upload_spinss">
                   <Spin indicator={antIcon} />
                 </div>
-              ) : data?.Success == true ? (
+              ) : dataProjectLogo?.Success == true ? (
                 <Image
                   style={{
-                    aspectRatio: imgSize,
-                    width: "100%",
+                    aspectRatio: "16 / 9",
                     borderRadius: "20px",
                     zIndex: "99999999",
                     verticalAlign: "initial",
                   }}
-                  src={data?.data}
+                  src={dataProjectLogo?.data}
                 />
               ) : (
                 <Image
                   style={{
-                    width: "100%",
-                    aspectRatio: imgSize,
+                    aspectRatio: "16 / 9",
                     borderRadius: "20px",
                     zIndex: "99999999",
                     verticalAlign: "initial",
                   }}
-                  src={elem?.image1}
+                  src={partner?.logo}
                 />
               )}
             </div>
             <div className="upload_plus_box">
               <>
-                <input type="file" id="file1" onChange={HandleChange} />
+                <input type="file" id="filelogo" onChange={HandleLogo} />
+                <label for="filelogo" class="custom-file-upload">
+                  <span className="upload_span-download">
+                    <i class='bx bxs-plus-circle'></i>
+                  </span>
+                </label>
+              </>
+            </div>
+          </Col>
+          <Col lg={3}>
+            <h4>Добавить фотографию 1</h4>
+            <div className="upload_cover">
+              {dataProject1?.Loading == true ? (
+                <div className="upload_spinss">
+                  <Spin indicator={antIcon} />
+                </div>
+              ) : dataProject1?.Success == true ? (
+                <Image
+                  style={{
+                    aspectRatio: "16 / 9",
+                    borderRadius: "20px",
+                    zIndex: "99999999",
+                    verticalAlign: "initial",
+                  }}
+                  src={dataProject1?.data}
+                />
+              ) : (
+                <Image
+                  style={{
+                    aspectRatio: "16 / 9",
+                    borderRadius: "20px",
+                    zIndex: "99999999",
+                    verticalAlign: "initial",
+                  }}
+                  src={partner?.image1}
+                />
+              )}
+            </div>
+            <div className="upload_plus_box">
+              <>
+                <input type="file" id="file1" onChange={HandleChange1} />
                 <label for="file1" class="custom-file-upload">
                   <span className="upload_span-download">
                     <i class='bx bxs-plus-circle'></i>
@@ -72,32 +113,32 @@ const ImageUpload = ({ HandleChange, HandleChange2, HandleChange3, imgSize, elem
               </>
             </div>
           </Col>
-          <Col lg={2}>
-            <h4> Фотографию 2</h4>
+          <Col lg={3}>
+            <h4>Добавить фотографию 2</h4>
             <div className="upload_cover">
-              {data2?.Loading == true ? (
+              {dataProject2?.Loading == true ? (
                 <div className="upload_spinss">
                   <Spin indicator={antIcon} />
                 </div>
-              ) : data2?.Success == true ? (
+              ) : dataProject2?.Success == true ? (
                 <Image
                   style={{
-                    aspectRatio: imgSize,
+                    aspectRatio: "16 / 9",
                     borderRadius: "20px",
                     zIndex: "99999999",
                     verticalAlign: "initial",
                   }}
-                  src={data2?.data}
+                  src={dataProject2?.data}
                 />
               ) : (
                 <Image
                   style={{
-                    aspectRatio: imgSize,
+                    aspectRatio: "16 / 9",
                     borderRadius: "20px",
                     zIndex: "99999999",
                     verticalAlign: "initial",
                   }}
-                  src={elem?.image2}
+                  src={partner?.image2}
                 />
               )}
             </div>
@@ -112,32 +153,32 @@ const ImageUpload = ({ HandleChange, HandleChange2, HandleChange3, imgSize, elem
               </>
             </div>
           </Col>
-          <Col lg={2}>
-            <h4>Фотографию 3</h4>
+          <Col lg={3}>
+            <h4>Добавить фотографию 3</h4>
             <div className="upload_cover">
-              {data3?.Loading == true ? (
+              {dataProject3?.Loading == true ? (
                 <div className="upload_spinss">
                   <Spin indicator={antIcon} />
                 </div>
-              ) : data3?.Success == true ? (
+              ) : dataProject3?.Success == true ? (
                 <Image
                   style={{
-                    aspectRatio: imgSize,
+                    aspectRatio: "16 / 9",
                     borderRadius: "20px",
                     zIndex: "99999999",
                     verticalAlign: "initial",
                   }}
-                  src={data3?.data}
+                  src={dataProject3?.data}
                 />
               ) : (
                 <Image
                   style={{
-                    aspectRatio: imgSize,
+                    aspectRatio: "16 / 9",
                     borderRadius: "20px",
                     zIndex: "99999999",
                     verticalAlign: "initial",
                   }}
-                  src={elem?.image3}
+                  src={partner?.image3}
                 />
               )}
             </div>
@@ -156,10 +197,9 @@ const ImageUpload = ({ HandleChange, HandleChange2, HandleChange3, imgSize, elem
             <div className="infor_box">
               <p>
                 <span>Формат: </span>PNG, JPEG, JPG, SVG. Рекомендуемое
-                разрешение <span>1080×1440</span>
+                разрешение <span>1920x1080</span>  или <span>1280x720</span>
               </p>
               <p>
-                {" "}
                 <span>Размер: </span>размер файла не должен превышать <span>5 MB</span>
               </p>
             </div>

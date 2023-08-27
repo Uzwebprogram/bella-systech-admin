@@ -50,7 +50,6 @@
 
 .card_img_wrap > img {
   box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.05);
-
   height: 150px;
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -63,6 +62,10 @@
 .card_content_wrap {
   /* width: fit-content; */
   /* padding-left: 20px; */
+}
+
+.card_more_page_link {
+  width: auto;
 }
 .card_title {
   margin: 0;
@@ -195,6 +198,7 @@
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .card_more_btn > span {
@@ -280,10 +284,9 @@
   color: #df2027;
 }
 
-.card_result_wrapp{
+.card_result_wrapp {
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
-

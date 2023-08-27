@@ -27,19 +27,20 @@
   font-style: italic;
   color: #df2027;
 }
-.Top_edit{
+.Top_edit {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
-.Top_edit button{
+.Top_edit button {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
-.Top_edit i{
+.Top_edit i {
   font-size: 24px;
 }
-.Top_edit p{
+.Top_edit p {
   color: black;
 }
 .card_more_row {
@@ -148,6 +149,7 @@
 .partner_location {
   display: flex;
   align-items: center;
+  margin-top: 15px;
 }
 
 .partner_location > p {
@@ -158,14 +160,17 @@
   color: #000;
 }
 
-.card_partner_video_wrap{
+.card_partner_video_wrap {
   margin-top: 10px;
 }
 
-.card_partner_video_wrap > iframe{
+.card_partner_video_wrap > iframe {
   border-radius: 20px !important;
   -webkit-border-radius: 20px !important;
   -moz-border-radius: 20px !important;
   -ms-border-radius: 20px !important;
   -o-border-radius: 20px !important;
+}
+.card_photos_col{
+  margin-bottom: 28px !important;
 }

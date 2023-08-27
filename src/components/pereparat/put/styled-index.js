@@ -17,7 +17,7 @@ export const Wrapper = styled.form`
     justify-content: center;
     /* height: 167px; */
     border-radius: 20px;
-    border-style: solid;
+    /* border-style: solid; */
     text-align: center;
     padding: 15px;
     cursor: pointer;
@@ -40,7 +40,7 @@ export const Wrapper = styled.form`
     align-items: center;
     justify-content: center;
     /* background: #f3f3f3; */
-    color: "#fff"
+    color: "#fff";
     border-radius: 20px;
     padding-top: 5px;
     border: 3px solid #f3f3f3;

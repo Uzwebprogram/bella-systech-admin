@@ -39,7 +39,7 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
   const filterData = rows.filter(elem => elem.email == emailSave)
   const pathname = useLocation();
   const cookies = new Cookies();
-  console.log(filterData)
+
   useEffect(() => {
     dispatch(adminGet());
   }, []);
@@ -96,7 +96,6 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
           items={[
             {
               key: "1",
-              icon: <UserAddOutlined />,
               label: (
                 <NavLink
                   to={"/adminadd"}
@@ -108,7 +107,6 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
             },
             {
               key: "2",
-              icon: <ContactsOutlined />,
               label: (
                 <NavLink to={"/contact"}>
                   <span class="title">Заявки</span>
@@ -140,7 +138,7 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
                         to={"/category-pereparat"}
                         className={pathname == "/category-pereparat" ? "active" : ""}
                     >
-                        <span class="title">препараты</span>
+                        <span class="title">Препараты</span>
                     </NavLink>
                       )
                     }
@@ -170,7 +168,7 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
                       to={"/pereparat-product"}
                       className={pathname == "/pereparat-product" ? "active" : ""}
                   >
-                      <span class="title">препараты</span>
+                      <span class="title">Препараты</span>
                   </NavLink>
                     )
                   }
@@ -178,25 +176,23 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
             },
             {
               key: "5",
-              icon: <FileTextOutlined />,
               label: (
                 <NavLink
                   to={"/news"}
                   className={pathname == "/news" ? "active" : ""}
                 >
-                  <span class="title">новости</span>
+                  <span class="title">Новости</span>
                 </NavLink>
               ),
             },
             {
               key: "6",
-              icon: <ShoppingCartOutlined />,
               label: (
                   <NavLink
-                      to={"/blog"}
-                      className={pathname == "/blog" ? "active" : ""}
+                      to={"/partners"}
+                      className={pathname == "/partners" ? "active" : ""}
                   >
-                      <span class="title">Блог</span>
+                      <span class="title">Партнеры</span>
                   </NavLink>
               ),
           },
@@ -226,7 +222,7 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
               <Space>
 
                 <SettingOutlined />
-                <span className="drop_span">Setting</span>
+                <span className="drop_span">Настройка</span>
               </Space>
             </a>
           </Dropdown>

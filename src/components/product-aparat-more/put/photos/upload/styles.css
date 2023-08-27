@@ -1,11 +1,11 @@
-.upload_row_wrapp{
-    margin-bottom: 50px;
+.upload_row_wrapp {
+  /* margin-bottom: 50px; */
 }
-.upload_row_wrapp > h4{
-    margin-bottom: 20px;
+.upload_row_wrapp > h4 {
+  margin-bottom: 10px;
 }
 .upload_cover {
-  height: 195px;
+  height: 150px;
   border-radius: 20px;
 }
 .upload_img {
@@ -23,7 +23,8 @@
   border: 3px solid #b0adad;
 }
 
-.upload_cover input[type="file"] {
+.upload_cover input[type="file"],
+.upload_plus_box input[type="file"] {
   display: none;
 }
 .upload_cover label {
@@ -34,9 +35,10 @@
   width: 100%;
   border-radius: 20px;
   text-align: center;
+  border-style: none !important;
   /* padding: 15px; */
   cursor: pointer;
-  backdrop-filter: blur(5px) !important;
+  /* backdrop-filter: blur(5px) !important; */
   /* background: rgba(40, 40, 40, 0.6); */
 }
 
@@ -48,8 +50,8 @@
   justify-content: center;
   background: #f8f8f8;
   border-radius: 20px;
-  padding-top: 5px;
-  border: 3px solid #b0adad;
+  /* padding-top: 5px; */
+  border: 3px solid #cac8c8;
 }
 .upload_span-download {
   font-size: 30px;
@@ -64,20 +66,51 @@
   margin-left: 10px;
   font-size: 33px;
 }
+.bxs-cloud-upload {
+  color: #cac8c8;
+}
+
+.upload_plus_box {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.upload_plus_box > label {
+  background-color: transparent;
+  width: 100%;
+  height: auto;
+  border-style: none !important;
+}
+
+.bxs-plus-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(3, 84, 76);
+  font-size: 40px;
+  margin: 0 !important;
+}
 
 .row {
   margin: 0 0 0 0 !important;
 }
 
 .upload_cover > .ant-image {
-  height: 100% !important;
+  /* height: 100% !important; */
   /* border: 3px solid #b0adad !important; */
   border-radius: 20px !important;
   background-color: #b0adad !important;
 }
 
-.upload_cover > .ant-image > .ant-image-img{
-    height: 195px !important;
+.upload_cover > .ant-image > .ant-image-img {
+  /* height: 150px !important; */
+  width: 100% !important;
 }
 
 .ant-image-preview-wrap {
@@ -90,7 +123,7 @@
 
 .upload_cover > .ant-image > .ant-image-mask {
   border-radius: 20px !important;
-  height: 195px;
+  /* height: 150px !important; */
 }
 
 .upload_none_img {
@@ -119,4 +152,16 @@
 .upload_wrapp > div {
   width: 200px;
   height: 200px;
+}
+
+.infor_box{
+  margin-top: 60px;
+}
+
+.infor_box > p {
+  color: #000;
+}
+
+.infor_box > p > span {
+  font-weight: bold;
 }

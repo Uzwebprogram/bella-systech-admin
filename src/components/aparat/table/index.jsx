@@ -35,7 +35,7 @@ export default function TableAdd({ HandleDelete, onClickPut }) {
                   <p>Вы уверены, что хотите удалить эту категория?</p>
                   <p>Чтобы удалить категорию, необходимо удалить <br /> связанные с ней товары!</p>
                   <div className="btn_wrap_delete">
-  
+
                     <button onClick={HandleDelete} id={elem.id} className="yes_btn">
                       удалить
                     </button>
@@ -51,7 +51,12 @@ export default function TableAdd({ HandleDelete, onClickPut }) {
             >
               <div className="btn-wrap">
                 <button id={elem.id}>
-                  <i class="bx bxs-trash"></i>
+                  <lord-icon
+                    src="https://cdn.lordicon.com/jmkrnisz.json"
+                    trigger="hover"
+                    colors="primary:#121331"
+                    style={{ width: "25px", height: "25px" }}>
+                  </lord-icon>
                 </button>
               </div>
             </Popover>
