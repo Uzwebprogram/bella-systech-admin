@@ -18,6 +18,7 @@ import PhotosSlice from "./product-aparat/photos"
 import DesignProductSlice from "./product-aparat/design"
 import PereparatCategorySlice from "./pereparat-category/index"
 import SertificatSlice from "./sertifikat/index"
+import NewsFormSlice from "./new-form/index"
 export const store = configureStore({
   reducer: {
     admin: authSlice,
@@ -38,6 +39,7 @@ export const store = configureStore({
     sample : SampleSlice,
     photos : PhotosSlice,
     design : DesignProductSlice,
-    sertificat : SertificatSlice
+    sertificat : SertificatSlice,
+    newsform : NewsFormSlice
   },
 });

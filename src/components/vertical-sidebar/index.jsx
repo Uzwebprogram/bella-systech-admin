@@ -216,6 +216,18 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                                     <span class="title">Сертификат</span>
                                 </NavLink>
                             ),
+                        },
+                        {
+                            key: "6",
+                            icon: <ShoppingCartOutlined />,
+                            label: (
+                                <NavLink
+                                    to={"/news-form"}
+                                    className={pathname == "/news-form" ? "active" : ""}
+                                >
+                                    <span class="title">Записи на семинар</span>
+                                </NavLink>
+                            ),
                         }
                     ]}
                     style={{ backgroundColor: "#000B3E" }}
