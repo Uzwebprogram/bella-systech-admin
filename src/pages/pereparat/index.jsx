@@ -5,8 +5,8 @@ import { NewsGet } from "../../redux/news/index";
 import { useDispatch } from "react-redux";
 import HorizontalSidebar from "../../components/horizontal-sidebar";
 import VerticalSidebar from "../../components/vertical-sidebar";
-import PeraparatComponent from "../../components/pereparat";
-import {  PereparatGet } from "../../redux/pereparat";
+import PereparatComponent from "../../components/pereparat";
+import {  PereparatCategoryGet } from "../../redux/pereparat-category";
 function Peraparat() {
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
@@ -17,7 +17,7 @@ function Peraparat() {
   };
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(PereparatGet());
+    dispatch(PereparatCategoryGet());
   }, []);
   return (
 
@@ -29,7 +29,7 @@ function Peraparat() {
           onClick={showDrawer}
           textBtn={"Добавить перепарат"}
         />
-        <PeraparatComponent handleClose={onClose} open={open} />
+        <PereparatComponent handleClose={onClose} open={open} />
       </WrapperContainer>
     </HorizontalSidebar> : <VerticalSidebar>
       <WrapperContainer>
@@ -38,7 +38,7 @@ function Peraparat() {
           onClick={showDrawer}
           textBtn={"Добавить перепарат"}
         />
-        <PeraparatComponent handleClose={onClose} open={open} />
+        <PereparatComponent handleClose={onClose} open={open} />
       </WrapperContainer>
     </VerticalSidebar>
   );

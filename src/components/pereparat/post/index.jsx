@@ -12,7 +12,7 @@ import InputCommon from "../../common/input";
 import "./styles.css";
 import SelectCommon from "../../common/select";
 import { CompanyGet } from "../../../redux/company";
-import { PereparatGet, PereparatPost } from "../../../redux/pereparat";
+import { PereparatCategoryGet, PereparatCategoryPost } from "../../../redux/pereparat-category";
 
 function CategoryAddForm({ Open, HandleClose }) {
   const antIcon = (
@@ -33,21 +33,21 @@ function CategoryAddForm({ Open, HandleClose }) {
     const option = []
       Company.map(elem => option.push({value : elem.id , label : elem.name}))
   useEffect(() => {
-    dispatch(PereparatGet());
+    dispatch(PereparatCategoryGet());
     dispatch(CompanyGet())
   }, []);
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(
-      PereparatPost({
+      PereparatCategoryPost({
         title_uz: titleUz,
         title_ru: titleRu,
         title_en: titleEn,
         company : companyCategory
       })
     );
-    dispatch(CategoryGet());
+    dispatch(PereparatCategoryGet());
     HandleClose();
   };
 

@@ -8,8 +8,8 @@ import { Popover, Space } from 'antd';
 
 
 export default function TableAdd({ HandleDelete, onClickPut }) {
-  const categoryGetState = useSelector((state) => state.pereparat);
-  const rows = categoryGetState.PereparatGet?.data;
+  const categoryGetState = useSelector((state) => state.pereparatcategory);
+  const rows = categoryGetState.PereparatCategoryGet?.data;
   const data = [];
   rows.map((elem, index) => {
     data.push({

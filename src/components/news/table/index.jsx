@@ -10,6 +10,7 @@ import { Popover, Space } from 'antd';
 export default function TableAdd({ HandleDelete, onClickPut }) {
   const newsGetState = useSelector((state) => state.news);
   const rows = newsGetState.newsGet.data;
+  console.log(rows);
   const data = [];
   rows.map((elem, index) => {
     data.push({

@@ -199,7 +199,19 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
                       <span class="title">Блог</span>
                   </NavLink>
               ),
-          }
+          },
+          {
+            key: "6",
+            icon: <ShoppingCartOutlined />,
+            label: (
+                <NavLink
+                    to={"/sertfikat"}
+                    className={pathname == "/sertfikat" ? "active" : ""}
+                >
+                    <span class="title">Сертификат</span>
+                </NavLink>
+            ),
+        }
           ]}
         />
         <div className="profile">

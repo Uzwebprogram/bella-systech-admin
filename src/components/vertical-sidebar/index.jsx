@@ -205,6 +205,18 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                                 </NavLink>
                             ),
                         },
+                        {
+                            key: "6",
+                            icon: <ShoppingCartOutlined />,
+                            label: (
+                                <NavLink
+                                    to={"/sertfikat"}
+                                    className={pathname == "/sertfikat" ? "active" : ""}
+                                >
+                                    <span class="title">Сертификат</span>
+                                </NavLink>
+                            ),
+                        }
                     ]}
                     style={{ backgroundColor: "#000B3E" }}
                 />

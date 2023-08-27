@@ -4,9 +4,9 @@ import Delete from "./delete";
 import CategoryAddForm from "./post";
 import Put from "./put";
 import TableAdd from "./table";
-import { PereparatDelete, PereparatPut } from "../../redux/pereparat";
+import { PereparatCategoryDelete, PereparatCategoryPut } from "../../redux/pereparat-category";
 function PereparatComponent({ open, handleClose }) {
-  const categorydelete = useSelector((state) => state.pereparat);
+  const categorydelete = useSelector((state) => state.pereparatcategory);
   const dispatch = useDispatch();
   const [categoryId, setCategoryId] = useState();
   const [openDelete, setOpenDelete] = useState(false);
@@ -22,13 +22,13 @@ function PereparatComponent({ open, handleClose }) {
     setOpenPut(true);
   };
   const HandleDelete = (e) => {
-    dispatch(PereparatDelete(e.currentTarget.id));
+    dispatch(PereparatCategoryDelete(e.currentTarget.id));
   };
-  if (categorydelete.PereparatDelete.Success == true) {
+  if (categorydelete.PereparatCategoryDelete.Success == true) {
     window.location.reload();
   }
   const HandlePut = () => {
-    dispatch(PereparatPut(categoryId));
+    dispatch(PereparatCategoryPut(categoryId));
   };
   return (
     <>
