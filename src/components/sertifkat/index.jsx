@@ -26,6 +26,7 @@ function SertfikatComponent({ open, handleClose }) {
   };
   const HandleDelete = (e) => {
     dispatch(SertificatDelete(e.currentTarget.id));
+    window.location.reload();
   };
   if (newsdelete.newsDelete.Success == true) {
     window.location.reload();
