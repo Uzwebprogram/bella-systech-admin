@@ -28,8 +28,28 @@ const NewsCollapseGet = ({ HandleDelete, onClickPut, cols }) => {
             key: news.id,
             label: (
                 <div className='collapse_title_box'>
-                    <h4>{news.title_ru.slice(0, 70)}...</h4>
+                    <h4>{news.title_ru.slice(0, 50)}...</h4>
                     <div className="boxx">
+                        <div className='status' style={news.status == 'not_conducted' ? { background: "#df2027" } : { background: "rgb(8, 194, 8)" }}>
+                            {
+                                news.status == 'not_conducted' ? (
+                                    <lord-icon
+                                        src="https://cdn.lordicon.com/jfhbogmw.json"
+                                        trigger="hover"
+                                        colors="primary:#fff"
+                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+                                    </lord-icon>
+                                ) : (
+                                    <lord-icon
+                                        src="https://cdn.lordicon.com/yqzmiobz.json"
+                                        trigger="hover"
+                                        colors="primary:#fff"
+                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+                                    </lord-icon>
+                                )
+                            }
+                            <p>{news.status}</p>
+                        </div>
                         <div className='time_wrap'>
                             <div>
                                 <span>
@@ -37,7 +57,7 @@ const NewsCollapseGet = ({ HandleDelete, onClickPut, cols }) => {
                                         src="https://cdn.lordicon.com/qtxqkhzr.json"
                                         trigger="hover"
                                         colors="primary:#fff"
-                                        style={{width: "20px", height: "20px" ,marginRight: "10px"}}>
+                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
                                     </lord-icon>
                                     {DateFormat(news.time_date)}
                                 </span>

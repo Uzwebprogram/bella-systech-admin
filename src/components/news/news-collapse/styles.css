@@ -160,13 +160,32 @@
   -o-border-radius: 20px;
 }
 
-.time_wrap > div > span{
+.time_wrap > div > span {
   display: flex;
   align-items: center;
 }
 
 .watch_span {
   margin-left: 10px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  background-color: #df2027;
+  border-radius: 20px;
+  color: #fff;
+  padding: 6px 10px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.status > p{
+  margin: 0;
+  font-size: 14px;
 }
 
 .btn-wrap {
