@@ -195,7 +195,31 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
                       <span class="title">Партнеры</span>
                   </NavLink>
               ),
-          }
+          },
+          {
+            key: "6",
+            icon: <ShoppingCartOutlined />,
+            label: (
+                <NavLink
+                    to={"/sertfikat"}
+                    className={pathname == "/sertfikat" ? "active" : ""}
+                >
+                    <span class="title">Сертификат</span>
+                </NavLink>
+            ),
+        },
+        {
+          key: "6",
+          icon: <ShoppingCartOutlined />,
+          label: (
+              <NavLink
+                  to={"/news-form"}
+                  className={pathname == "/news-form" ? "active" : ""}
+              >
+                  <span class="title">Записи на семинар</span>
+              </NavLink>
+          ),
+      }
           ]}
         />
         <div className="profile">

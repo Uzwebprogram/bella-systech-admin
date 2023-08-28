@@ -9,7 +9,7 @@ import { Spin, Image } from "antd";
 import InputCommon from "../../common/input";
 import { LoadingOutlined } from '@ant-design/icons';
 import './styles.css'
-import { PereparatGet, PereparatPut } from "../../../redux/pereparat";
+import { PereparatCategoryGet, PereparatCategoryPut } from "../../../redux/pereparat-category";
 import { CompanyGet } from "../../../redux/company";
 import SelectCommon from "../../common/select";
 
@@ -21,14 +21,13 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
   const [titleEn, setTitleEn] = useState();
   const [companyCategory, setCompanyCategory] = useState()
 
-  const categoryGets = useSelector((state) => state.pereparat.PereparatGet.data);
+  const categoryGets = useSelector((state) => state.pereparatcategory.PereparatCategoryGet.data);
   const Company = useSelector((state) => state.company.CompanyGet.data);
   const option = []
     Company.map(elem => option.push({value : elem.id , label : elem.name}))
   useEffect(() => {
-    dispatch(PereparatGet());
+    dispatch(PereparatCategoryGet());
     dispatch(CompanyGet())
-
   }, []);
 
   const HandleSubmit = async (e) => {
@@ -39,8 +38,8 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
       title_en: titleEn,
       company : companyCategory
     };
-    await dispatch(PereparatPut({ body, id: ids }));
-    dispatch(PereparatGet());
+    await dispatch(PereparatCategoryPut({ body, id: ids }));
+    dispatch(PereparatCategoryGet());
     handleClosePut();
     window.location.reload()  
   };
