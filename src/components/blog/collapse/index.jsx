@@ -33,13 +33,13 @@ const CollapseGet = ({ HandleDelete, onClickPut, cols }) => {
                         <div className='time_wrap'>
                             <div>
                                 <span>
-                                    <i class='bx bx-calendar'></i>
+                                    <lord-icon
+                                        src="https://cdn.lordicon.com/qtxqkhzr.json"
+                                        trigger="hover"
+                                        colors="primary:#fff"
+                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+                                    </lord-icon>
                                     {DateFormat(partner.createdAt)}
-
-                                    <span className='watch_span'>
-                                        <i class='bx bxs-watch' ></i>
-                                        {partner.createdAt.slice(11, 19)}
-                                    </span>
                                 </span>
                             </div>
                         </div>

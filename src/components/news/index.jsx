@@ -5,6 +5,7 @@ import Delete from "./delete";
 import UslugyForm from "./post";
 import Put from "./put";
 import TableAdd from "./table";
+import NewsCollapseGet from "./news-collapse";
 function NewsComponent({ open, handleClose }) {
   const newsdelete = useSelector((state) => state.news);
   const dispatch = useDispatch();
@@ -35,7 +36,8 @@ function NewsComponent({ open, handleClose }) {
   return (
     <>
       <UslugyForm Open={open} HandleClose={handleClose} />
-      <TableAdd onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} onClickPut={handlePutModal} />
+      {/* <TableAdd onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} onClickPut={handlePutModal} /> */}
+      <NewsCollapseGet onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} onClickPut={handlePutModal} />
       <Delete
         // HandleDelete={HandleDelete}
         openDelete={openDelete}

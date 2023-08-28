@@ -6,19 +6,22 @@ import { useSelector } from "react-redux";
 import { Row, Col } from "react-grid-system";
 import { Spin, Input, Image, DatePicker } from "antd";
 import "./styles.css";
+import InputCommon from '../../common/input/index'
 import DraverCommon from "../../common/Drawer";
 import { LoadingOutlined } from '@ant-design/icons';
-import dayjs from 'dayjs';
-import { NewsGet, NewsPost , UploadImage } from "../../../redux/news";
+import ImageUpload from "./upload";
+import { NewsGet, NewsPost, UploadImage } from "../../../redux/news";
+const { TextArea } = Input;
 function UslugyForm({ Open, HandleClose }) {
   const dispatch = useDispatch();
-  const titleUz = useRef();
-  const titleRu = useRef();
-  const titleEn = useRef();
-  const descriptionUz = useRef()
-  const descriptionRu = useRef()
-  const [date , setData] = useState()
-  const descriptionEn = useRef()
+  const [titleUz, setTitleUz] = useState();
+  const [titleRu, setTitleRu] = useState();
+  const [titleEn, setTitleEn] = useState();
+  const [descriptionUz, setDescriptionUz] = useState()
+  const [descriptionRu, setDescriptionRu] = useState()
+  const [descriptionEn, setDescriptionEn] = useState()
+  const [date, setData] = useState()
+
   const dataProject = useSelector((state) => state.news?.uploadNews);
 
   useEffect(() => {
@@ -31,20 +34,21 @@ function UslugyForm({ Open, HandleClose }) {
     e.preventDefault();
     await dispatch(
       NewsPost({
-        title_uz: titleUz.current.value,
-        title_ru: titleRu.current.value,
-        title_en: titleEn.current.value,
-        description_uz: descriptionUz.current.value,
-        description_ru: descriptionRu.current.value,
-        description_en: descriptionEn.current.value,
-        image : dataProject.data,
-        time_date : date
+        title_uz: titleUz,
+        title_ru: titleRu,
+        title_en: titleEn,
+        description_uz: descriptionUz,
+        description_ru: descriptionRu,
+        description_en: descriptionEn,
+        image: dataProject.data,
+        time_date: date
       })
     );
     dispatch(NewsGet());
     HandleClose();
     window.location.reload();
   };
+
   const dateFormat = 'YYYY/MM/DD';
   const antIcon = (
     <LoadingOutlined
@@ -56,123 +60,76 @@ function UslugyForm({ Open, HandleClose }) {
     />
   );
   return (
-    <DraverCommon title='Добавить блог' open={Open} onClose={HandleClose}>
+    <DraverCommon width={1000} title='Добавить новости' open={Open} onClose={HandleClose}>
       <>
         <Wrapper onSubmit={HandleSubmit}>
           <div className="input_wrap">
             <div className="scrool">
               <Row className="row">
-                  <Row className="row">
-                    <Col className="col_upload" lg={6}>
-                      {
-                        dataProject.Loading == true ? (
-                          <div className="spinss">
-                            <Spin indicator={antIcon} />
-                          </div>
-                        ) : (
-                          dataProject.Success == true ? (
-                            <Image
-                              style={{ aspectRatio: "1 / 1", borderRadius: "20px", width : 350, height:300, zIndex: "99999999" }}
-                              src={dataProject.data}
-                            />
-                          ) : (
-                            <div className="none_img">
-                              <i class='bx bxs-image'></i>
-                            </div>
-                          )
-                        )
-                      }
-                    </Col>
-                    <Col className="col_upload" lg={6}>
-                      {
-                        dataProject.Loading == true ? (
-                          <div className="spins">
-                            <Spin indicator={antIcon} />
-                          </div>
-                        ) : (
-                          <>
-
-                            <input type="file" id="file" onChange={HandleChange} />
-                            <label for="file" class="custom-file-upload">
-                              <span className="span-download">
-                                <ion-icon name="cloud-download-outline"></ion-icon>
-                                <h3>Загрузить фото</h3>
-                              </span>
-                            </label>
-                          </>
-                        )
-                      }
-                      <h4 style={{marginTop:"30px"}}>дата новостей</h4>
-                    <input type="date" style={{width: "60%" , marginTop:"10px"}} onChange={e => setData(e.target.value)} />
-
-                    </Col>
-                    <Col lg={12}>
-                      <div className="infor_box">
-                        <p><span>Формат: </span>PNG, JPEG, JPG, SVG. Рекомендуемое разрешение <span>1080×1080</span></p>
-                        <p> <span>Размер: </span>размер файла не должен превышать 5 MB</p>
-                      </div>
-                    </Col>
-                  </Row>
-                        
-                <Col className="col" lg={4}>
-                      <div style={{width:"100%"}}>
-                  <h4>Тема</h4>
-                  <input
-                    style={{width:"90%"}}
-                    type="text"
-                    placeholder="узбекский"
-                    required
-                    ref={titleUz}
-                  />
-                      </div>
+                <Col lg={4} className="col">
+                  <div className="col_edit_item">
+                    <ImageUpload HandleChange={HandleChange} dataProject={dataProject} />
+                    <h4 style={{ marginTop: "30px" }}>Дата новостей</h4>
+                    <InputCommon
+                      type="date"
+                      onChange={e => setData(e.target.value)}
+                    />
+                  </div>
                 </Col>
-                        
-                <Col className="col" lg={4}>
-                      <div style={{width:"100%"}}>
-                  <h4>*</h4>
-                  <input
-                    style={{width:"90%"}}
-                    type="text"
-                    placeholder="русский"
-                    required
-                    ref={titleRu}
-                  />
-                      </div>
+                <Col className="col" lg={8}>
+                  <div className="col_edit_item" >
+                    <h4>Новости титул</h4>
+                    <InputCommon
+                      type="text"
+                      placeholder="узбекский"
+                      required
+                      onChange={(e) => setTitleUz(e.currentTarget.value)}
+                    />
+                    <InputCommon
+                      className='col_margin_input'
+                      type="text"
+                      placeholder="русский"
+                      required
+                      onChange={(e) => setTitleRu(e.currentTarget.value)}
+                    />
+                    <InputCommon
+                      type="text"
+                      placeholder="английский"
+                      required
+                      onChange={(e) => setTitleEn(e.currentTarget.value)}
+                    />
+                  </div>
                 </Col>
-                        
-                <Col className="col" lg={4}>
-                      <div style={{width:"100%"}}>
-                  <h4>*</h4>
-                  <input
-                    style={{width:"90%"}}
-                    type="text"
-                    placeholder="английский"
-                    required
-                    ref={titleEn}
-                  />
-                      </div>
+
+                <Col className="col" lg={12}>
+                  <div className="col_edit_item">
+                    <h4>Описание узбекский</h4>
+                    <TextArea
+                      onChange={(e) => setDescriptionUz(e.currentTarget.value)}
+                      required
+                      placeholder="написать..."
+                      autoSize />
+                  </div>
                 </Col>
                 <Col className="col" lg={12}>
-                  <h4>Описание узбекский</h4>
-                  <textarea required
-                    ref={descriptionUz}
-                    rows="10" cols="120">
-                  </textarea>
+                  <div className="col_edit_item">
+                    <h4>Описание русский</h4>
+                    <TextArea
+                      onChange={(e) => setDescriptionRu(e.currentTarget.value)}
+                      required
+                      placeholder="написать..."
+                      autoSize />
+                  </div>
                 </Col>
                 <Col className="col" lg={12}>
-                  <h4>Описание русский</h4>
-                  <textarea required
-                    ref={descriptionRu}
-                    rows="10" cols="120">
-                  </textarea>
-
-                </Col>
-                <Col className="col" lg={12}>
-                  <h4>Описание английский</h4>
-                  <textarea required
-                    ref={descriptionEn}
-                    rows="10" cols="120">
-                  </textarea>
+                  <div className="col_edit_item">
+                    <h4>Описание английский</h4>
+                    <TextArea
+                      onChange={(e) => setDescriptionEn(e.currentTarget.value)}
+                      required
+                      placeholder="написать..."
+                      autoSize />
+                  </div>
                 </Col>
               </Row>
               <CommonBtn

@@ -1,14 +1,14 @@
 .input_wrap {
   width: 100%;
 }
-.ant-modal{
+.ant-modal {
   z-index: 99999999 !important;
 }
-.ant-modal-mask{
+.ant-modal-mask {
   background-color: transparent !important;
   z-index: 99999 !important;
 }
-.ant-modal-wrap{
+.ant-modal-wrap {
   z-index: 99999 !important;
 }
 
@@ -24,7 +24,21 @@ h3 {
   margin-top: 40px;
 }
 
-.col > input{
-    width: 100%;
-    margin-bottom: 20px;
+.col > input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.col_margin_input {
+  margin: 20px 0;
+}
+
+.col_edit_item {
+  background-color: #f8f8f8;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }

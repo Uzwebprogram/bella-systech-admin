@@ -160,7 +160,7 @@
   -o-border-radius: 20px;
 }
 
-.time_wrap > div > span {
+.time_wrap > div > span{
   display: flex;
   align-items: center;
 }

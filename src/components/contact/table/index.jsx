@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { PostContact, GetContact } from "../../../redux/contact";
 import TableCommon from "../../common/table";
 import { Popover, Space } from 'antd';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import './styles.css'
 
@@ -16,7 +16,7 @@ export default function TableAdd({ onClickDelete, HandleDelete }) {
   const contactPostState = useSelector(
     (state) => state.contact
   );
-  console.log(contactPostState.postContact.Success == true ? 'ok' : 'no')
+  // console.log(contactPostState.postContact.Success == true ? 'ok' : 'no')
   console.log(ContactGetState)
   const dispatch = useDispatch();
   const DateFormat = (date) => {
@@ -30,6 +30,12 @@ export default function TableAdd({ onClickDelete, HandleDelete }) {
 
     return [day, month, year].join(".");
   };
+
+  useEffect(() => {
+    dispatch(GetContact())
+  }, [])
+
+
 
   const data = [];
   ContactGetState.map((elem, index) => {
@@ -54,9 +60,6 @@ export default function TableAdd({ onClickDelete, HandleDelete }) {
               <div className="content_delete_box">
                 <p>Вы уверены, что хотите удалить эту заявка?</p>
                 <div className="btn_wrap_delete">
-                  <button className="no_btn">
-                    Нет
-                  </button>
                   <button onClick={HandleDelete} id={elem.id} className="yes_btn">
                     да
                   </button>

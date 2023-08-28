@@ -3,14 +3,14 @@ import { API_URL } from "../../utils/api";
 import axios from "axios";
 
 export const GetContact = createAsyncThunk("Form/get", async () => {
-  return await axios.get(`${API_URL}/form`).then((response) => response.data);
+  return await axios.get(`${API_URL}/application_form`).then((response) => response.data);
 });
 export const PostContact = createAsyncThunk("Form/post", async (body) => {
-  return await axios.post(`${API_URL}/form`, body).then((res) => res);
+  return await axios.post(`${API_URL}/application_form`, body).then((res) => res);
 });
 export const DeleteContact = createAsyncThunk("category/delete", async (id) => {
   return await axios
-    .delete(`${API_URL}/form/${id}`)
+    .delete(`${API_URL}/application_form/${id}`)
     .then((response) => response.data);
 });
 

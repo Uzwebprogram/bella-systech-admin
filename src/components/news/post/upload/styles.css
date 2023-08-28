@@ -4,6 +4,11 @@
 .upload_row_wrapp > h4 {
   margin-bottom: 10px;
 }
+
+.upload_col > h4 {
+  margin-top: 0;
+}
+
 .upload_cover {
   height: 150px;
   border-radius: 20px;
@@ -23,8 +28,7 @@
   border: 3px solid #b0adad;
 }
 
-.upload_cover input[type="file"],
-.upload_plus_box input[type="file"] {
+.upload_cover input[type="file"] {
   display: none;
 }
 .upload_cover label {
@@ -42,8 +46,8 @@
   /* background: rgba(40, 40, 40, 0.6); */
 }
 
-.upload_spinss2 {
-  width: 79.1%;
+.upload_spinss {
+  width: auto;
   height: 100%;
   display: flex;
   align-items: center;
@@ -71,7 +75,7 @@
 }
 
 .upload_plus_box {
-  width: 79.1% !important;
+  width: 100%;
   height: auto;
   display: flex;
   align-items: center;
@@ -108,8 +112,7 @@
 }
 
 .upload_cover > .ant-image > .ant-image-img {
-  /* height: 155px !important; */
-  width: 100% !important;
+  height: 155px !important;
 }
 
 .ant-image-preview-wrap {
@@ -122,12 +125,12 @@
 
 .upload_cover > .ant-image > .ant-image-mask {
   border-radius: 20px !important;
-  /* height: 155px; */
+  height: 155px;
 }
 
-.upload_none_img2 {
+.upload_none_img {
   height: 100%;
-  width: 79.1%;
+  width: auto;
   background-color: #f8f8f8;
   border-radius: 20px;
   display: flex;
@@ -137,7 +140,7 @@
   border: 3px solid #b0adad;
 }
 
-.upload_none_img2 > i {
+.upload_none_img > i {
   font-size: 50px;
   color: #666;
 }
