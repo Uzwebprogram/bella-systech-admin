@@ -49,10 +49,10 @@ const Parametr = () => {
     <form onSubmit={HandleSubmit}>
       <Row className={styles.row}>
         <Col className="col" lg={4}>
-          <h4>Название параметра</h4>
+          <h4>Имя технические параметры</h4>
           <InputCommon
             type="text"
-            placeholder="название параметра уз"
+            placeholder="Имя технические параметры уз"
             required
             onChange={(e) => setTitleuz(e.currentTarget.value)}
           />
@@ -62,7 +62,7 @@ const Parametr = () => {
 
           <InputCommon
             type="text"
-            placeholder="название параметра ру"
+            placeholder="Имя технические параметры ру"
             required
             onChange={(e) => setTitleru(e.currentTarget.value)}
           />
@@ -71,7 +71,7 @@ const Parametr = () => {
           <h4>*</h4>
           <InputCommon
             type="text"
-            placeholder="название параметра ен"
+            placeholder="Имя технические параметры ен"
             required
             onChange={(e) => setTitleen(e.currentTarget.value)}
           />
@@ -80,7 +80,7 @@ const Parametr = () => {
       <Row className={styles.row}>
         <Col className={styles.col} lg={12}>
           <div style={{ margin: "20px 0" }}>
-            <h4>Информация о параметрах</h4>
+            <h4>Информация о технические параметрах</h4>
             <TextArea
               placeholder="печатание уз"
               required

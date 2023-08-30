@@ -80,6 +80,16 @@ const AparatProduct = ({
               </Col>
               <Col className="col" lg={8}>
                 <div>
+                  <h4>PDF-файл</h4>
+                  <InputCommon
+                    className="file_input"
+                    type="file"
+                    id="fileupload"
+                    required
+                    onChange={(e) => HandleChangePdf(e)}
+                  />
+                </div>
+                <div>
                   <h4>Имя продукта</h4>
                   <InputCommon
                     type="text"
@@ -104,16 +114,7 @@ const AparatProduct = ({
                     onChange={(e) => setTitleEn(e.currentTarget.value)}
                   />
                 </div>
-                <div>
-                  <h4>PDF-файл</h4>
-                  <InputCommon
-                    className="file_input"
-                    type="file"
-                    id="fileupload"
-                    required
-                    onChange={(e) => HandleChangePdf(e)}
-                  />
-                </div>
+
               </Col>
               <Col className="col" lg={12}>
                 <div>
@@ -126,7 +127,7 @@ const AparatProduct = ({
                 </div>
               </Col>
               <Col className="col" lg={12}>
-                <div style={{margin: "20px 0"}}>
+                <div style={{ margin: "20px 0" }}>
                   <TextArea
                     placeholder="русский"
                     required
@@ -145,7 +146,7 @@ const AparatProduct = ({
               </Col>
               <Col className="col" lg={12}>
                 <div>
-                  <h4>Преимущества</h4>
+                  <h4>Преимущества товара</h4>
                   <TextArea
                     placeholder="печатание"
                     required

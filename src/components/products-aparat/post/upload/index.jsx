@@ -28,7 +28,7 @@ const ImageUpload = ({ HandleChange, HandleChange2, HandleChange3, imgSize }) =>
         <Row>
           <Col lg={2}>
             <h4>Фотографию 1</h4>
-            <div className="upload_cover">
+            <div className="upload_cover_aparat">
               {data?.Loading == true ? (
                 <div className="upload_spinss2">
                   <Spin indicator={antIcon} />
@@ -56,7 +56,7 @@ const ImageUpload = ({ HandleChange, HandleChange2, HandleChange3, imgSize }) =>
                 </div>
               )}
             </div>
-            <div className="upload_plus_box">
+            <div className="upload_plus_boxs">
               {
                 data?.Success == true ? (
                   <>
@@ -73,7 +73,7 @@ const ImageUpload = ({ HandleChange, HandleChange2, HandleChange3, imgSize }) =>
           </Col>
           <Col lg={2}>
             <h4> Фотографию 2</h4>
-            <div className="upload_cover">
+            <div className="upload_cover_aparat">
               {data2?.Loading == true ? (
                 <div className="upload_spinss2">
                   <Spin indicator={antIcon} />
@@ -101,7 +101,7 @@ const ImageUpload = ({ HandleChange, HandleChange2, HandleChange3, imgSize }) =>
                 </div>
               )}
             </div>
-            <div className="upload_plus_box">
+            <div className="upload_plus_boxs">
               {
                 data2?.Success == true ? (
                   <>
@@ -118,7 +118,7 @@ const ImageUpload = ({ HandleChange, HandleChange2, HandleChange3, imgSize }) =>
           </Col>
           <Col lg={2}>
             <h4>Фотографию 3</h4>
-            <div className="upload_cover">
+            <div className="upload_cover_aparat">
               {data3?.Loading == true ? (
                 <div className="upload_spinss2">
                   <Spin indicator={antIcon} />
@@ -146,7 +146,7 @@ const ImageUpload = ({ HandleChange, HandleChange2, HandleChange3, imgSize }) =>
                 </div>
               )}
             </div>
-            <div className="upload_plus_box">
+            <div className="upload_plus_boxs">
               {
                 data3?.Success == true ? (
                   <>
