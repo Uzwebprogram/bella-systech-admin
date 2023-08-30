@@ -13,8 +13,9 @@ export const SertificatGet = createAsyncThunk("Sertificat/get", async () => {
 });
 
 export const SertificatDelete = createAsyncThunk("Sertificat/delete", async (id) => {
+  console.log(id);
   return await axios
-    .delete(`${API_URL}/sertificat/${id}` , { headers:{ token : cookies.get("token")}})
+    .delete(`${API_URL}/sertificat/${id}` , {headers:{ token : cookies.get("token")}})
     .then((response) => response.data);
 });
 export const SertificatPut = createAsyncThunk(
