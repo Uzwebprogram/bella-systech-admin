@@ -1,3 +1,196 @@
+.collapse_section {
+  height: 66dvh;
+  overflow-y: auto;
+}
+
+.ant-collapse-header {
+  display: flex !important;
+  align-items: center !important;
+}
+.collapse_title_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.collapse_title_box > h4 {
+  margin: 0;
+}
+
+.partner_content_item {
+  background-color: #f8f8f8;
+  border-radius: 20px;
+  padding: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.partner_content_item > h4,
+.partner_item_img_wrapp > div > h4,
+.partner_col > h4 {
+  margin-top: 0;
+  color: #df2027;
+}
+
+.partner_item_img_wrapp {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.partner_item_img_wrapp > div {
+  margin-right: 20px;
+}
+
+.partner_name_wrapp > h4 > span {
+  color: #df2027;
+  font-style: italic;
+  margin-right: 10px;
+}
+
+.partner_social {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.partner_social > a {
+  color: #df2027;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.partner_social > a > span:nth-child(1) {
+  background-color: #df2027;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  margin-right: 10px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.partner_desc > p {
+  display: flex;
+  align-content: center;
+}
+
+.partner_desc > p > span {
+  color: #df2027;
+  font-style: italic;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.partner_card {
+  padding: 10px;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  box-shadow: 20px 20px 40px 0px rgba(0, 0, 0, 0.05);
+}
+
+.partner_card_img_wrapp {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.partner_card_img_wrapp > .ant-image > .ant-image-mask {
+  border-radius: 20px !important;
+  -webkit-border-radius: 20px !important;
+  -moz-border-radius: 20px !important;
+  -ms-border-radius: 20px !important;
+  -o-border-radius: 20px !important;
+}
+.partner_card_img_wrapp > .ant-image > .ant-image-mask > .ant-image-mask-info {
+  font-size: 0 !important;
+}
+
+.partner_card_content_wrapp {
+  background-color: #f8f8f8;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.partner_card_content_wrapp > a > h4 {
+  margin-top: 0;
+}
+
+.partner_card_content_wrapp > a > p {
+  color: #000;
+}
+
+.partner_product_cols {
+  margin-bottom: 20px;
+}
+
+.time_wrap {
+  margin-right: 0 !important;
+  background-color: #df2027;
+  border-radius: 20px;
+  color: #fff;
+  padding: 6px 10px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.time_wrap > div > span {
+  display: flex;
+  align-items: center;
+}
+
+.watch_span {
+  margin-left: 10px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  background-color: #df2027;
+  border-radius: 20px;
+  color: #fff;
+  padding: 6px 10px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.status > p {
+  margin: 0;
+  font-size: 14px;
+}
+
 .btn-wrap {
   width: 100%;
   display: flex;
@@ -5,16 +198,22 @@
   justify-content: space-around;
 }
 
-.btn-wrap > button {
+.btn-wrap > button,
+.btn-wraps > button {
   border: none;
   outline: none;
   background: none;
   cursor: pointer;
 }
 
-.btn-wrap > button > i {
+.btn-wrap > button > i,
+.btn-wraps > button > i {
   font-size: 25px;
   color: orangered;
+}
+
+.bx-message-square-edit {
+  color: green !important;
 }
 
 .date_wrap {
@@ -24,7 +223,7 @@
 }
 
 .time_span {
-  background-color: #3045A5;
+  background-color: #3045a5;
   color: #fff;
   padding: 2px 10px;
   border-radius: 50px;
@@ -33,7 +232,7 @@
 
 .date_span {
   margin-left: 10px;
-  color: #3045A5;
+  color: #3045a5;
   font-weight: bold;
 }
 
@@ -57,7 +256,7 @@
 }
 
 .delete_box > span > span {
-  background-color: #3045A5;
+  background-color: #3045a5;
   color: #fff;
   padding: 0 10px;
   border-radius: 50px;
@@ -100,4 +299,17 @@
 .content_delete_box > p {
   font-size: 15px;
   font-weight: 500;
+}
+
+.content_delete_box > p:nth-child(2) {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #f00;
+  font-weight: bold;
+}
+
+.boxx {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }

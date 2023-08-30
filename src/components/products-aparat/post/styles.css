@@ -53,7 +53,7 @@ select {
   margin-bottom: 5px;
 }
 
-input,
+/* input,
 select {
   font-family: "Ubuntu", sans-serif;
   background: #ffffff;
@@ -65,7 +65,7 @@ select {
   font-size: 14px;
   line-height: 19px;
   color: #aaaaaa;
-}
+} */
 
 input:focus {
   border: 2px solid red;
@@ -176,8 +176,9 @@ input:focus {
 }
 
 .ant-steps .ant-steps-item-process .ant-steps-item-icon {
-  background-color: #df2027;
-  border-color: #df2027;
+  background-color: #fff;
+  border-color: #fff;
+  color: #000 !important;
 }
 .ant-steps
   .ant-steps-item-finish
@@ -187,9 +188,9 @@ input:focus {
   background-color: #df2027;
 }
 
-/* .ant-steps .ant-steps-item-icon .ant-steps-icon{
-  top: 5.5% !important;
-} */
+.ant-steps .ant-steps-item-icon .ant-steps-icon{
+  color: #000 !important;
+}
 
 .ant-steps-item-icon {
   display: flex !important;
@@ -201,5 +202,35 @@ input:focus {
   display: flex !important;
   align-items: center !important;
   justify-content: unset !important;
+  width: 200px !important;
+  height: 100% !important;
+  margin-right: 0 !important;
+  padding: 2px !important;
+}
+
+.ant-steps .ant-steps-item-title::after {
+  display: none !important;
+}
+
+.ant-steps .ant-steps-item-title {
+  font-size: 12px !important;
+  text-align: center !important;
+}
+
+.ant-steps {
+  background: #f8f8f8 !important;
+  border-radius: 50px !important;
+  padding: 5px !important;
+}
+
+.ant-steps-item-active {
+  background: #df2027 !important;
+  color: #fff !important;
+  border-radius: 50px !important;
+  padding: 5px !important;
+}
+
+.ant-steps-item-active > .ant-steps-item-container > .ant-steps-item-content  .ant-steps-item-title{
+  color: #fff !important;
 }
 /* STEP CSS */

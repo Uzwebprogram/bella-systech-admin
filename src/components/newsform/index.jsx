@@ -23,6 +23,7 @@ function NewsFormComponent() {
   const HandleDelete = async (e) => {
     await dispatch(DeleteNewForm(e.currentTarget.id));
     dispatch(GetNewForm());
+    // window.location.reload()
   };
   console.log(contactdelete);
   if (contactdelete.deleteNewForm?.Success == true) {
@@ -31,7 +32,7 @@ function NewsFormComponent() {
 
   return (
     <>
-      <TableAdd onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} />
+      <TableAdd HandleDelete={HandleDelete} />
     </>
   );
 }

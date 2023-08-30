@@ -116,63 +116,63 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
             {
               key: "3",
               label: (
-                      <span class="title">Категория</span>
+                <span class="title">Категория</span>
 
-              ),
-              children: [
-                  {
-                    type: 'category',
-                    label: (
-                      <NavLink
-                      to={"/category-aparat"}
-                      className={pathname == "/category-aparat" ? "active" : ""}
-                  >
-                      <span class="title">Апарат</span>
-                  </NavLink>
-                    )
-                  },
-                  {
-                      type: 'category',
-                      label: (
-                        <NavLink
-                        to={"/category-pereparat"}
-                        className={pathname == "/category-pereparat" ? "active" : ""}
-                    >
-                        <span class="title">Препараты</span>
-                    </NavLink>
-                      )
-                    }
-                  ]
-          },
-            {
-              key: "4",
-              label: (
-                  <span class="title">Продукт</span>
               ),
               children: [
                 {
                   type: 'category',
                   label: (
                     <NavLink
-                    to={"/aparat-product"}
-                    className={pathname == "/aparat-product" ? "active" : ""}
-                >
-                    <span class="title">Апарат</span>
-                </NavLink>
+                      to={"/category-aparat"}
+                      className={pathname == "/category-aparat" ? "active" : ""}
+                    >
+                      <span class="title">Апарат</span>
+                    </NavLink>
                   )
                 },
                 {
-                    type: 'category',
-                    label: (
-                      <NavLink
+                  type: 'category',
+                  label: (
+                    <NavLink
+                      to={"/category-pereparat"}
+                      className={pathname == "/category-pereparat" ? "active" : ""}
+                    >
+                      <span class="title">Препараты</span>
+                    </NavLink>
+                  )
+                }
+              ]
+            },
+            {
+              key: "4",
+              label: (
+                <span class="title">Продукт</span>
+              ),
+              children: [
+                {
+                  type: 'category',
+                  label: (
+                    <NavLink
+                      to={"/aparat-product"}
+                      className={pathname == "/aparat-product" ? "active" : ""}
+                    >
+                      <span class="title">Апарат</span>
+                    </NavLink>
+                  )
+                },
+                {
+                  type: 'category',
+                  label: (
+                    <NavLink
                       to={"/pereparat-product"}
                       className={pathname == "/pereparat-product" ? "active" : ""}
-                  >
+                    >
                       <span class="title">Препараты</span>
-                  </NavLink>
-                    )
-                  }
-                ]
+                    </NavLink>
+                  )
+                }
+              ]
             },
             {
               key: "5",
@@ -188,38 +188,36 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
             {
               key: "6",
               label: (
-                  <NavLink
-                      to={"/partners"}
-                      className={pathname == "/partners" ? "active" : ""}
-                  >
-                      <span class="title">Партнеры</span>
-                  </NavLink>
-              ),
-          },
-          {
-            key: "6",
-            icon: <ShoppingCartOutlined />,
-            label: (
                 <NavLink
-                    to={"/sertfikat"}
-                    className={pathname == "/sertfikat" ? "active" : ""}
+                  to={"/partners"}
+                  className={pathname == "/partners" ? "active" : ""}
                 >
-                    <span class="title">Сертификат</span>
+                  <span class="title">Партнеры</span>
                 </NavLink>
-            ),
-        },
-        {
-          key: "6",
-          icon: <ShoppingCartOutlined />,
-          label: (
-              <NavLink
+              ),
+            },
+            {
+              key: "6",
+              label: (
+                <NavLink
+                  to={"/sertfikat"}
+                  className={pathname == "/sertfikat" ? "active" : ""}
+                >
+                  <span class="title">Сертификат</span>
+                </NavLink>
+              ),
+            },
+            {
+              key: "6",
+              label: (
+                <NavLink
                   to={"/news-form"}
                   className={pathname == "/news-form" ? "active" : ""}
-              >
+                >
                   <span class="title">Записи на семинар</span>
-              </NavLink>
-          ),
-      }
+                </NavLink>
+              ),
+            }
           ]}
         />
         <div className="profile">
@@ -232,8 +230,12 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
           >
             <a onClick={(e) => e.preventDefault()}>
               <Space>
-
-                <SettingOutlined />
+                <lord-icon
+                  src="https://cdn.lordicon.com/dycatgju.json"
+                  trigger="hover"
+                  colors="primary:#fff"
+                  style={{width: "20px", height: "20px"}}>
+                </lord-icon>
                 <span className="drop_span">Настройка</span>
               </Space>
             </a>

@@ -23,13 +23,13 @@ function Sertifkat() {
 
 
     window.localStorage.getItem("checked") == 'false' ? <HorizontalSidebar>
-      <WrapperContainer style={{ marginTop: "90px" }}>
+      <WrapperContainer style={{ marginTop: "90px" }} >
         <HeaderTopCommon
           title={"Сертификат"}
           onClick={showDrawer}
           textBtn={"Добавить Сертификат"}
         />
-        <SertfikatComponent handleClose={onClose} open={open} />
+        <SertfikatComponent handleClose={onClose} open={open} cols={3} />
       </WrapperContainer>
     </HorizontalSidebar> : <VerticalSidebar>
       <WrapperContainer>
@@ -38,7 +38,7 @@ function Sertifkat() {
           onClick={showDrawer}
           textBtn={"Добавить Сертификат"}
         />
-        <SertfikatComponent handleClose={onClose} open={open} />
+        <SertfikatComponent handleClose={onClose} open={open} cols={3} />
       </WrapperContainer>
     </VerticalSidebar>
   );

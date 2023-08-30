@@ -67,9 +67,7 @@ const PhotosProductPuts = ({ putAparatId, openAparatProduct, setOpenAparatProduc
               <div className={styles.col_edit_item}>
                 <h4>Youtube линк</h4>
                 <InputCommon
-                  type="text"
-                  placeholder="youtube линк"
-                  required
+                  type="url"
                   defaultValue={elem.video}
                   onChange={(e) => setYouteLinkPhotos(e.currentTarget.value)}
                 />

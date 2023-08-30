@@ -13,7 +13,7 @@ export const Wrapper = styled.form`
   input[type="file"] {
     display: none;
   }
-  label {
+  /* label {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,7 +25,7 @@ export const Wrapper = styled.form`
     cursor: pointer;
     backdrop-filter: blur(5px) !important;
     background: rgba(40, 40, 40, 0.6);
-  }
+  } */
   .spins {
     width: 100%;
     height: 150px;

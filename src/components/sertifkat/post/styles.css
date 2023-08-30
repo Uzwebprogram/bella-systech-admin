@@ -140,13 +140,20 @@ input:focus {
   height: 200px;
 }
 
-.col_upload {
-  width: 261.16px !important;
-  height: 361.16px !important;
-}
+
 .col_upload:nth-child(1) {
   padding-left: 0 !important;
 }
 .col_upload:nth-child(2) {
   padding-right: 0 !important;
+}
+
+.col_edit_item{
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }

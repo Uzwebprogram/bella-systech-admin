@@ -6,7 +6,9 @@ import UslugyForm from "./post";
 import Put from "./put";
 import TableAdd from "./table";
 import { SertificatDelete, SertificatPut , SertificatGet } from "../../redux/sertifikat";
-function SertfikatComponent({ open, handleClose }) {
+
+import ImageGet from "./image-get";
+function SertfikatComponent({ open, handleClose, cols }) {
   const newsdelete = useSelector((state) => state.news);
   const dispatch = useDispatch();
   const [categoryId, setCategoryId] = useState();
@@ -37,7 +39,8 @@ function SertfikatComponent({ open, handleClose }) {
   return (
     <>
       <UslugyForm Open={open} HandleClose={handleClose} />
-      <TableAdd onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} onClickPut={handlePutModal} />
+      {/* <TableAdd onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} onClickPut={handlePutModal} /> */}
+      <ImageGet onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} onClickPut={handlePutModal} cols={cols} />
       <Delete
         // HandleDelete={HandleDelete}
         openDelete={openDelete}
