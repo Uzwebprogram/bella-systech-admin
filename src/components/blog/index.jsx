@@ -6,6 +6,7 @@ import NewsForm from "./post";
 import Put from "./put";
 import TableAdd from "./table";
 import CollapseGet from "./collapse";
+import { PartnersDelete , PartnersGet } from "../../redux/partners";
 function BlogComponent({ open, handleClose, cols }) {
   const newsdelete = useSelector((state) => state.news);
   const dispatch = useDispatch();
@@ -24,8 +25,9 @@ function BlogComponent({ open, handleClose, cols }) {
     setCategoryId(e.currentTarget.id);
     setOpenPut(true);
   };
-  const HandleDelete = (e) => {
-    dispatch(NewsDelete(e.currentTarget.id));
+  const HandleDelete = async (e) => {
+   await  dispatch(PartnersDelete(e.currentTarget.id));
+    dispatch(PartnersGet())
   };
   if (newsdelete.newsDelete.Success == true) {
     window.location.reload();

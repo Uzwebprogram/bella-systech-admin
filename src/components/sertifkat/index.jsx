@@ -5,7 +5,8 @@ import Delete from "./delete";
 import UslugyForm from "./post";
 import Put from "./put";
 import TableAdd from "./table";
-import { SertificatDelete, SertificatPut } from "../../redux/sertifikat";
+import { SertificatDelete, SertificatPut , SertificatGet } from "../../redux/sertifikat";
+
 import ImageGet from "./image-get";
 function SertfikatComponent({ open, handleClose, cols }) {
   const newsdelete = useSelector((state) => state.news);
@@ -25,9 +26,9 @@ function SertfikatComponent({ open, handleClose, cols }) {
     setCategoryId(e.currentTarget.id);
     setOpenPut(true);
   };
-  const HandleDelete = (e) => {
-    dispatch(SertificatDelete(e.currentTarget.id));
-    window.location.reload();
+  const HandleDelete = async(e) => {
+    await dispatch(SertificatDelete(e.currentTarget.id));
+    dispatch(SertificatGet())
   };
   if (newsdelete.newsDelete.Success == true) {
     window.location.reload();

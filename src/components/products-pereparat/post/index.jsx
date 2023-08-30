@@ -26,6 +26,7 @@ import { LocalFireDepartment } from "@mui/icons-material";
 import {DesignProductPost, UploadImageDesign , UploadImageDesign2} from "./../../../redux/product-aparat/design"
 import { PereparatGet, PereparatPost , UploadImage, UploadImage2, UploadImage3 , UploadPdf } from "../../../redux/pereparat";
 import { PereparatCategoryGet } from "../../../redux/pereparat-category";
+import DescriptionAparatProduct from "./description";
 function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   const dispatch = useDispatch();
   const [current, setCurrent] = useState(0);
@@ -40,28 +41,53 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   const [categoryaparatstate , setCategoryAparatState] = useState();
   const [partnerstate , setPartnersState] = useState();
   const [salecount, setsalecount] = useState();
+  const [descriptionUzYoutube , setDescriptionUzYoutube] = useState();
+  const [descriptionRuYoutube , setDescriptionRuYoutube] = useState();
+  const [descriptionEnYoutube , setDescriptionEnYoutube] = useState();
+  const [YoutubeLink , setYouteLink] = useState();
+  const AparatProductGetsPost = useSelector((state) => state.pereparat.PereparatPost.data)
+
   // ! photos api 
 
   const next = async (e) => {
     e.preventDefault();
-      const body = {
-        name_uz: titleUz,
-        name_ru: titleRu,
-        name_en: titleEn,
-        description_uz: productTypeUz,
-        description_ru: productTypeRu,
-        description_en: productTypeEn,
-        image1: dataImage1?.data,
-        image2: dataImage2?.data,
-        image3: dataImage3?.data,
-        pdf: dataPdf.data,
-        company : companystate,
-        category_pereparat: categoryaparatstate,
-      };
-      await dispatch(PereparatPost(body));
-        dispatch(PereparatGet());
-      window.location.reload();
+        const body = {
+          name_uz: titleUz,
+          name_ru: titleRu,
+          name_en: titleEn,
+          description_uz: productTypeUz,
+          description_ru: productTypeRu,
+          description_en: productTypeEn,
+          image1: dataImage1?.data,
+          image2: dataImage2?.data,
+          image3: dataImage3?.data,
+          pdf: dataPdf.data,
+          company : companystate,
+          category_pereparat: categoryaparatstate,
+        };
+        await dispatch(PereparatPost(body));
+          dispatch(PereparatGet());
+          setCurrent(current + 1);
+}
+const DoneSubmit = async(e) => {
+  e.preventDefault();
+  const body = {
+    description_uz: descriptionUzYoutube,
+    description_ru: descriptionRuYoutube,
+    description_en: descriptionEnYoutube,
+    youtube_link : YoutubeLink,
+    pereparat : AparatProductGetsPost?.data?.data?.id
   };
+  await dispatch(DescriptionProductPost(body))
+  e.target[0].value = null
+  e.target[1].value = null
+  e.target[2].value = null
+  e.target[3].value = null
+  e.target[4].value = null
+  e.target[5].value = null
+  e.target[6].value = null
+  window.location.reload(); 
+}
   const AparatCategoryGets = useSelector((state) => state.pereparatcategory.PereparatCategoryGet.data);
   useEffect(() => {
     dispatch(PereparatCategoryGet());
@@ -171,9 +197,15 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
       title: "Перепарат Продукт",
       content: (
           <>
- 
+          <AparatProduct  setTitleUz={setTitleUz} setTitleRU={setTitleRU} setTitleEn={setTitleEn} setProductTypeUz={setProductTypeUz} setProductTypeRu={setProductTypeRu} setProductTypeEn={setProductTypeEn} setsalecount={setsalecount} HandleChange={HandleChange} HandleChange2={HandleChange2} HandleChange3={HandleChange3} options={options} optionsCompany={optionsCompany} OptionPartners={OptionPartners} SelectChange={SelectChange} SelectChange2={SelectChange2} SelectChange3={SelectChange3}  HandleChangePdf={HandleChangePdf}/>
           </>
       ),
+    },
+    {
+      title: "Description Product",
+      content: <>
+      <DescriptionAparatProduct  setDescriptionRuYoutube={setDescriptionRuYoutube} setDescriptionUzYoutube={setDescriptionUzYoutube} setDescriptionEnYoutube={setDescriptionEnYoutube} setYouteLink={setYouteLink} />
+      </>,
     },
   ];
 
@@ -199,17 +231,31 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   // STEPS CODE
   return (
     <DrawerCommon title="Добавить продукт" open={Open} onClose={HandleClose}>
-         <AparatProduct  setTitleUz={setTitleUz} setTitleRU={setTitleRU} setTitleEn={setTitleEn} setProductTypeUz={setProductTypeUz} setProductTypeRu={setProductTypeRu} setProductTypeEn={setProductTypeEn} setsalecount={setsalecount} HandleChange={HandleChange} HandleChange2={HandleChange2} HandleChange3={HandleChange3} options={options} optionsCompany={optionsCompany} OptionPartners={OptionPartners} SelectChange={SelectChange} SelectChange2={SelectChange2} SelectChange3={SelectChange3}  HandleChangePdf={HandleChangePdf}/>
-         <CommonBtn
-          onClick={next}
-style={{
-                  margin: "20px auto 0 auto",
-                  padding: "12px 40px",
-                  border: "2px solid #fff",
-                }}
-              >
-                Добавить
-              </CommonBtn>
+      <>
+        <Steps className={styled.stepsss} current={current} items={items} />
+        <div className="step_content" style={contentStyle}>
+          {steps[current].content}
+        </div>
+        <div
+          style={{
+            marginTop: 24,
+          }}
+        >
+          {current < steps.length - 1 && (
+            <Button type="primary" onClick={next}>
+              Next
+            </Button>
+          )}
+          {current === steps.length - 1 && (
+            <Button
+              type="primary"
+              onClick={DoneSubmit}
+            >
+              Done
+            </Button>
+          )}
+        </div>
+      </>
     </DrawerCommon>
   );
 }
