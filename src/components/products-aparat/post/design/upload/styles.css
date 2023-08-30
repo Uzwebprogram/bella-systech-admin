@@ -1,8 +1,8 @@
-.upload_row_wrapp{
-    margin-bottom: 50px;
+.upload_row_wrapp {
+  margin-bottom: 50px;
 }
-.upload_row_wrapp > h4{
-    margin-bottom: 20px;
+.upload_row_wrapp > h4 {
+  margin-bottom: 20px;
 }
 .upload_cover {
   height: 195px;
@@ -76,8 +76,8 @@
   background-color: #b0adad !important;
 }
 
-.upload_cover > .ant-image > .ant-image-img{
-    height: 195px !important;
+.upload_cover > .ant-image > .ant-image-img {
+  height: 195px !important;
 }
 
 .ant-image-preview-wrap {
@@ -119,4 +119,8 @@
 .upload_wrapp > div {
   width: 200px;
   height: 200px;
+}
+
+.design_row {
+  margin: 0 !important;
 }

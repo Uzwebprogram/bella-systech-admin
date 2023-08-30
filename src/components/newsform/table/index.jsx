@@ -7,16 +7,17 @@ import { useState } from "react";
 
 import './styles.css'
 
-export default function TableAdd({ onClickDelete, HandleDelete }) {
+export default function TableAdd({ HandleDelete }) {
 
   const ContactGetState = useSelector(
     (state) => state.newsform.getNewForm?.Data
   );
+  console.log(ContactGetState)
 
   const contactPostState = useSelector(
     (state) => state.contact
   );
-  console.log(contactPostState.postContact.Success == true ? 'ok' : 'no')
+  // console.log(contactPostState.postContact.Success == true ? 'ok' : 'no')
   const dispatch = useDispatch();
   const DateFormat = (date) => {
     var d = new Date(date),
@@ -37,10 +38,24 @@ export default function TableAdd({ onClickDelete, HandleDelete }) {
       key: elem.id,
       Имя: elem.full_name,
       Телефонныйномер: elem.phone,
-      ДеятельностьДолжность : elem.activity,
-      Названиеклиники: elem.position,
-      категорияновостей: elem.clinic_name,
-
+      активность: elem.activity,
+      Позиция: elem.position,
+      имяклиники: elem.clinic_name,
+      Создатьдату: (
+        <div className='time_wrap'>
+          <div>
+            <span>
+              <lord-icon
+                src="https://cdn.lordicon.com/qtxqkhzr.json"
+                trigger="hover"
+                colors="primary:#fff"
+                style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+              </lord-icon>
+              {DateFormat(elem.createdAt)}
+            </span>
+          </div>
+        </div>
+      )
     });
   });
 
@@ -68,24 +83,26 @@ export default function TableAdd({ onClickDelete, HandleDelete }) {
       key: "Телефонныйномер",
     },
     {
-      title: "Деятельность/Должность",
-      dataIndex: "ДеятельностьДолжность ",
-      key: "ДеятельностьДолжность ",
+      title: "Активность",
+      dataIndex: "активность",
+      key: "активность",
     },
     {
-      title: "Название клиники",
-      dataIndex: "Названиеклиники",
-      key: "Названиеклиники",
+      title: "Позиция",
+      dataIndex: "Позиция",
+      key: "Позиция",
     },
     {
-      title: "категория новостей",
-      dataIndex: "категорияновостей",
-      key: "категорияновостей",
+      title: "Имя клиники",
+      dataIndex: "имяклиники",
+      key: "имяклиники",
     },
     {
-      title: "категория новостей",
-      dataIndex: "категорияновостей",
-      key: "категорияновостей",
+      title: "Создать дату",
+      dataIndex: "Создатьдату",
+      key: "Создатьдату",
+      fixed: "right",
+      align: "center",
     },
   ];
   return (

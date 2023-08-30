@@ -4,8 +4,13 @@
 .upload_row_wrapp > h4 {
   margin-bottom: 10px;
 }
+
+.upload_col > h4 {
+  margin-top: 0;
+}
+
 .upload_cover {
-  height: 150px;
+  height: 200px !important;
   border-radius: 20px;
 }
 .upload_img {
@@ -23,6 +28,9 @@
   border: 3px solid #b0adad;
 }
 
+.upload_cover input[type="file"] {
+  display: none;
+}
 .upload_cover label {
   display: flex;
   align-items: center;
@@ -39,7 +47,7 @@
 }
 
 .upload_spinss {
-  width: 100%;
+  width: auto;
   height: 100%;
   display: flex;
   align-items: center;
@@ -67,14 +75,13 @@
 }
 
 .upload_plus_box {
-  width: 89.1% !important;
+  width: 100% !important;
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: transparent;
   margin-top: 10px;
-  cursor: pointer;
 }
 
 .upload_plus_box > label {
@@ -98,15 +105,15 @@
 }
 
 .upload_cover > .ant-image {
-  /* height: 100% !important; */
+  width: 100% !important;
+  height: 100% !important;
   /* border: 3px solid #b0adad !important; */
   border-radius: 20px !important;
   background-color: #b0adad !important;
 }
 
 .upload_cover > .ant-image > .ant-image-img {
-  /* height: 150px !important; */
-  width: 100% !important;
+  height: 100% !important;
 }
 
 .ant-image-preview-wrap {
@@ -119,12 +126,12 @@
 
 .upload_cover > .ant-image > .ant-image-mask {
   border-radius: 20px !important;
-  /* height: 150px !important; */
+  height: 100% !important;
 }
 
 .upload_none_img {
   height: 100%;
-  width: 100%;
+  width: auto;
   background-color: #f8f8f8;
   border-radius: 20px;
   display: flex;
@@ -150,23 +157,10 @@
   height: 200px;
 }
 
-.infor_box {
-  margin-top: 60px;
-}
-
 .infor_box > p {
   color: #000;
 }
 
 .infor_box > p > span {
   font-weight: bold;
-}
-
-.upload_cover input[type="file"],
-.upload_plus_box input[type="file"] {
-  display: none !important;
-}
-
-.upload_row {
-  margin: 0 !important;
 }

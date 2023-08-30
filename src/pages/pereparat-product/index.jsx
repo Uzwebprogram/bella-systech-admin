@@ -29,7 +29,7 @@ function PeraparatProduct() {
           onClick={showDrawer}
           textBtn={"Добавить перепарат"}
         />
-        <PereparatAparatComponent handleClose={onClose} open={open} />
+        <PereparatAparatComponent handleClose={onClose} open={open} cols={4}  />
       </WrapperContainer>
     </HorizontalSidebar> : <VerticalSidebar>
       <WrapperContainer>
@@ -38,7 +38,7 @@ function PeraparatProduct() {
           onClick={showDrawer}
           textBtn={"Добавить перепарат"}
         />
-        <PereparatAparatComponent handleClose={onClose} open={open} />
+        <PereparatAparatComponent handleClose={onClose} open={open} cols={6}  />
       </WrapperContainer>
     </VerticalSidebar>
   );

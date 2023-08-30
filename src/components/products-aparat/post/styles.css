@@ -53,7 +53,7 @@ select {
   margin-bottom: 5px;
 }
 
-input,
+/* input,
 select {
   font-family: "Ubuntu", sans-serif;
   background: #ffffff;
@@ -65,7 +65,7 @@ select {
   font-size: 14px;
   line-height: 19px;
   color: #aaaaaa;
-}
+} */
 
 input:focus {
   border: 2px solid red;

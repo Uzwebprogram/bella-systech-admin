@@ -38,8 +38,8 @@ function SertfikatComponent({ open, handleClose, cols }) {
   return (
     <>
       <UslugyForm Open={open} HandleClose={handleClose} />
-      <TableAdd onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} onClickPut={handlePutModal} />
-      {/* <ImageGet onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} onClickPut={handlePutModal} cols={cols} /> */}
+      {/* <TableAdd onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} onClickPut={handlePutModal} /> */}
+      <ImageGet onClickDelete={handleDeleteModal} HandleDelete={HandleDelete} onClickPut={handlePutModal} cols={cols} />
       <Delete
         // HandleDelete={HandleDelete}
         openDelete={openDelete}
