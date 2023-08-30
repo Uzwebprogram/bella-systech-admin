@@ -111,9 +111,9 @@ const ProductPereparatMoreComponent = () => {
                     <h6 className={styles.product_mini_title}>
                       Категория товара
                     </h6>
-                    <h4><span className={styles.language}>RU:</span> {elem.category_pereparat.title_ru}</h4>
-                    <h4><span className={styles.language}>EN:</span> {elem.category_pereparat.title_en}</h4>
-                    <h4><span className={styles.language}>UZ:</span> {elem.category_pereparat.title_uz}</h4>
+                    <h4><span className={styles.language}>RU:</span> {elem.category_pereparat?.title_ru}</h4>
+                    <h4><span className={styles.language}>EN:</span> {elem.category_pereparat?.title_en}</h4>
+                    <h4><span className={styles.language}>UZ:</span> {elem.category_pereparat?.title_uz}</h4>
                   </div>
                 </Col>
                 <Col className={styles.card_more_col} lg={12}>

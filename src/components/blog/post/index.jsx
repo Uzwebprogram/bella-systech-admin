@@ -95,7 +95,8 @@ function NewsForm({ Open, HandleClose }) {
       })
     );
     dispatch(PartnersGet());
-    HandleClose();
+    // HandleClose();
+    window.location.reload()
   };
 
   const optionAparat = []
