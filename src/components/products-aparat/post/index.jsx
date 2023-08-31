@@ -246,7 +246,7 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   // STEPS CODE
   const steps = [
     {
-      title: "Aparat Product",
+      title: "Апарат",
       content: (
         <>
           <AparatProduct setTitleUz={setTitleUz} setTitleRU={setTitleRU} setTitleEn={setTitleEn} setProductTypeUz={setProductTypeUz} setProductTypeRu={setProductTypeRu} setProductTypeEn={setProductTypeEn} setsalecount={setsalecount} HandleChange={HandleChange} HandleChange2={HandleChange2} HandleChange3={HandleChange3} options={options} optionsCompany={optionsCompany} OptionPartners={OptionPartners} SelectChange={SelectChange} SelectChange2={SelectChange2} SelectChange3={SelectChange3} HandleChangePdf={HandleChangePdf} />
@@ -255,25 +255,25 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
     },
 
     {
-      title: "Description Product",
+      title: "Описание товара",
       content: <>
         <DescriptionAparatProduct setDescriptionRuYoutube={setDescriptionRuYoutube} setDescriptionUzYoutube={setDescriptionUzYoutube} setDescriptionEnYoutube={setDescriptionEnYoutube} setYouteLink={setYouteLink} />
       </>,
     },
     {
-      title: "Parametr",
+      title: "Тех параметры",
       content: <Parametr />,
     },
     {
-      title: "Sample Product",
+      title: "Применение товара",
       content: <SampleProductPosts />,
     },
     {
-      title: "Last",
+      title: "Процедура товара",
       content: <PhotosProduct HandleChange={HandleChangePhotos} HandleChange2={HandleChangePhotos2} HandleChange3={HandleChangePhotos3} HandleChange4={HandleChangePhotos4} setYouteLinkPhotos={setYouteLinkPhotos} />,
     },
     {
-      title: "product",
+      title: "Доказанный эффект",
       content: <DesignProduct HandleChange={HandleChangeDesigns} HandleChange2={HandleChangeDesign2s} />
     },
   ];

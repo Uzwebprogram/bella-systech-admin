@@ -1,4 +1,21 @@
 .row {
-    margin: 0 0 0 0 !important;
-  }
-  
+  margin: 0 0 0 0 !important;
+}
+
+.col_edit_item {
+  background-color: #f8f8f8;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.col_edit_item > h4{
+  margin-top: 0;
+}
+
+.col{
+  margin-bottom: 20px !important;
+}

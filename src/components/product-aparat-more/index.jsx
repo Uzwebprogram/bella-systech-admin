@@ -493,45 +493,6 @@ const ProductAparatMoreComponent = () => {
                     <h6 className={styles.product_mini_title}>
                       Продуктовая компания
                     </h6>
-                    {/* <Row className={styles.card_company_row}>
-                      <Col className={styles.card_company_col} lg={12}>
-                        <h6 className={styles.company_mini_title}>
-                          #Имя компании
-                        </h6>
-                        <h4>{elem.company.name}</h4>
-                        <hr />
-                      </Col>
-                      <Col className={styles.card_company_col} lg={12}>
-                        <h6 className={styles.company_mini_title}>
-                          #Изображение компании
-                        </h6>
-                        <div className={styles.company_img_box}>
-                          <Image
-                            style={{ aspectRatio: 1 / 1, borderRadius: '25px', height: "176px" }}
-                            // src={elem.company.image}
-                            src={elem.image}
-                          />
-                        </div>
-                        <hr />
-                      </Col>
-                      <Col className={styles.card_company_col} lg={12}>
-                        <h6 className={styles.company_mini_title}>
-                          #***
-                        </h6>
-                        <h4><span className={styles.language}>RU:</span>  {elem.company.title_ru}</h4>
-                        <h4><span className={styles.language}>EN:</span>  {elem.company.title_en}</h4>
-                        <h4><span className={styles.language}>UZ:</span>  {elem.company.title_uz}</h4>
-                        <hr />
-                      </Col>
-                      <Col className={styles.card_company_col} lg={12}>
-                        <h6 className={styles.company_mini_title}>
-                          #Описание kомпании
-                        </h6>
-                        <p><span className={styles.language}>RU:</span>  {elem.company.description_ru}</p>
-                        <p><span className={styles.language}>EN:</span>  {elem.company.description_en}</p>
-                        <p><span className={styles.language}>UZ:</span>  {elem.company.description_uz}</p>
-                      </Col>
-                    </Row> */}
                     <Collapse
                       items={itemCompany}
                       expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}

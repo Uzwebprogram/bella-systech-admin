@@ -45,7 +45,7 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   const [descriptionRuYoutube , setDescriptionRuYoutube] = useState();
   const [descriptionEnYoutube , setDescriptionEnYoutube] = useState();
   const [YoutubeLink , setYouteLink] = useState();
-  const AparatProductGetsPost = useSelector((state) => state.pereparat.PereparatPost.data)
+  const AparatProductGetsPost = useSelector((state) => state.pereparat.PereparatPost?.data)
 
   // ! photos api 
 
@@ -83,10 +83,8 @@ const DoneSubmit = async(e) => {
   e.target[1].value = null
   e.target[2].value = null
   e.target[3].value = null
-  e.target[4].value = null
-  e.target[5].value = null
-  e.target[6].value = null
-  window.location.reload(); 
+  message.success("Завершена обработка!")
+  HandleClose()
 }
   const AparatCategoryGets = useSelector((state) => state.pereparatcategory.PereparatCategoryGet.data);
   useEffect(() => {
@@ -194,7 +192,7 @@ const DoneSubmit = async(e) => {
   // STEPS CODE
   const steps = [
     {
-      title: "Перепарат Продукт",
+      title: "Перепарат",
       content: (
           <>
           <AparatProduct  setTitleUz={setTitleUz} setTitleRU={setTitleRU} setTitleEn={setTitleEn} setProductTypeUz={setProductTypeUz} setProductTypeRu={setProductTypeRu} setProductTypeEn={setProductTypeEn} setsalecount={setsalecount} HandleChange={HandleChange} HandleChange2={HandleChange2} HandleChange3={HandleChange3} options={options} optionsCompany={optionsCompany} OptionPartners={OptionPartners} SelectChange={SelectChange} SelectChange2={SelectChange2} SelectChange3={SelectChange3}  HandleChangePdf={HandleChangePdf}/>
@@ -202,7 +200,7 @@ const DoneSubmit = async(e) => {
       ),
     },
     {
-      title: "Description Product",
+      title: "Описание товара",
       content: <>
       <DescriptionAparatProduct  setDescriptionRuYoutube={setDescriptionRuYoutube} setDescriptionUzYoutube={setDescriptionUzYoutube} setDescriptionEnYoutube={setDescriptionEnYoutube} setYouteLink={setYouteLink} />
       </>,
@@ -230,7 +228,7 @@ const DoneSubmit = async(e) => {
 
   // STEPS CODE
   return (
-    <DrawerCommon title="Добавить продукт" open={Open} onClose={HandleClose}>
+    <DrawerCommon width="100%" title="Добавить препарат продукт" open={Open} onClose={HandleClose}>
       <>
         <Steps className={styled.stepsss} current={current} items={items} />
         <div className="step_content" style={contentStyle}>

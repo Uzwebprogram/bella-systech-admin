@@ -32,7 +32,7 @@ const PhotosProduct = ({ HandleChange, HandleChange2, HandleChange3, HandleChang
         <Col lg={6} className={styles.col}>
           <h4>Youtube линк</h4>
           <InputCommon
-            type="text"
+            type="url"
             placeholder="youtube линк"
             required
             onChange={(e) => setYouteLinkPhotos(e.currentTarget.value)}

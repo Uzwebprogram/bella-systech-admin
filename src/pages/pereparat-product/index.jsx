@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import HorizontalSidebar from "../../components/horizontal-sidebar";
 import VerticalSidebar from "../../components/vertical-sidebar";
 import PereparatAparatComponent from "../../components/products-pereparat";
-import {  PereparatGet } from "../../redux/pereparat";
+import { PereparatGet } from "../../redux/pereparat";
 function PeraparatProduct() {
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
@@ -29,7 +29,7 @@ function PeraparatProduct() {
           onClick={showDrawer}
           textBtn={"Добавить перепарат"}
         />
-        <PereparatAparatComponent handleClose={onClose} open={open} cols={4}  />
+        <PereparatAparatComponent handleClose={onClose} open={open} cols={4} contentWidth="65%" />
       </WrapperContainer>
     </HorizontalSidebar> : <VerticalSidebar>
       <WrapperContainer>
@@ -38,7 +38,7 @@ function PeraparatProduct() {
           onClick={showDrawer}
           textBtn={"Добавить перепарат"}
         />
-        <PereparatAparatComponent handleClose={onClose} open={open} cols={6}  />
+        <PereparatAparatComponent handleClose={onClose} open={open} cols={6} contentWidth="72%" />
       </WrapperContainer>
     </VerticalSidebar>
   );

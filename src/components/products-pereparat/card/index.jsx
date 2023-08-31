@@ -2,16 +2,15 @@ import React, { useEffect, useState } from 'react'
 import styles from './style.module.css'
 import './styles.css'
 import { Col, Row } from 'react-grid-system'
-import { Dropdown, Space, message, DatePicker } from 'antd';
-import { AparatProductGet, AparatProductDelete } from '../../../redux/product-aparat';
+import { Dropdown, Space, message, DatePicker, Popover } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import InputCommon from '../../common/input';
 import SelectCommon from '../../common/select';
-import { PereparatGet } from '../../../redux/pereparat';
+import { PereparatGet, PereparatDelete } from '../../../redux/pereparat';
 const { RangePicker } = DatePicker;
 
-const CardAdd = ({ onClickPut, cols, contentWidth }) => {
+const CardAdd = ({ cols, contentWidth }) => {
     const [query, setQuery] = useState()
     const [companies, setCompanies] = useState()
     const [categories, setCategories] = useState()
@@ -60,99 +59,11 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
     }
 
     const HandleDelete = async (e) => {
-        await dispatch(AparatProductDelete(e.currentTarget.id));
-        dispatch(AparatProductGet());
-        openMessage()
+        await dispatch(PereparatDelete(e.target.id));
+        dispatch(PereparatGet());
     };
 
-    const items = [
-        {
-            label: (
-                <button className={styles.card_more_btn}>
-                    <i class='bx bxs-edit'></i>
-                    <span> Шаг 1 Изменить</span>
-                </button>
-            ),
-            key: '0',
-        },
-        {
-            type: 'divider',
-        },
-        {
-            label: (
-                <button className={styles.card_more_btn}>
-                    <i class='bx bxs-edit'></i>
-                    <span> Шаг 2 Изменить</span>
-                </button>
-            ),
-            key: '1',
-        },
-        {
-            type: 'divider',
-        },
-        {
-            label: (
-                <button className={styles.card_more_btn}>
-                    <i class='bx bxs-edit'></i>
-                    <span> Шаг 3 Изменить</span>
-                </button>
-            ),
-            key: '2',
-        },
-        {
-            type: 'divider',
-        },
-        {
-            label: (
-                // <Space wrap>
-                //     <Popover
-                //         trigger="click"
-                //         placement="rightBottom"
-                //         content={
-                //             <div className="content_delete_box">
-                //                 <p>Вы уверены, что хотите удалить эту категория?</p>
-                //                 <p>При удалений категорий вся информация принадлежащая <br /> данной категории будут удалены безвозратно</p>
-                //                 <div className="btn_wrap_delete">
-                //                     <button className="no_btn">
-                //                         Нет
-                //                     </button>
-                //                     <button onClick={HandleDelete}
-                //                          id={elem.id}
-                //                         className="yes_btn">
-                //                         да
-                //                     </button>
-                //                 </div>
-                //             </div>
-                //         }
-                //         title={
-                //             <div className="delete_box">
-                //                 <i class='bx bxs-error-circle'></i>
-                //                 <span>Удалите категория</span>
-                //             </div>
-                //         }
-                //     >
-                //         <button
-                //             id={elem.id}
-                //             className={styles.card_more_btn}>
-                //             <i class='bx bxs-trash'></i>
-                //             <span>Удалить</span>
-                //         </button>
-                //     </Popover>
-                // </Space>
-                <>
-                    {contextHolder}
-                    <button
-                        onClick={HandleDelete}
-                        id={ids}
-                        className={styles.card_more_btn}>
-                        <i class='bx bxs-trash'></i>
-                        <span>Удалить</span>
-                    </button>
-                </>
-            ),
-            key: '3',
-        }
-    ];
+
 
     const SelectChangeCompany = (e) => {
         setCompanies(e);
@@ -277,10 +188,10 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                         query ? (
                             aparatData.map((elem) => (
                                 <Col className={styles.card_col} lg={cols}>
-                                    <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
-                                        <div className={styles.card}>
-                                            <div className={styles.card_content_bigwrapp}>
-                                                <div>
+                                    <div className={styles.card}>
+                                        <div className={styles.card_content_bigwrapp}>
+                                            <div>
+                                                <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
                                                     <div className={styles.card_img_wrap}>
 
                                                         <img
@@ -288,202 +199,323 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                                             style={{ aspectRatio: 3 / 4 }}
                                                             alt="" />
                                                     </div>
-                                                    <div className={styles.card_content_wrap} style={{ width: contentWidth }}>
-                                                        <div className={styles.card_details}>
-                                                            {/* <div className={styles.card_details_item}> */}
-                                                            <div className={styles.time_box}>
-                                                                <div className={styles.card_time}>
-                                                                    <span className={styles.card_date_span}>
-                                                                        <i class='bx bx-calendar'></i>
-                                                                        {DateFormat(elem.updateAt)}
-
-                                                                        <span className={styles.card_time_span}>
-                                                                            <i class='bx bxs-watch' ></i>
-                                                                            {elem.updateAt.slice(11, 19)}
-                                                                        </span>
+                                                </NavLink>
+                                                <div className={styles.card_content_wrap} style={{ width: contentWidth }}>
+                                                    <div className={styles.card_details}>
+                                                        {/* <div className={styles.card_details_item}> */}
+                                                        <div className={styles.time_box}>
+                                                            <div className={styles.card_time}>
+                                                                <span className={styles.card_date_span}>
+                                                                    <lord-icon
+                                                                        src="https://cdn.lordicon.com/qtxqkhzr.json"
+                                                                        trigger="hover"
+                                                                        colors="primary:#121331"
+                                                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+                                                                    </lord-icon>
+                                                                    {DateFormat(elem.createdAt)}
+                                                                    <span className={styles.card_time_span}>
+                                                                        <lord-icon
+                                                                            src="https://cdn.lordicon.com/qmuwmmnl.json"
+                                                                            trigger="hover"
+                                                                            colors="primary:#df2027"
+                                                                            style={{ width: "20px", height: "20px", marginRight: "5px" }}>
+                                                                        </lord-icon>
+                                                                        {elem.createdAt.slice(11, 19)}
                                                                     </span>
-                                                                </div>
-                                                                <div className={styles.card_drop}>
-                                                                    <Dropdown
-                                                                        placement="bottomRight"
-                                                                        trigger={['click']}
-                                                                        menu={{ items }}
+                                                                </span>
+                                                            </div>
+                                                            <div className={styles.card_drop}>
+                                                                <Space wrap>
+                                                                    <Popover
+                                                                        trigger="click"
+                                                                        placement="rightBottom"
+                                                                        content={
+                                                                            <div className="content_delete_box">
+                                                                                <p>Вы уверены, что хотите удалить эту продукт?</p>
+                                                                                <div className="btn_wrap_delete">
+                                                                                    {contextHolder}
+                                                                                    <button
+                                                                                        onClick={HandleDelete}
+                                                                                        id={elem.id}
+                                                                                        className="yes_btn">
+                                                                                        да
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        }
+                                                                        title={
+                                                                            <div className="delete_box">
+                                                                                <i class='bx bxs-error-circle'></i>
+                                                                                <span>Удалите продукт
+                                                                                    <span>{elem.name_ru.slice(0, 20)}</span>
+                                                                                </span>
+                                                                            </div>
+                                                                        }
                                                                     >
-                                                                        <a id={elem.id} onClick={handleId}>
-                                                                            <Space>
-                                                                                <i class='bx bx-dots-horizontal-rounded' ></i>
-                                                                            </Space>
-                                                                        </a>
-                                                                    </Dropdown>
+                                                                        <div className="btn-wrap">
 
-                                                                </div>
-                                                                {/* </div> */}
+                                                                            <button
+                                                                                id={elem.id}
+                                                                                className={styles.card_more_btn}>
+                                                                                <lord-icon
+                                                                                    src="https://cdn.lordicon.com/jmkrnisz.json"
+                                                                                    trigger="hover"
+                                                                                    colors="primary:#121331"
+                                                                                    style={{ width: "20px", height: "20px", display: "inline" }}>
+                                                                                </lord-icon>
+                                                                            </button>
+                                                                        </div>
+                                                                    </Popover>
+                                                                </Space>
                                                             </div>
-                                                            <div className={styles.card_details_item}>
-                                                                <span>Company</span>
-                                                                <h4>{elem.company.name}</h4>
-                                                            </div>
-                                                            <div className={styles.card_details_item}>
-                                                                <span>Category</span>
-                                                                <h4>{elem.category_pereparat?.title_ru}</h4>
-                                                            </div>
+                                                            {/* </div> */}
+                                                        </div>
+                                                        <div className={styles.card_details_item}>
+                                                            <span>Company</span>
+                                                            <h4>{elem.company.name}</h4>
+                                                        </div>
+                                                        <div className={styles.card_details_item}>
+                                                            <span>Category</span>
+                                                            <h4>{elem.category_pereparat?.title_ru}</h4>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
                                                 <div className={styles.card_desc}>
                                                     <h4 className={styles.card_title}>{elem.name_ru}</h4>
                                                     <p className={styles.card_description}>
                                                         {elem?.description_ru}
                                                     </p>
                                                 </div>
-                                            </div>
+                                            </NavLink>
                                         </div>
-                                    </NavLink>
+                                    </div>
                                 </Col>
                             ))
                         ) : companies ? (
                             companyData.map((elem) => (
                                 <Col className={styles.card_col} lg={cols}>
-                                    <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
-                                        <div className={styles.card}>
-                                            <div className={styles.card_content_bigwrapp}>
-                                                <div>
+                                    <div className={styles.card}>
+                                        <div className={styles.card_content_bigwrapp}>
+                                            <div>
+                                                <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
                                                     <div className={styles.card_img_wrap}>
-
                                                         <img
                                                             src={elem.image1}
                                                             style={{ aspectRatio: 3 / 4 }}
                                                             alt="" />
                                                     </div>
-                                                    <div className={styles.card_content_wrap} style={{ width: contentWidth }}>
-                                                        <div className={styles.card_details}>
-                                                            {/* <div className={styles.card_details_item}> */}
-                                                            <div className={styles.time_box}>
-                                                                <div className={styles.card_time}>
-                                                                    <span className={styles.card_date_span}>
-                                                                        <i class='bx bx-calendar'></i>
-                                                                        {DateFormat(elem.updateAt)}
-
-                                                                        <span className={styles.card_time_span}>
-                                                                            <i class='bx bxs-watch' ></i>
-                                                                            {elem.updateAt.slice(11, 19)}
-                                                                        </span>
+                                                </NavLink>
+                                                <div className={styles.card_content_wrap} style={{ width: contentWidth }}>
+                                                    <div className={styles.card_details}>
+                                                        {/* <div className={styles.card_details_item}> */}
+                                                        <div className={styles.time_box}>
+                                                            <div className={styles.card_time}>
+                                                                <span className={styles.card_date_span}>
+                                                                    <lord-icon
+                                                                        src="https://cdn.lordicon.com/qtxqkhzr.json"
+                                                                        trigger="hover"
+                                                                        colors="primary:#121331"
+                                                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+                                                                    </lord-icon>
+                                                                    {DateFormat(elem.createdAt)}
+                                                                    <span className={styles.card_time_span}>
+                                                                        <lord-icon
+                                                                            src="https://cdn.lordicon.com/qmuwmmnl.json"
+                                                                            trigger="hover"
+                                                                            colors="primary:#df2027"
+                                                                            style={{ width: "20px", height: "20px", marginRight: "5px" }}>
+                                                                        </lord-icon>
+                                                                        {elem.createdAt.slice(11, 19)}
                                                                     </span>
-                                                                </div>
-                                                                <div className={styles.card_drop}>
-                                                                    <Dropdown
-                                                                        placement="bottomRight"
-                                                                        trigger={['click']}
-                                                                        menu={{ items }}
+                                                                </span>
+                                                            </div>
+                                                            <div className={styles.card_drop}>
+                                                                <Space wrap>
+                                                                    <Popover
+                                                                        trigger="click"
+                                                                        placement="rightBottom"
+                                                                        content={
+                                                                            <div className="content_delete_box">
+                                                                                <p>Вы уверены, что хотите удалить эту продукт?</p>
+                                                                                <div className="btn_wrap_delete">
+                                                                                    {contextHolder}
+                                                                                    <button
+                                                                                        onClick={HandleDelete}
+                                                                                        id={elem.id}
+                                                                                        className="yes_btn">
+                                                                                        да
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        }
+                                                                        title={
+                                                                            <div className="delete_box">
+                                                                                <i class='bx bxs-error-circle'></i>
+                                                                                <span>Удалите продукт
+                                                                                    <span>{elem.name_ru.slice(0, 20)}</span>
+                                                                                </span>
+                                                                            </div>
+                                                                        }
                                                                     >
-                                                                        <a id={elem.id} onClick={handleId}>
-                                                                            <Space>
-                                                                                <i class='bx bx-dots-horizontal-rounded' ></i>
-                                                                            </Space>
-                                                                        </a>
-                                                                    </Dropdown>
-
-                                                                </div>
-                                                                {/* </div> */}
+                                                                        <div className="btn-wrap">
+                                                                            <button
+                                                                                id={elem.id}
+                                                                                className={styles.card_more_btn}>
+                                                                                <lord-icon
+                                                                                    src="https://cdn.lordicon.com/jmkrnisz.json"
+                                                                                    trigger="hover"
+                                                                                    colors="primary:#121331"
+                                                                                    style={{ width: "20px", height: "20px", display: "inline" }}>
+                                                                                </lord-icon>
+                                                                            </button>
+                                                                        </div>
+                                                                    </Popover>
+                                                                </Space>
                                                             </div>
-                                                            <div className={styles.card_details_item}>
-                                                                <span>Company</span>
-                                                                <h4>{elem.company.name}</h4>
-                                                            </div>
-                                                            <div className={styles.card_details_item}>
-                                                                <span>Category</span>
-                                                                <h4>{elem.category_pereparat?.title_ru}</h4>
-                                                            </div>
+                                                            {/* </div> */}
+                                                        </div>
+                                                        <div className={styles.card_details_item}>
+                                                            <span>Company</span>
+                                                            <h4>{elem.company.name}</h4>
+                                                        </div>
+                                                        <div className={styles.card_details_item}>
+                                                            <span>Category</span>
+                                                            <h4>{elem.category_pereparat?.title_ru}</h4>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
                                                 <div className={styles.card_desc}>
                                                     <h4 className={styles.card_title}>{elem.name_ru}</h4>
                                                     <p className={styles.card_description}>
                                                         {elem.description_ru}
                                                     </p>
                                                 </div>
-                                            </div>
+                                            </NavLink>
                                         </div>
-                                    </NavLink>
+                                    </div>
                                 </Col>
                             ))
                         ) : startDate ? (
                             dateData.map((elem) => (
                                 <Col className={styles.card_col} lg={cols}>
-                                    <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
-                                        <div className={styles.card}>
-                                            <div className={styles.card_content_bigwrapp}>
 
-                                                <div>
+                                    <div className={styles.card}>
+                                        <div className={styles.card_content_bigwrapp}>
+                                            <div>
+                                                <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
                                                     <div className={styles.card_img_wrap}>
-
                                                         <img
                                                             src={elem.image1}
                                                             style={{ aspectRatio: 3 / 4 }}
                                                             alt="" />
                                                     </div>
-                                                    <div className={styles.card_content_wrap} style={{ width: contentWidth }}>
-                                                        <div className={styles.card_details}>
-                                                            {/* <div className={styles.card_details_item}> */}
-                                                            <div className={styles.time_box}>
-                                                                <div className={styles.card_time}>
-                                                                    <span className={styles.card_date_span}>
-                                                                        <i class='bx bx-calendar'></i>
-                                                                        {DateFormat(elem.updateAt)}
-
-                                                                        <span className={styles.card_time_span}>
-                                                                            <i class='bx bxs-watch' ></i>
-                                                                            {elem.updateAt.slice(11, 19)}
-                                                                        </span>
+                                                </NavLink>
+                                                <div className={styles.card_content_wrap} style={{ width: contentWidth }}>
+                                                    <div className={styles.card_details}>
+                                                        {/* <div className={styles.card_details_item}> */}
+                                                        <div className={styles.time_box}>
+                                                            <div className={styles.card_time}>
+                                                                <span className={styles.card_date_span}>
+                                                                    <lord-icon
+                                                                        src="https://cdn.lordicon.com/qtxqkhzr.json"
+                                                                        trigger="hover"
+                                                                        colors="primary:#121331"
+                                                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+                                                                    </lord-icon>
+                                                                    {DateFormat(elem.createdAt)}
+                                                                    <span className={styles.card_time_span}>
+                                                                        <lord-icon
+                                                                            src="https://cdn.lordicon.com/qmuwmmnl.json"
+                                                                            trigger="hover"
+                                                                            colors="primary:#df2027"
+                                                                            style={{ width: "20px", height: "20px", marginRight: "5px" }}>
+                                                                        </lord-icon>
+                                                                        {elem.createdAt.slice(11, 19)}
                                                                     </span>
-                                                                </div>
-                                                                <div className={styles.card_drop}>
-                                                                    <Dropdown
-                                                                        placement="bottomRight"
-                                                                        trigger={['click']}
-                                                                        menu={{ items }}
+                                                                </span>
+                                                            </div>
+                                                            <div className={styles.card_drop}>
+                                                                <Space wrap>
+                                                                    <Popover
+                                                                        trigger="click"
+                                                                        placement="rightBottom"
+                                                                        content={
+                                                                            <div className="content_delete_box">
+                                                                                <p>Вы уверены, что хотите удалить эту продукт?</p>
+                                                                                <div className="btn_wrap_delete">
+                                                                                    {contextHolder}
+                                                                                    <button
+                                                                                        onClick={HandleDelete}
+                                                                                        id={elem.id}
+                                                                                        className="yes_btn">
+                                                                                        да
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        }
+                                                                        title={
+                                                                            <div className="delete_box">
+                                                                                <i class='bx bxs-error-circle'></i>
+                                                                                <span>Удалите продукт
+                                                                                    <span>{elem.name_ru.slice(0, 20)}</span>
+                                                                                </span>
+                                                                            </div>
+                                                                        }
                                                                     >
-                                                                        <a id={elem.id} onClick={handleId}>
-                                                                            <Space>
-                                                                                <i class='bx bx-dots-horizontal-rounded' ></i>
-                                                                            </Space>
-                                                                        </a>
-                                                                    </Dropdown>
+                                                                        <div className="btn-wrap">
 
-                                                                </div>
-                                                                {/* </div> */}
+                                                                            <button
+                                                                                id={elem.id}
+                                                                                className={styles.card_more_btn}>
+                                                                                <lord-icon
+                                                                                    src="https://cdn.lordicon.com/jmkrnisz.json"
+                                                                                    trigger="hover"
+                                                                                    colors="primary:#121331"
+                                                                                    style={{ width: "20px", height: "20px", display: "inline" }}>
+                                                                                </lord-icon>
+                                                                            </button>
+                                                                        </div>
+                                                                    </Popover>
+                                                                </Space>
                                                             </div>
-                                                            <div className={styles.card_details_item}>
-                                                                <span>Company</span>
-                                                                <h4>{elem.company.name}</h4>
-                                                            </div>
-                                                            <div className={styles.card_details_item}>
-                                                                <span>Category</span>
-                                                                <h4>{elem.category_pereparat?.title_ru}</h4>
-                                                            </div>
+                                                            {/* </div> */}
+                                                        </div>
+                                                        <div className={styles.card_details_item}>
+                                                            <span>Company</span>
+                                                            <h4>{elem.company.name}</h4>
+                                                        </div>
+                                                        <div className={styles.card_details_item}>
+                                                            <span>Category</span>
+                                                            <h4>{elem.category_pereparat?.title_ru}</h4>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
                                                 <div className={styles.card_desc}>
                                                     <h4 className={styles.card_title}>{elem.name_ru}</h4>
                                                     <p className={styles.card_description}>
                                                         {elem.description_ru}
                                                     </p>
                                                 </div>
-                                            </div>
+                                            </NavLink>
                                         </div>
-                                    </NavLink>
+                                    </div>
                                 </Col>
                             ))
                         ) : categories ? (
                             categoryData.map((elem) => (
                                 <Col className={styles.card_col} lg={cols}>
-                                    <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
-                                        <div className={styles.card}>
-                                            <div className={styles.card_content_bigwrapp}>
 
-                                                <div>
+                                    <div className={styles.card}>
+                                        <div className={styles.card_content_bigwrapp}>
+
+                                            <div>
+                                                <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
                                                     <div className={styles.card_img_wrap}>
 
                                                         <img
@@ -491,132 +523,212 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                                             style={{ aspectRatio: 3 / 4 }}
                                                             alt="" />
                                                     </div>
-                                                    <div className={styles.card_content_wrap} style={{ width: contentWidth }}>
-                                                        <div className={styles.card_details}>
-                                                            {/* <div className={styles.card_details_item}> */}
-                                                            <div className={styles.time_box}>
-                                                                <div className={styles.card_time}>
-                                                                    <span className={styles.card_date_span}>
-                                                                        <i class='bx bx-calendar'></i>
-                                                                        {DateFormat(elem.updateAt)}
-
-                                                                        <span className={styles.card_time_span}>
-                                                                            <i class='bx bxs-watch' ></i>
-                                                                            {elem.updateAt.slice(11, 19)}
-                                                                        </span>
+                                                </NavLink>
+                                                <div className={styles.card_content_wrap} style={{ width: contentWidth }}>
+                                                    <div className={styles.card_details}>
+                                                        {/* <div className={styles.card_details_item}> */}
+                                                        <div className={styles.time_box}>
+                                                            <div className={styles.card_time}>
+                                                                <span className={styles.card_date_span}>
+                                                                    <lord-icon
+                                                                        src="https://cdn.lordicon.com/qtxqkhzr.json"
+                                                                        trigger="hover"
+                                                                        colors="primary:#121331"
+                                                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+                                                                    </lord-icon>
+                                                                    {DateFormat(elem.createdAt)}
+                                                                    <span className={styles.card_time_span}>
+                                                                        <lord-icon
+                                                                            src="https://cdn.lordicon.com/qmuwmmnl.json"
+                                                                            trigger="hover"
+                                                                            colors="primary:#df2027"
+                                                                            style={{ width: "20px", height: "20px", marginRight: "5px" }}>
+                                                                        </lord-icon>
+                                                                        {elem.createdAt.slice(11, 19)}
                                                                     </span>
-                                                                </div>
-                                                                <div className={styles.card_drop}>
-                                                                    <Dropdown
-                                                                        placement="bottomRight"
-                                                                        trigger={['click']}
-                                                                        menu={{ items }}
+                                                                </span>
+                                                            </div>
+                                                            <div className={styles.card_drop}>
+                                                                <Space wrap>
+                                                                    <Popover
+                                                                        trigger="click"
+                                                                        placement="rightBottom"
+                                                                        content={
+                                                                            <div className="content_delete_box">
+                                                                                <p>Вы уверены, что хотите удалить эту продукт?</p>
+                                                                                <div className="btn_wrap_delete">
+                                                                                    {contextHolder}
+                                                                                    <button
+                                                                                        onClick={HandleDelete}
+                                                                                        id={elem.id}
+                                                                                        className="yes_btn">
+                                                                                        да
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        }
+                                                                        title={
+                                                                            <div className="delete_box">
+                                                                                <i class='bx bxs-error-circle'></i>
+                                                                                <span>Удалите продукт
+                                                                                    <span>{elem.name_ru.slice(0, 20)}</span>
+                                                                                </span>
+                                                                            </div>
+                                                                        }
                                                                     >
-                                                                        <a id={elem.id} onClick={handleId}>
-                                                                            <Space>
-                                                                                <i class='bx bx-dots-horizontal-rounded' ></i>
-                                                                            </Space>
-                                                                        </a>
-                                                                    </Dropdown>
+                                                                        <div className="btn-wrap">
 
-                                                                </div>
-                                                                {/* </div> */}
+                                                                            <button
+                                                                                id={elem.id}
+                                                                                className={styles.card_more_btn}>
+                                                                                <lord-icon
+                                                                                    src="https://cdn.lordicon.com/jmkrnisz.json"
+                                                                                    trigger="hover"
+                                                                                    colors="primary:#121331"
+                                                                                    style={{ width: "20px", height: "20px", display: "inline" }}>
+                                                                                </lord-icon>
+                                                                            </button>
+                                                                        </div>
+                                                                    </Popover>
+                                                                </Space>
                                                             </div>
-                                                            <div className={styles.card_details_item}>
-                                                                <span>Company</span>
-                                                                <h4>{elem.company.name}</h4>
-                                                            </div>
-                                                            <div className={styles.card_details_item}>
-                                                                <span>Category</span>
-                                                                <h4>{elem.category_pereparat?.title_ru}</h4>
-                                                            </div>
+                                                            {/* </div> */}
+                                                        </div>
+                                                        <div className={styles.card_details_item}>
+                                                            <span>Company</span>
+                                                            <h4>{elem.company.name}</h4>
+                                                        </div>
+                                                        <div className={styles.card_details_item}>
+                                                            <span>Category</span>
+                                                            <h4>{elem.category_pereparat?.title_ru}</h4>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
                                                 <div className={styles.card_desc}>
                                                     <h4 className={styles.card_title}>{elem.name_ru}</h4>
                                                     <p className={styles.card_description}>
                                                         {elem.description_ru}
                                                     </p>
                                                 </div>
-                                            </div>
+                                            </NavLink>
                                         </div>
-                                    </NavLink>
+                                    </div>
                                 </Col>
                             ))
                         ) : (
                             aparatProductGetState.map((elem) => (
                                 <Col className={styles.card_col} lg={cols}>
-                                    <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
-                                        <div className={styles.card}>
-                                            <div className={styles.card_content_bigwrapp}>
 
-                                                <div>
+                                    <div className={styles.card}>
+                                        <div className={styles.card_content_bigwrapp}>
+                                            <div>
+                                                <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
                                                     <div className={styles.card_img_wrap}>
-
                                                         <img
                                                             src={elem.image1}
                                                             style={{ aspectRatio: 3 / 4 }}
                                                             alt="" />
                                                     </div>
-                                                    <div className={styles.card_content_wrap} style={{ width: contentWidth }}>
-                                                        <div className={styles.card_details}>
-                                                            {/* <div className={styles.card_details_item}> */}
-                                                            <div className={styles.time_box}>
-                                                                <div className={styles.card_time}>
-                                                                    <span className={styles.card_date_span}>
-                                                                        <i class='bx bx-calendar'></i>
-                                                                        {DateFormat(elem.updateAt)}
-
-                                                                        <span className={styles.card_time_span}>
-                                                                            <i class='bx bxs-watch' ></i>
-                                                                            {elem.updateAt.slice(11, 19)}
-                                                                        </span>
+                                                </NavLink>
+                                                <div className={styles.card_content_wrap} style={{ width: contentWidth }}>
+                                                    <div className={styles.card_details}>
+                                                        {/* <div className={styles.card_details_item}> */}
+                                                        <div className={styles.time_box}>
+                                                            <div className={styles.card_time}>
+                                                                <span className={styles.card_date_span}>
+                                                                    <lord-icon
+                                                                        src="https://cdn.lordicon.com/qtxqkhzr.json"
+                                                                        trigger="hover"
+                                                                        colors="primary:#121331"
+                                                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+                                                                    </lord-icon>
+                                                                    {DateFormat(elem.createdAt)}
+                                                                    <span className={styles.card_time_span}>
+                                                                        <lord-icon
+                                                                            src="https://cdn.lordicon.com/qmuwmmnl.json"
+                                                                            trigger="hover"
+                                                                            colors="primary:#df2027"
+                                                                            style={{ width: "20px", height: "20px", marginRight: "5px" }}>
+                                                                        </lord-icon>
+                                                                        {elem.createdAt.slice(11, 19)}
                                                                     </span>
-                                                                </div>
-                                                                <div className={styles.card_drop}>
-                                                                    <Dropdown
-                                                                        placement="bottomRight"
-                                                                        trigger={['click']}
-                                                                        menu={{ items }}
+                                                                </span>
+                                                            </div>
+                                                            <div className={styles.card_drop}>
+                                                                <Space wrap>
+                                                                    <Popover
+                                                                        trigger="click"
+                                                                        placement="rightBottom"
+                                                                        content={
+                                                                            <div className="content_delete_box">
+                                                                                <p>Вы уверены, что хотите удалить эту продукт?</p>
+                                                                                <div className="btn_wrap_delete">
+                                                                                    {contextHolder}
+                                                                                    <button
+                                                                                        onClick={HandleDelete}
+                                                                                        id={elem.id}
+                                                                                        className="yes_btn">
+                                                                                        да
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        }
+                                                                        title={
+                                                                            <div className="delete_box">
+                                                                                <i class='bx bxs-error-circle'></i>
+                                                                                <span>Удалите продукт
+                                                                                    <span>{elem.name_ru.slice(0, 20)}</span>
+                                                                                </span>
+                                                                            </div>
+                                                                        }
                                                                     >
-                                                                        <a id={elem.id} onClick={handleId}>
-                                                                            <Space>
-                                                                                <i class='bx bx-dots-horizontal-rounded' ></i>
-                                                                            </Space>
-                                                                        </a>
-                                                                    </Dropdown>
-
-                                                                </div>
-                                                                {/* </div> */}
+                                                                        <div className="btn-wrap">
+                                                                            <button
+                                                                                id={elem.id}
+                                                                                className={styles.card_more_btn}>
+                                                                                <lord-icon
+                                                                                    src="https://cdn.lordicon.com/jmkrnisz.json"
+                                                                                    trigger="hover"
+                                                                                    colors="primary:#121331"
+                                                                                    style={{ width: "20px", height: "20px", display: "inline" }}>
+                                                                                </lord-icon>
+                                                                            </button>
+                                                                        </div>
+                                                                    </Popover>
+                                                                </Space>
                                                             </div>
-                                                            <div className={styles.card_details_item}>
-                                                                <span>Company</span>
-                                                                <h4>{elem.company.name}</h4>
-                                                            </div>
-                                                            <div className={styles.card_details_item}>
-                                                                <span>Category</span>
-                                                                <h4>{elem.category_pereparat?.title_ru}</h4>
-                                                            </div>
-
+                                                            {/* </div> */}
                                                         </div>
+                                                        <div className={styles.card_details_item}>
+                                                            <span>Company</span>
+                                                            <h4>{elem.company.name}</h4>
+                                                        </div>
+                                                        <div className={styles.card_details_item}>
+                                                            <span>Category</span>
+                                                            <h4>{elem.category_pereparat?.title_ru}</h4>
+                                                        </div>
+
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
                                                 <div className={styles.card_desc}>
                                                     <h4 className={styles.card_title}>{elem?.name_ru}</h4>
                                                     <p className={styles.card_description}>
                                                         {elem?.description_ru?.slice(0, 50)}...
                                                     </p>
                                                 </div>
-                                            </div>
+                                            </NavLink>
                                         </div>
-                                    </NavLink>
+                                    </div>
                                 </Col>
                             ))
                         )
                     }
                 </Row>
-            </div>
+            </div >
         </>
     )
 }

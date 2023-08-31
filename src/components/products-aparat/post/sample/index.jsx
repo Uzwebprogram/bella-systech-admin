@@ -42,10 +42,10 @@ const SampleProductPosts = () => {
     <form onSubmit={HandleSubmit}>
       <Row className={styles.row}>
         <Col className="col" lg={4}>
-          <h4>Название параметра</h4>
+          <h4>Применение товара</h4>
           <InputCommon
             type="text"
-            placeholder="название параметра уз"
+            placeholder="Применение товара уз"
             required
             onChange={(e) => setTitleuz(e.currentTarget.value)}
           />
@@ -54,7 +54,7 @@ const SampleProductPosts = () => {
           <h4>*</h4>
           <InputCommon
             type="text"
-            placeholder="название параметра ру"
+            placeholder="Применение товара ру"
             required
             onChange={(e) => setTitleru(e.currentTarget.value)}
           />
@@ -63,7 +63,7 @@ const SampleProductPosts = () => {
           <h4>*</h4>
           <InputCommon
             type="text"
-            placeholder="название параметра ен"
+            placeholder="Применение товара ен"
             required
             onChange={(e) => setTitleen(e.currentTarget.value)}
           />

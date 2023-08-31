@@ -19,3 +19,8 @@
 .anticon-calendar {
   color: #a1a1a1 !important;
 }
+
+.time_wrap > div > span {
+  display: flex;
+  align-items: center;
+}

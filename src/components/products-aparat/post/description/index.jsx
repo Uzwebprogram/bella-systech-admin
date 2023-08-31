@@ -17,7 +17,16 @@ const DescriptionAparatProduct = ({
       <Row className={styles.row}>
         <Col className={styles.col} lg={12}>
           <div>
-            <h4>Преимущества</h4>
+            <h4>Описание</h4>
+            <TextArea
+              placeholder="печатание уз"
+              required
+              onChange={(e) => setDescriptionUzYoutube(e.currentTarget.value)}
+              autoSize />
+          </div>
+        </Col>
+        <Col className="col" lg={12}>
+          <div style={{margin: "20px 0"}}>
             <TextArea
               placeholder="печатание ру"
               required
@@ -27,17 +36,6 @@ const DescriptionAparatProduct = ({
         </Col>
         <Col className="col" lg={12}>
           <div>
-            <h4>Преимущества</h4>
-            <TextArea
-              placeholder="печатание уз"
-              required
-              onChange={(e) => setDescriptionUzYoutube(e.currentTarget.value)}
-              autoSize />
-          </div>
-        </Col>
-        <Col className="col" lg={12}>
-          <div>
-            <h4>Преимущества</h4>
             <TextArea
               placeholder="печатание ен"
               required
@@ -45,7 +43,6 @@ const DescriptionAparatProduct = ({
               autoSize />
           </div>
         </Col>
-
       </Row>
       <Row className={styles.row}>
         <Col className="col" lg={4}>

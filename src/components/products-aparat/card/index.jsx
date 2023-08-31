@@ -65,23 +65,7 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
 
     };
 
-    // const items = [
-    //     {
-    //         label: (
-    //             <>
-    //                 
-    //                 <button
-    //                     onClick={HandleDelete}
-    //                     id={ids}
-    //                     className={styles.card_more_btn}>
-    //                     <i class='bx bxs-trash'></i>
-    //                     <span>Удалить</span>
-    //                 </button>
-    //             </>
-    //         ),
-    //         key: '3',
-    //     }
-    // ];
+
 
     const SelectChangeCompany = (e) => {
         setCompanies(e);
@@ -225,11 +209,20 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                                         <div className={styles.time_box}>
                                                             <div className={styles.card_time}>
                                                                 <span className={styles.card_date_span}>
-                                                                    <i class='bx bx-calendar'></i>
+                                                                    <lord-icon
+                                                                        src="https://cdn.lordicon.com/qtxqkhzr.json"
+                                                                        trigger="hover"
+                                                                        colors="primary:#121331"
+                                                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+                                                                    </lord-icon>
                                                                     {DateFormat(elem.createdAt)}
-
                                                                     <span className={styles.card_time_span}>
-                                                                        <i class='bx bxs-watch' ></i>
+                                                                        <lord-icon
+                                                                            src="https://cdn.lordicon.com/qmuwmmnl.json"
+                                                                            trigger="hover"
+                                                                            colors="primary:#df2027"
+                                                                            style={{ width: "20px", height: "20px", marginRight: "5px" }}>
+                                                                        </lord-icon>
                                                                         {elem.createdAt.slice(11, 19)}
                                                                     </span>
                                                                 </span>
@@ -323,11 +316,20 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                                         <div className={styles.time_box}>
                                                             <div className={styles.card_time}>
                                                                 <span className={styles.card_date_span}>
-                                                                    <i class='bx bx-calendar'></i>
+                                                                    <lord-icon
+                                                                        src="https://cdn.lordicon.com/qtxqkhzr.json"
+                                                                        trigger="hover"
+                                                                        colors="primary:#121331"
+                                                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+                                                                    </lord-icon>
                                                                     {DateFormat(elem.createdAt)}
-
                                                                     <span className={styles.card_time_span}>
-                                                                        <i class='bx bxs-watch' ></i>
+                                                                        <lord-icon
+                                                                            src="https://cdn.lordicon.com/qmuwmmnl.json"
+                                                                            trigger="hover"
+                                                                            colors="primary:#df2027"
+                                                                            style={{ width: "20px", height: "20px", marginRight: "5px" }}>
+                                                                        </lord-icon>
                                                                         {elem.createdAt.slice(11, 19)}
                                                                     </span>
                                                                 </span>
@@ -421,11 +423,20 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                                         <div className={styles.time_box}>
                                                             <div className={styles.card_time}>
                                                                 <span className={styles.card_date_span}>
-                                                                    <i class='bx bx-calendar'></i>
+                                                                    <lord-icon
+                                                                        src="https://cdn.lordicon.com/qtxqkhzr.json"
+                                                                        trigger="hover"
+                                                                        colors="primary:#121331"
+                                                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+                                                                    </lord-icon>
                                                                     {DateFormat(elem.createdAt)}
-
                                                                     <span className={styles.card_time_span}>
-                                                                        <i class='bx bxs-watch' ></i>
+                                                                        <lord-icon
+                                                                            src="https://cdn.lordicon.com/qmuwmmnl.json"
+                                                                            trigger="hover"
+                                                                            colors="primary:#df2027"
+                                                                            style={{ width: "20px", height: "20px", marginRight: "5px" }}>
+                                                                        </lord-icon>
                                                                         {elem.createdAt.slice(11, 19)}
                                                                     </span>
                                                                 </span>
@@ -459,6 +470,7 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                                                         }
                                                                     >
                                                                         <div className="btn-wrap">
+
                                                                             <button
                                                                                 id={elem.id}
                                                                                 className={styles.card_more_btn}>
@@ -518,11 +530,20 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                                         <div className={styles.time_box}>
                                                             <div className={styles.card_time}>
                                                                 <span className={styles.card_date_span}>
-                                                                    <i class='bx bx-calendar'></i>
+                                                                    <lord-icon
+                                                                        src="https://cdn.lordicon.com/qtxqkhzr.json"
+                                                                        trigger="hover"
+                                                                        colors="primary:#121331"
+                                                                        style={{ width: "20px", height: "20px", marginRight: "10px" }}>
+                                                                    </lord-icon>
                                                                     {DateFormat(elem.createdAt)}
-
                                                                     <span className={styles.card_time_span}>
-                                                                        <i class='bx bxs-watch' ></i>
+                                                                        <lord-icon
+                                                                            src="https://cdn.lordicon.com/qmuwmmnl.json"
+                                                                            trigger="hover"
+                                                                            colors="primary:#df2027"
+                                                                            style={{ width: "20px", height: "20px", marginRight: "5px" }}>
+                                                                        </lord-icon>
                                                                         {elem.createdAt.slice(11, 19)}
                                                                     </span>
                                                                 </span>

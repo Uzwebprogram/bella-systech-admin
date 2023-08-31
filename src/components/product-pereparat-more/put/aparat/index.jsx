@@ -13,6 +13,8 @@ import "./../../../products-aparat/post/styles.css"
 import CommonBtn from '../../../common/CommonBtn'
 import DraverCommon from '../../../common/Drawer'
 import { PereparatCategoryGet } from '../../../../redux/pereparat-category'
+import { Input } from 'antd'
+const { TextArea } = Input
 const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
   const dispatch = useDispatch();
   const [titleUz, setTitleUz] = useState();
@@ -122,12 +124,123 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
           <Wrapper onSubmit={HandlePut}>
             <div className="input_wrap">
               <div className="scrool">
+                {/* <Row className="row">
+                  <Col className="col" lg={12}>
+                    <div className='col_edit_item'>
+                      <ImageUpload
+                        HandleChange={HandleChange}
+                        HandleChange2={HandleChange2}
+                        HandleChange3={HandleChange3}
+                        imgSize={3 / 4}
+                        elem={elem}
+                      />
+                    </div>
+                  </Col>
+                  <Col className="col" lg={4}>
+                    <div lassName='col_edit_item'>
+                      <h4>Выбрать компания</h4>
+                      <div className="selects">
+                        <SelectCommon
+                          defaultValue={elem.company.name}
+                          onChange={SelectChange}
+                          placeholder="Выбрать"
+                          options={optionsCompany}
+                          required
+                        />
+                        <span style={{ color: "red", marginTop: "10px", marginLeft: "5px" }}>вы должны выбрать!</span>
+                      </div>
+                    </div>
+                  </Col>
+                  <Col className="col" lg={4}>
+                    <div lassName='col_edit_item'>
+                      <h4>Выбрать категория апарат</h4>
+                      <div className="selects">
+                        <SelectCommon
+                          onChange={SelectChange2}
+                          defaultValue={elem.category_pereparat.title_ru}
+                          placeholder="Выбрать"
+                          options={options}
+                          required
+                        />
+                        <span style={{ color: "red", marginTop: "10px", marginLeft: "5px" }}>вы должны выбрать!</span>
+                      </div>
+                    </div>
+                  </Col>
+                  <Col className="col" lg={8}>
+                    <div className='col_edit_item'>
+                      <h4>PDF-файл <span style={{ cursor: "pointer" }} onClick={() => window.location.href = elem.pdf}>(посмотреть старый пдф)</span></h4>
+                      <InputCommon
+                        className="file_input"
+                        type="file"
+                        id="fileupload"
+                        onChange={(e) => HandleChangePdf(e)}
+                      />
+                    </div>
+                  </Col>
+                  <Col className="col" lg={8}>
+                    <div className='col_edit_item'>
+                      <h4>Имя продукта</h4>
+                      <InputCommon
+                        type="text"
+                        defaultValue={elem.name_uz}
+                        onChange={(e) => setTitleUz(e.currentTarget.value)}
+                      />
+                    </div>
+                  </Col>
+                  <Col className="col" lg={8}>
+                    <div className='col_edit_item'>
+                      <h4>*</h4>
+                      <InputCommon
+                        type="text"
+                        defaultValue={elem.name_ru}
+                        onChange={(e) => setTitleRU(e.currentTarget.value)}
+                      />
+                    </div>
+                  </Col>
+                  <Col className="col" lg={8}>
+                    <div className='col_edit_item'>
+                      <h4>*</h4>
+                      <InputCommon
+                        type="text"
+                        defaultValue={elem.name_en}
+                        onChange={(e) => setTitleEn(e.currentTarget.value)}
+                      />
+                    </div>
+                  </Col>
+                  <Col className="col" lg={12}>
+                    <div className='col_edit_item'>
+                      <h4>Oписание</h4>
+                      <TextArea
+                        defaultValue={elem.description_uz}
+                        onChange={(e) => setProductTypeUz(e.currentTarget.value)}
+                        autoSize />
+                      <TextArea
+                        style={{ margin: "20px 0" }}
+                        defaultValue={elem.description_ru}
+                        onChange={(e) => setProductTypeRu(e.currentTarget.value)}
+                        autoSize />
+                      <TextArea
+                        defaultValue={elem.description_en}
+                        onChange={(e) => setProductTypeEn(e.currentTarget.value)}
+                        autoSize />
+                    </div>
+                  </Col>
+
+                </Row> */}
                 <Row className="row">
                   <Col className="col" lg={12}>
-                    <ImageUpload HandleChange={HandleChange} HandleChange2={HandleChange2} HandleChange3={HandleChange3} />
+                    <div className='col_edit_item'>
+                      <ImageUpload
+                        imgSize={3 / 4}
+                        elem={elem}
+                        HandleChange={HandleChange}
+                        HandleChange2={HandleChange2}
+                        HandleChange3={HandleChange3}
+                      />
+                    </div>
                   </Col>
-                  <Col className="col" lg={6}>
-                    <div>
+                  <Col className="col" lg={4}>
+                    <div className='col_edit_item'>
                       <h4>Выбрать компания</h4>
                       <div className="selects">
                         <SelectCommon
@@ -138,106 +251,84 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
                         />
                         <span style={{ color: "red", marginTop: "10px", marginLeft: "5px" }}>вы должны выбрать!</span>
                       </div>
-                    </div>
-                  </Col>
-                  <Col className="col" lg={6}>
-                    <div>
                       <h4>Выбрать категория апарат</h4>
                       <div className="selects">
                         <SelectCommon
                           onChange={SelectChange2}
                           defaultValue={elem.category_pereparat.title_ru}
-
                           placeholder="Выбрать"
                           options={options}
-                          required
                         />
                         <span style={{ color: "red", marginTop: "10px", marginLeft: "5px" }}>вы должны выбрать!</span>
-
                       </div>
                     </div>
                   </Col>
-                  <Col className="col" lg={6}>
-                    <h4>PDF-файл <span style={{ cursor: "pointer" }} onClick={() => window.location.href = elem.pdf}>(посмотреть старый пдф)</span></h4>
-                    <InputCommon
-                      className="file_input"
-                      type="file"
-                      id="fileupload"
-                      required
-                      onChange={(e) => HandleChangePdf(e)}
-                    />
-                  </Col>
-                  <Col className="col" lg={4}>
-                    <h4>Имя продукта</h4>
-                    <InputCommon
-                      type="text"
-                      placeholder="узбекский"
-                      defaultValue={elem.name_uz}
-                      required
-                      onChange={(e) => setTitleUz(e.currentTarget.value)}
-                    />
-                  </Col>
-                  <Col className="col" lg={4}>
-                    <h4>*</h4>
+                  {/* <Col className="col" lg={4}>
+                    <div className='col_edit_item'>
+                      <h4>Выбрать категория апарат</h4>
+                      <div className="selects">
+                        <SelectCommon
+                          onChange={SelectChange2}
+                          defaultValue={elem.category_pereparat.title_ru}
+                          placeholder="Выбрать"
+                          options={options}
+                        />
+                        <span style={{ color: "red", marginTop: "10px", marginLeft: "5px" }}>вы должны выбрать!</span>
+                      </div>
+                    </div>
+                  </Col> */}
 
-                    <InputCommon
-                      type="text"
-                      placeholder="русский"
-                      defaultValue={elem.name_ru}
-
-                      required
-                      onChange={(e) => setTitleRU(e.currentTarget.value)}
-                    />
-                  </Col>
-                  <Col className="col" lg={4}>
-                    <h4>*</h4>
-                    <InputCommon
-                      type="text"
-                      placeholder="английский"
-                      defaultValue={elem.name_en}
-
-                      required
-                      onChange={(e) => setTitleEn(e.currentTarget.value)}
-                    />
-                  </Col>
-                  <Col className="col" lg={12}>
-                    <h4>Oписание</h4>
-                    <textarea
-                      className="textarea_products"
-                      placeholder="узбекский"
-                      required
-                      defaultValue={elem.description_uz}
-
-                      onChange={(e) => setProductTypeUz(e.currentTarget.value)}
-                      rows="10"
-                      cols="120"
-                    ></textarea>
+                  <Col className="col" lg={8}>
+                    <div className='col_edit_item' style={{marginBottom: "20px"}}>
+                      <h4>PDF-файл <span style={{ cursor: "pointer" }} onClick={() => window.location.href = elem.pdf}>(посмотреть старый пдф)</span></h4>
+                      <InputCommon
+                        className="file_input"
+                        type="file"
+                        id="fileupload"
+                        onChange={(e) => HandleChangePdf(e)}
+                      />
+                    </div>
+                    <div className='col_edit_item'>
+                      <h4>Имя продукта</h4>
+                      <InputCommon
+                        type="text"
+                        defaultValue={elem.name_uz}
+                        onChange={(e) => setTitleUz(e.currentTarget.value)}
+                      />
+                      <div style={{margin: "20px 0"}}>
+                        <InputCommon
+                          type="text"
+                          defaultValue={elem.name_en}
+                          onChange={(e) => setTitleEn(e.currentTarget.value)}
+                        />
+                      </div>
+                      <div >
+                        <InputCommon
+                          type="text"
+                          defaultValue={elem.name_ru}
+                          onChange={(e) => setTitleRU(e.currentTarget.value)}
+                        />
+                      </div>
+                    </div>
                   </Col>
                   <Col className="col" lg={12}>
-                    <textarea
-                      className="textarea_products"
-                      placeholder="русский"
-                      defaultValue={elem.description_ru}
-
-                      required
-                      onChange={(e) => setProductTypeRu(e.currentTarget.value)}
-                      rows="10"
-                      cols="120"
-                    ></textarea>
+                    <div className='col_edit_item'>
+                      <h4>Oписание</h4>
+                      <TextArea
+                        defaultValue={elem.description_uz}
+                        onChange={(e) => setProductTypeUz(e.currentTarget.value)}
+                        autoSize />
+                      <TextArea
+                        style={{ margin: "20px 0" }}
+                        defaultValue={elem.description_ru}
+                        onChange={(e) => setProductTypeRu(e.currentTarget.value)}
+                        autoSize />
+                      <TextArea
+                        defaultValue={elem.description_en}
+                        onChange={(e) => setProductTypeEn(e.currentTarget.value)}
+                        autoSize />
+                    </div>
                   </Col>
-                  <Col className="col" lg={12}>
-                    <textarea
-                      className="textarea_products"
-                      placeholder="английский"
-                      defaultValue={elem.description_en}
-
-                      required
-                      onChange={(e) => setProductTypeEn(e.currentTarget.value)}
-                      rows="10"
-                      cols="120"
-                    ></textarea>
-                  </Col>
-
                 </Row>
               </div>
             </div>
