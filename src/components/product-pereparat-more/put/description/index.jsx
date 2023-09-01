@@ -32,12 +32,12 @@ const DescriptionAparatProductPut = ({ openAparatProduct, setOpenAparatProduct, 
       description_ru: descriptionRuYoutube,
       description_en: descriptionEnYoutube,
       youtube_link: YoutubeLink,
-      aparat: id
+      pereparat: id
     };
     await dispatch(DescriptionProductPut({ body, id: putAparatId }))
     dispatch(AparatProductGet())
     setOpenAparatProduct(false);
-
+    window.location.reload();
   }
   return (
     <DraverCommon open={openAparatProduct} onClose={setOpenAparatProduct} >
