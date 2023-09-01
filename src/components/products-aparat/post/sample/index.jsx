@@ -24,9 +24,9 @@ const SampleProductPosts = () => {
   const HandleSubmit = async (e) => {
     e.preventDefault();
     const body = {
-      name_uz: title_ru,
+      name_uz: title_uz,
       name_en: title_en,
-      name_ru: title_uz,
+      name_ru: title_ru,
       aparat: AparatProductGetsPost?.data?.data?.id
     }
     await dispatch(SampleProductPost(body))

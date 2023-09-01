@@ -28,9 +28,7 @@ function CategoryAddForm({ Open, HandleClose }) {
   const categoryAdd = useSelector((state) => state.category);
   const dataProject = useSelector((state) => state.category?.uploadCategoryImage);
   // console.log(dataProject.data)
-  useEffect(() => {
-    dispatch(CategoryGet());
-  }, []);
+ 
   const HandleChange = async (e) => {
     await dispatch(UploadCategoryImage(e));
   };
@@ -45,9 +43,14 @@ function CategoryAddForm({ Open, HandleClose }) {
     );
     dispatch(CategoryGet());
     HandleClose();
+    window.location.reload()
   };
 
-  
+  useEffect(() => {
+    dispatch(CategoryGet());
+  }, []);
+
+
   return (
     <ModalCommon width={400} open={Open} handleClose={HandleClose}>
       <>
@@ -56,7 +59,6 @@ function CategoryAddForm({ Open, HandleClose }) {
           <div className="input_wrap">
             <div className="scrool">
               <Row className="row">
-
                 <Col className="col" lg={12}>
                   <InputCommon
                     type="text"

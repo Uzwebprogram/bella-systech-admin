@@ -475,7 +475,10 @@ const ProductAparatMoreComponent = () => {
                     <h6 className={styles.product_mini_title}>
                       Преимущества товара
                     </h6>
-                    <p>{elem.product_benefits}</p>
+                    {/* <p>{elem.product_benefits}</p> */}
+                    <p><span className={styles.language}>RU:</span>{elem.product_benefits}</p>
+                    <p><span className={styles.language}>EN:</span>{elem.product_benefits_en}</p>
+                    <p><span className={styles.language}>UZ:</span>{elem.product_benefits_uz}</p>
                   </div>
                 </Col>
                 <Col className={styles.card_more_col} lg={12}>
@@ -536,6 +539,19 @@ const ProductAparatMoreComponent = () => {
                       onChange={onChange}
                     />
                   </div>
+                </Col>
+                <Col className={styles.card_partner_col} lg={12}>
+                  <div className={styles.card_more_col_item}>
+                    <h6 className={styles.product_mini_title}>
+                      Технические параметры
+                    </h6>
+                    <Collapse
+                      items={itemParametr}
+                      expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
+                      onChange={onChange}
+                    />
+                  </div>
+
                 </Col>
                 <Col className={styles.card_more_col} lg={12}>
                   <div className={styles.card_more_col_item}>
@@ -606,9 +622,6 @@ const ProductAparatMoreComponent = () => {
                             <div
                             // className={styles.card_partner_video_wrap}
                             >
-                              {/* <h6 className={styles.company_mini_title}>
-                              Ссылка на ютуб
-                            </h6> */}
                               <iframe width="100%"
                                 height="350"
                                 src={elem.video}
@@ -639,7 +652,9 @@ const ProductAparatMoreComponent = () => {
                         }}
                       >
                         <div className={styles.card_img_cover_wrap}>
+
                           <div key={index} className={styles.card_img_covers}>
+                            <h6 className={styles.company_mini_title} style={{margin: "0 0 10px 20px "}}>#До</h6>
                             <Image
                               style={{
                                 aspectRatio: 16 / 9, borderRadius: '25px',
@@ -651,6 +666,7 @@ const ProductAparatMoreComponent = () => {
                           </div>
 
                           <div className={styles.card_img_covers}>
+                            <h6 className={styles.company_mini_title} style={{margin: "0 0 10px 20px "}}>#После</h6>
                             <Image
                               style={{
                                 aspectRatio: 16 / 9, borderRadius: '25px',
@@ -665,19 +681,6 @@ const ProductAparatMoreComponent = () => {
                       </Image.PreviewGroup>
                     </>)}
                   </div>
-                </Col>
-                <Col className={styles.card_partner_col} lg={12}>
-                  <div className={styles.card_more_col_item}>
-                    <h6 className={styles.product_mini_title}>
-                      Технические параметры
-                    </h6>
-                    <Collapse
-                      items={itemParametr}
-                      expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
-                      onChange={onChange}
-                    />
-                  </div>
-
                 </Col>
               </Row>
             ))

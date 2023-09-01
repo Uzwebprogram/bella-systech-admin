@@ -48,6 +48,8 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   const [categoryaparatstate, setCategoryAparatState] = useState();
   const [partnerstate, setPartnersState] = useState();
   const [salecount, setsalecount] = useState();
+  const [salecountuz, setsalecountuz] = useState();
+  const [salecounten, setsalecounten] = useState();
   // ! photos api 
   const [YouteLinkPhotos, setYouteLinkPhotos] = useState();
 
@@ -66,6 +68,8 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
         image3: dataImage3?.data,
         pdf: dataPdf.data,
         product_benefits: salecount,
+        product_benefit_uz: salecountuz,
+        product_benefits_en: salecounten,
         company: companystate,
         category_aparat: categoryaparatstate,
         partners: partnerstate
@@ -85,6 +89,8 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
       e.target[9].value = null
       e.target[10].value = null
       e.target[11].value = null
+      e.target[12].value = null
+      e.target[13].value = null
 
     } else if (current == 1) {
       const body = {
@@ -231,7 +237,7 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   CompanyGets.map((elem) =>
     optionsCompany.push({
       value: elem.id,
-      label: elem.title_ru,
+      label: elem.name,
     })
   );
 
@@ -249,7 +255,27 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
       title: "Апарат",
       content: (
         <>
-          <AparatProduct setTitleUz={setTitleUz} setTitleRU={setTitleRU} setTitleEn={setTitleEn} setProductTypeUz={setProductTypeUz} setProductTypeRu={setProductTypeRu} setProductTypeEn={setProductTypeEn} setsalecount={setsalecount} HandleChange={HandleChange} HandleChange2={HandleChange2} HandleChange3={HandleChange3} options={options} optionsCompany={optionsCompany} OptionPartners={OptionPartners} SelectChange={SelectChange} SelectChange2={SelectChange2} SelectChange3={SelectChange3} HandleChangePdf={HandleChangePdf} />
+          <AparatProduct
+            setTitleUz={setTitleUz}
+            setTitleRU={setTitleRU}
+            setTitleEn={setTitleEn}
+            setProductTypeUz={setProductTypeUz}
+            setProductTypeRu={setProductTypeRu}
+            setProductTypeEn={setProductTypeEn}
+            setsalecount={setsalecount}
+            setsalecountuz={setsalecountuz}
+            setsalecounten={setsalecounten}
+            HandleChange={HandleChange}
+            HandleChange2={HandleChange2}
+            HandleChange3={HandleChange3}
+            options={options}
+            optionsCompany={optionsCompany}
+            OptionPartners={OptionPartners}
+            SelectChange={SelectChange}
+            SelectChange2={SelectChange2}
+            SelectChange3={SelectChange3}
+            HandleChangePdf={HandleChangePdf}
+          />
         </>
       ),
     },

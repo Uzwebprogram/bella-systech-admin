@@ -5,7 +5,7 @@ import Delete from "./delete";
 import CategoryAddForm from "./post";
 import Put from "./put";
 import TableAdd from "./table";
-function CategoryAddComponent({ open, handleClose }) {
+function CategoryAddComponent() {
   const categorydelete = useSelector((state) => state.category);
   const dispatch = useDispatch();
   const [categoryId, setCategoryId] = useState();
@@ -15,6 +15,8 @@ function CategoryAddComponent({ open, handleClose }) {
     setCategoryId(e.target.id);
     setOpenDelete(true);
   };
+  const [open, setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
   const [openPut, setOpenPut] = useState(false);
   const handleClosePut = () => setOpenPut(false);
   const handlePutModal = (e) => {
