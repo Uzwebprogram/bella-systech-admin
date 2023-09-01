@@ -79,12 +79,8 @@ const DoneSubmit = async(e) => {
     pereparat : AparatProductGetsPost?.data?.data?.id
   };
   await dispatch(DescriptionProductPost(body))
-  e.target[0].value = null
-  e.target[1].value = null
-  e.target[2].value = null
-  e.target[3].value = null
-  message.success("Завершена обработка!")
   HandleClose()
+  window.location.reload();
 }
   const AparatCategoryGets = useSelector((state) => state.pereparatcategory.PereparatCategoryGet.data);
   useEffect(() => {
