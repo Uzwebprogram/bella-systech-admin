@@ -15,6 +15,8 @@ const AparatProduct = ({
   setProductTypeRu,
   setProductTypeEn,
   setsalecount,
+  setsalecountuz,
+  setsalecounten,
   HandleChange,
   HandleChange2,
   HandleChange3,
@@ -148,9 +150,23 @@ const AparatProduct = ({
                 <div>
                   <h4>Преимущества товара</h4>
                   <TextArea
-                    placeholder="печатание"
+                    placeholder="узбекский"
                     required
                     onChange={(e) => setsalecount(e.currentTarget.value)}
+                    autoSize />
+                </div>
+                <div style={{margin: "20px 0"}}>
+                  <TextArea
+                    placeholder="русский"
+                    required
+                    onChange={(e) => setsalecountuz(e.currentTarget.value)}
+                    autoSize />
+                </div>
+                <div>
+                  <TextArea
+                    placeholder="английский"
+                    required
+                    onChange={(e) => setsalecounten(e.currentTarget.value)}
                     autoSize />
                 </div>
               </Col>

@@ -28,9 +28,9 @@ const Parametr = () => {
   const HandleSubmit = async (e) => {
     e.preventDefault();
     const body = {
-      parametr_uz: title_ru,
+      parametr_uz: title_uz,
       parametr_en: title_en,
-      parametr_ru: title_uz,
+      parametr_ru: title_ru,
       information_uz: description_uz,
       information_en: description_en,
       information_ru: description_ru,
