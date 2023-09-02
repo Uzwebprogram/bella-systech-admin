@@ -150,23 +150,23 @@ const AparatProduct = ({
                 <div>
                   <h4>Преимущества товара</h4>
                   <TextArea
-                    placeholder="узбекский"
+                    placeholder="русский"
                     required
                     onChange={(e) => setsalecount(e.currentTarget.value)}
                     autoSize />
                 </div>
-                <div style={{margin: "20px 0"}}>
-                  <TextArea
-                    placeholder="русский"
-                    required
-                    onChange={(e) => setsalecountuz(e.currentTarget.value)}
-                    autoSize />
-                </div>
-                <div>
+                <div style={{ margin: "20px 0" }}>
                   <TextArea
                     placeholder="английский"
                     required
                     onChange={(e) => setsalecounten(e.currentTarget.value)}
+                    autoSize />
+                </div>
+                <div>
+                  <TextArea
+                    placeholder=" узбекский"
+                    required
+                    onChange={(e) => setsalecountuz(e.currentTarget.value)}
                     autoSize />
                 </div>
               </Col>
