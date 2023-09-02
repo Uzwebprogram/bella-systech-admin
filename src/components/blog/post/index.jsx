@@ -147,12 +147,6 @@ function NewsForm({ Open, HandleClose }) {
                     <h4>Имя партнера</h4>
                     <InputCommon
                       type="text"
-                      placeholder="узбекский"
-                      required
-                      onChange={(e) => setNameUz(e.currentTarget.value)}
-                    />
-                    <InputCommon
-                      type="text"
                       placeholder="русский"
                       required
                       onChange={(e) => setNameRU(e.currentTarget.value)}
@@ -162,6 +156,12 @@ function NewsForm({ Open, HandleClose }) {
                       placeholder="английский"
                       required
                       onChange={(e) => setNameEn(e.currentTarget.value)}
+                    />
+                    <InputCommon
+                      type="text"
+                      placeholder="узбекский"
+                      required
+                      onChange={(e) => setNameUz(e.currentTarget.value)}
                     />
                   </div>
                 </Col>
@@ -226,13 +226,6 @@ function NewsForm({ Open, HandleClose }) {
                 </Col>
                 <Col className="col" lg={12}>
                   <div className="cl_bg">
-                    <h4 className="cl_bg_title">Описание узбекский</h4>
-                    <TextArea
-                      placeholder="узбекский"
-                      required
-                      onChange={(e) => setDescriptionUz(e.currentTarget.value)}
-                      autoSize
-                    />
                     <h4 className="cl_bg_title">Описание русский</h4>
                     <TextArea
                       placeholder="русский"
@@ -245,6 +238,13 @@ function NewsForm({ Open, HandleClose }) {
                       placeholder="английский"
                       required
                       onChange={(e) => setDescriptionEn(e.currentTarget.value)}
+                      autoSize
+                    />
+                    <h4 className="cl_bg_title">Описание узбекский</h4>
+                    <TextArea
+                      placeholder="узбекский"
+                      required
+                      onChange={(e) => setDescriptionUz(e.currentTarget.value)}
                       autoSize
                     />
                   </div>

@@ -52,17 +52,7 @@ const Parametr = () => {
           <h4>Имя технические параметры</h4>
           <InputCommon
             type="text"
-            placeholder="Имя технические параметры уз"
-            required
-            onChange={(e) => setTitleuz(e.currentTarget.value)}
-          />
-        </Col>
-        <Col className="col" lg={4}>
-          <h4>*</h4>
-
-          <InputCommon
-            type="text"
-            placeholder="Имя технические параметры ру"
+            placeholder="русский"
             required
             onChange={(e) => setTitleru(e.currentTarget.value)}
           />
@@ -71,27 +61,27 @@ const Parametr = () => {
           <h4>*</h4>
           <InputCommon
             type="text"
-            placeholder="Имя технические параметры ен"
+            placeholder="английский"
             required
             onChange={(e) => setTitleen(e.currentTarget.value)}
+          />
+        </Col>
+        <Col className="col" lg={4}>
+          <h4>*</h4>
+          <InputCommon
+            type="text"
+            placeholder="узбекский"
+            required
+            onChange={(e) => setTitleuz(e.currentTarget.value)}
           />
         </Col>
       </Row>
       <Row className={styles.row}>
         <Col className={styles.col} lg={12}>
-          <div style={{ margin: "20px 0" }}>
+          <div>
             <h4>Информация о технические параметрах</h4>
             <TextArea
-              placeholder="печатание уз"
-              required
-              onChange={(e) => setDescriptionuz(e.currentTarget.value)}
-              autoSize />
-          </div>
-        </Col>
-        <Col className="col" lg={12}>
-          <div style={{ margin: "20px 0" }}>
-            <TextArea
-              placeholder="печатание ру"
+              placeholder="русский"
               required
               onChange={(e) => setDescriptionru(e.currentTarget.value)}
               autoSize />
@@ -100,9 +90,18 @@ const Parametr = () => {
         <Col className="col" lg={12}>
           <div style={{ margin: "20px 0" }}>
             <TextArea
-              placeholder="печатание ен"
+              placeholder="английский"
               required
               onChange={(e) => setDescriptionen(e.currentTarget.value)}
+              autoSize />
+          </div>
+        </Col>
+        <Col className="col" lg={12}>
+          <div>
+            <TextArea
+              placeholder="узбекский"
+              required
+              onChange={(e) => setDescriptionuz(e.currentTarget.value)}
               autoSize />
           </div>
         </Col>

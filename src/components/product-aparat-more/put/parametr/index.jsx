@@ -48,40 +48,44 @@ const ParametrPut = ({ putAparatId, openAparatProduct, setOpenAparatProduct }) =
           <Row className={styles.row}>
             <Col className={styles.col} lg={12}>
               <div className={styles.col_edit_item}>
-                <h4>Название параметра</h4>
+                <h4>Имя технические параметры русский</h4>
                 <InputCommon
                   type="text"
                   defaultValue={elem.parametr_ru}
                   onChange={(e) => setTitleru(e.currentTarget.value)}
                 />
+                <h4>Имя технические параметры английский</h4>
                 <InputCommon
                   className={styles.parametr_input}
                   type="text"
-                  defaultValue={elem.parametr_uz}
-                  onChange={(e) => setTitleuz(e.currentTarget.value)}
-                />
-                <InputCommon
-                  type="text"
                   defaultValue={elem.parametr_en}
                   onChange={(e) => setTitleen(e.currentTarget.value)}
+                />
+                <h4>Имя технические параметры узбекский</h4>
+                <InputCommon
+                  type="text"
+                  defaultValue={elem.parametr_uz}
+                  onChange={(e) => setTitleuz(e.currentTarget.value)}
                 />
               </div>
             </Col>
             <Col className={styles.col} lg={12}>
               <div className={styles.col_edit_item}>
-                <h4>Информация о параметрах</h4>
+                <h4>Информация о технические параметрах русский</h4>
                 <TextArea
                   defaultValue={elem.information_ru}
                   onChange={(e) => setDescriptionru(e.currentTarget.value)}
                   autoSize />
+                <h4>Информация о технические параметрах английский</h4>
                 <TextArea
                   className={styles.parametr_input}
-                  defaultValue={elem.information_uz}
-                  onChange={(e) => setDescriptionuz(e.currentTarget.value)}
-                  autoSize />
-                <TextArea
                   defaultValue={elem.information_en}
                   onChange={(e) => setDescriptionen(e.currentTarget.value)}
+                  autoSize />
+                <h4>Информация о технические параметрах узбекский</h4>
+                <TextArea
+                  defaultValue={elem.information_uz}
+                  onChange={(e) => setDescriptionuz(e.currentTarget.value)}
                   autoSize />
               </div>
             </Col>

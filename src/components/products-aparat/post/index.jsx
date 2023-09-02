@@ -145,6 +145,7 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
     await dispatch(DesignProductPost(body))
     message.success("Завершена обработка!")
     HandleClose()
+    window.location.reload()
   }
   const AparatCategoryGets = useSelector((state) => state.aparat.AparatGet.data);
   useEffect(() => {

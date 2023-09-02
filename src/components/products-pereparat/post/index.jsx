@@ -173,7 +173,7 @@ const DoneSubmit = async(e) => {
   CompanyGets.map((elem) =>
   optionsCompany.push({
       value: elem.id,
-      label: elem.title_ru,
+      label: elem.name,
     })
   );
 

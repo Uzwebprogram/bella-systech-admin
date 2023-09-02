@@ -46,21 +46,23 @@ const DescriptionAparatProductPut = ({ openAparatProduct, setOpenAparatProduct, 
           <Row className={styles.row}>
             <Col className={styles.col} lg={12}>
               <div className={styles.col_edit_item}>
-                <h4>Преимущества</h4>
+                <h4>Описание русский</h4>
                 <TextArea
-                  defaultValue={elem.description_uz}
-                  onChange={(e) => setDescriptionUzYoutube(e.currentTarget.value)}
+                  defaultValue={elem.description_ru}
+                  onChange={(e) => setDescriptionRuYoutube(e.currentTarget.value)}
                   autoSize />
-                <div style={{ margin: "20px 0" }}>
-                  <TextArea
-                    defaultValue={elem.description_ru}
-                    onChange={(e) => setDescriptionRuYoutube(e.currentTarget.value)}
-                    autoSize />
-                </div>
                 <div>
+                  <h4>Описание английский</h4>
                   <TextArea
                     defaultValue={elem.description_en}
                     onChange={(e) => setDescriptionEnYoutube(e.currentTarget.value)}
+                    autoSize />
+                </div>
+                <div>
+                  <h4>Описание узбекский</h4>
+                  <TextArea
+                    defaultValue={elem.description_uz}
+                    onChange={(e) => setDescriptionUzYoutube(e.currentTarget.value)}
                     autoSize />
                 </div>
               </div>
@@ -68,7 +70,7 @@ const DescriptionAparatProductPut = ({ openAparatProduct, setOpenAparatProduct, 
 
           </Row>
           <Row className={styles.row}>
-            <Col className="col" lg={6}>
+            <Col className="col" lg={8}>
               <div className={styles.col_edit_item}>
                 <h4>Youtube линк</h4>
                 <InputCommon

@@ -81,36 +81,26 @@ function UslugyForm({ Open, HandleClose }) {
                     <h4>Новости титул</h4>
                     <InputCommon
                       type="text"
-                      placeholder="узбекский"
-                      required
-                      onChange={(e) => setTitleUz(e.currentTarget.value)}
-                    />
-                    <InputCommon
-                      className='col_margin_input'
-                      type="text"
                       placeholder="русский"
                       required
                       onChange={(e) => setTitleRu(e.currentTarget.value)}
                     />
                     <InputCommon
+                      className='col_margin_input'
                       type="text"
                       placeholder="английский"
                       required
                       onChange={(e) => setTitleEn(e.currentTarget.value)}
                     />
+                    <InputCommon
+                      type="text"
+                      placeholder="узбекский"
+                      required
+                      onChange={(e) => setTitleUz(e.currentTarget.value)}
+                    />
                   </div>
                 </Col>
 
-                <Col className="col" lg={12}>
-                  <div className="col_edit_item">
-                    <h4>Описание узбекский</h4>
-                    <TextArea
-                      onChange={(e) => setDescriptionUz(e.currentTarget.value)}
-                      required
-                      placeholder="написать..."
-                      autoSize />
-                  </div>
-                </Col>
                 <Col className="col" lg={12}>
                   <div className="col_edit_item">
                     <h4>Описание русский</h4>
@@ -126,6 +116,16 @@ function UslugyForm({ Open, HandleClose }) {
                     <h4>Описание английский</h4>
                     <TextArea
                       onChange={(e) => setDescriptionEn(e.currentTarget.value)}
+                      required
+                      placeholder="написать..."
+                      autoSize />
+                  </div>
+                </Col>
+                <Col className="col" lg={12}>
+                  <div className="col_edit_item">
+                    <h4>Описание узбекский</h4>
+                    <TextArea
+                      onChange={(e) => setDescriptionUz(e.currentTarget.value)}
                       required
                       placeholder="написать..."
                       autoSize />

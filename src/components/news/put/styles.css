@@ -42,3 +42,7 @@ h3 {
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
+
+.col_edit_item > h4{
+  margin: 10px 0 1px 10px;
+}

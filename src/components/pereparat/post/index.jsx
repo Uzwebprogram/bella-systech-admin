@@ -56,7 +56,7 @@ function CategoryAddForm({ Open, HandleClose }) {
     <ModalCommon width={400} open={Open} handleClose={HandleClose}>
       <>
         <Wrapper onSubmit={HandleSubmit}>
-          <h3>Добавить категорию</h3>
+          <h3>Добавить препарат категорию</h3>
           <div className="input_wrap">
             <div className="scrool">
               <Row className="row">
@@ -64,21 +64,21 @@ function CategoryAddForm({ Open, HandleClose }) {
                 <Col className="col" lg={12}>
                   <InputCommon
                     type="text"
-                    placeholder="Категория узб..."
-                    required
-                    onChange={(e) => setTitleUz(e.currentTarget.value)}
-                  />
-                  <InputCommon
-                    type="text"
-                    placeholder="Категория русский..."
+                    placeholder="Категория русский"
                     required
                     onChange={(e) => setTitleRu(e.currentTarget.value)}
                   />
                   <InputCommon
                     type="text"
-                    placeholder="Категория ен..."
+                    placeholder="Категория английский"
                     required
                     onChange={(e) => setTitleEn(e.currentTarget.value)}
+                  />
+                  <InputCommon
+                    type="text"
+                    placeholder="Категория узбекский"
+                    required
+                    onChange={(e) => setTitleUz(e.currentTarget.value)}
                   />
                   <SelectCommon 
                   defaultValue={"выбрать компанию"}
