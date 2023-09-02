@@ -186,7 +186,7 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
                           onChange={(e) => setTitleEn(e.currentTarget.value)}
                         />
                       </div>
-                      <div >
+                      <div>
                         <h4>Имя продукта узбекский</h4>
                         <InputCommon
                           type="text"

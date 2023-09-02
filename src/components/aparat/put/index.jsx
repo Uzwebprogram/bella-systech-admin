@@ -61,7 +61,6 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
                 {
                   categoryGets.map(elem => elem.id == put_id ? (
                     <>
-
                       <Col className="col" lg={12}>
                         <h5>Имя аппарат категорию русский</h5>
                         <InputCommon
