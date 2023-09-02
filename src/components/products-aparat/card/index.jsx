@@ -286,9 +286,9 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                             </div>
                                             <NavLink className={styles.card_more_page_link} to={`/aparat-product-more/${elem.id}`}>
                                                 <div className={styles.card_desc}>
-                                                    <h4 className={styles.card_title}>{elem.name_ru}</h4>
+                                                    <h4 className={styles.card_title}>{elem.name_ru.length > 15 ? `${elem.name_ru.slice(0, 25)}...` : elem.name_ru}</h4>
                                                     <p className={styles.card_description}>
-                                                        {elem.description_ru}
+                                                        {elem.description_ru.slice(0, 50)}...
                                                     </p>
                                                 </div>
                                             </NavLink>
@@ -393,9 +393,9 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                             </div>
                                             <NavLink className={styles.card_more_page_link} to={`/aparat-product-more/${elem.id}`}>
                                                 <div className={styles.card_desc}>
-                                                    <h4 className={styles.card_title}>{elem.name_ru}</h4>
+                                                    <h4 className={styles.card_title}>{elem.name_ru.length > 15 ? `${elem.name_ru.slice(0, 25)}...` : elem.name_ru}</h4>
                                                     <p className={styles.card_description}>
-                                                        {elem.description_ru}
+                                                        {elem.description_ru.slice(0, 50)}...
                                                     </p>
                                                 </div>
                                             </NavLink>
@@ -500,9 +500,9 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                             </div>
                                             <NavLink className={styles.card_more_page_link} to={`/aparat-product-more/${elem.id}`}>
                                                 <div className={styles.card_desc}>
-                                                    <h4 className={styles.card_title}>{elem.name_ru}</h4>
+                                                    <h4 className={styles.card_title}>{elem.name_ru.length > 15 ? `${elem.name_ru.slice(0, 25)}...` : elem.name_ru}</h4>
                                                     <p className={styles.card_description}>
-                                                        {elem.description_ru}
+                                                        {elem.description_ru.slice(0, 50)}...
                                                     </p>
                                                 </div>
                                             </NavLink>
@@ -607,9 +607,9 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                             </div>
                                             <NavLink className={styles.card_more_page_link} to={`/aparat-product-more/${elem.id}`}>
                                                 <div className={styles.card_desc}>
-                                                    <h4 className={styles.card_title}>{elem.name_ru}</h4>
+                                                    <h4 className={styles.card_title}>{elem.name_ru.length > 15 ? `${elem.name_ru.slice(0, 25)}...` : elem.name_ru}</h4>
                                                     <p className={styles.card_description}>
-                                                        {elem.description_ru}
+                                                        {elem.description_ru.slice(0, 50)}...
                                                     </p>
                                                 </div>
                                             </NavLink>
@@ -715,7 +715,7 @@ const CardAdd = ({ onClickPut, cols, contentWidth }) => {
                                             </div>
                                             <NavLink className={styles.card_more_page_link} to={`/aparat-product-more/${elem.id}`}>
                                                 <div className={styles.card_desc}>
-                                                    <h4 className={styles.card_title}>{elem.name_ru}</h4>
+                                                    <h4 className={styles.card_title}>{elem.name_ru.length > 15 ? `${elem.name_ru.slice(0, 25)}...` : elem.name_ru}</h4>
                                                     <p className={styles.card_description}>
                                                         {elem.description_ru.slice(0, 50)}...
                                                     </p>
