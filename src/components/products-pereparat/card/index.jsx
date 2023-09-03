@@ -72,7 +72,6 @@ const CardAdd = ({ cols, contentWidth }) => {
     const SelectChangeCategory = (e) => {
         setCategories(e);
     };
-
     const optionCompany = []
     const optionCategory = []
     aparatProductGetState.map(elem => {
@@ -83,7 +82,6 @@ const CardAdd = ({ cols, contentWidth }) => {
             })
         }
     })
-
     aparatProductGetState.map(elem => {
         if (!optionCategory.map(elem => elem.label).includes(elem.category_pereparat?.title_ru)) {
             optionCategory.push({
@@ -92,34 +90,27 @@ const CardAdd = ({ cols, contentWidth }) => {
             })
         }
     })
-
     const keys = ["name_uz", "name_ru", "name_en", "description_uz", "description_ru", "description_en"]
-
     const search = (data) => {
         return data?.filter(item => keys?.some((key) => item[key]?.toLowerCase().includes(query)))
     }
-
     const companySearch = (data) => {
         return data?.filter(item => item.company?.id == companies)
     }
-
     const categorySearch = (data) => {
         return data?.filter(item => item.category_pereparat?.id == categories)
     }
-
     const dateFilter = (data) => {
         return data?.filter(item =>
             DateFormat(item.createdAt) == DateFormat(startDate)
         )
     }
-
     const companyAndDateSort = (data) => {
         return data?.filter(item =>
             item.company?.id == companyADateSort ||
             DateFormat(item.createdAt) == DateFormat(startDate)
         )
     }
-
     const aparatData = search(aparatProductGetState)
     const companyData = companySearch(aparatProductGetState)
     const categoryData = categorySearch(aparatProductGetState)
@@ -178,7 +169,6 @@ const CardAdd = ({ cols, contentWidth }) => {
                                     onChange={(e) => setStartDate(e)}
                                     className={styles.card_search_date_input}
                                 />
-
                             </Col>
                         </Row>
                     </div>
@@ -193,7 +183,6 @@ const CardAdd = ({ cols, contentWidth }) => {
                                             <div>
                                                 <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
                                                     <div className={styles.card_img_wrap}>
-
                                                         <img
                                                             src={elem.image1}
                                                             style={{ aspectRatio: 3 / 4 }}
@@ -253,7 +242,6 @@ const CardAdd = ({ cols, contentWidth }) => {
                                                                         }
                                                                     >
                                                                         <div className="btn-wrap">
-
                                                                             <button
                                                                                 id={elem.id}
                                                                                 className={styles.card_more_btn}>
@@ -402,7 +390,6 @@ const CardAdd = ({ cols, contentWidth }) => {
                         ) : startDate ? (
                             dateData.map((elem) => (
                                 <Col className={styles.card_col} lg={cols}>
-
                                     <div className={styles.card}>
                                         <div className={styles.card_content_bigwrapp}>
                                             <div>
@@ -467,7 +454,6 @@ const CardAdd = ({ cols, contentWidth }) => {
                                                                         }
                                                                     >
                                                                         <div className="btn-wrap">
-
                                                                             <button
                                                                                 id={elem.id}
                                                                                 className={styles.card_more_btn}>
@@ -510,14 +496,11 @@ const CardAdd = ({ cols, contentWidth }) => {
                         ) : categories ? (
                             categoryData.map((elem) => (
                                 <Col className={styles.card_col} lg={cols}>
-
                                     <div className={styles.card}>
                                         <div className={styles.card_content_bigwrapp}>
-
                                             <div>
                                                 <NavLink className={styles.card_more_page_link} to={`/pereparat-product-more/${elem.id}`}>
                                                     <div className={styles.card_img_wrap}>
-
                                                         <img
                                                             src={elem.image1}
                                                             style={{ aspectRatio: 3 / 4 }}
@@ -577,7 +560,6 @@ const CardAdd = ({ cols, contentWidth }) => {
                                                                         }
                                                                     >
                                                                         <div className="btn-wrap">
-
                                                                             <button
                                                                                 id={elem.id}
                                                                                 className={styles.card_more_btn}>
@@ -620,7 +602,6 @@ const CardAdd = ({ cols, contentWidth }) => {
                         ) : (
                             aparatProductGetState.map((elem) => (
                                 <Col className={styles.card_col} lg={cols}>
-
                                     <div className={styles.card}>
                                         <div className={styles.card_content_bigwrapp}>
                                             <div>
@@ -709,7 +690,6 @@ const CardAdd = ({ cols, contentWidth }) => {
                                                             <span>Category</span>
                                                             <h4>{elem.category_pereparat?.title_ru}</h4>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
