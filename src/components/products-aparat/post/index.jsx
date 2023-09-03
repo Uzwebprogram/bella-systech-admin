@@ -253,7 +253,7 @@ function ProductAddForm({ Open, HandleClose, setSelectId, selectId }) {
   // STEPS CODE
   const steps = [
     {
-      title: "Апарат",
+      title: "Аппараты",
       content: (
         <>
           <AparatProduct

@@ -166,7 +166,7 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
                         />
                         <span style={{ color: "red", marginTop: "10px", marginLeft: "5px" }}>вы должны выбрать!</span>
                       </div>
-                      <h4>Выбрать категория апарат</h4>
+                      <h4>Выбрать категория aппараты</h4>
                       <div className="selects">
                         <SelectCommon
                           onChange={SelectChange2}

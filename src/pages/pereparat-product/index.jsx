@@ -25,18 +25,18 @@ function PeraparatProduct() {
     window.localStorage.getItem("checked") == 'false' ? <HorizontalSidebar>
       <WrapperContainer style={{ marginTop: "90px" }}>
         <HeaderTopCommon
-          title={"перепарат"}
+          title={"Профессиональная косметика продукты"}
           onClick={showDrawer}
-          textBtn={"Добавить перепарат"}
+          textBtn={"Добавить продукты"}
         />
         <PereparatAparatComponent handleClose={onClose} open={open} cols={4} contentWidth="65%" />
       </WrapperContainer>
     </HorizontalSidebar> : <VerticalSidebar>
       <WrapperContainer>
         <HeaderTopCommon
-          title={"перепарат"}
+          title={"Профессиональная косметика продукты"}
           onClick={showDrawer}
-          textBtn={"Добавить перепарат"}
+          textBtn={"Добавить продукты"}
         />
         <PereparatAparatComponent handleClose={onClose} open={open} cols={6} contentWidth="72%" />
       </WrapperContainer>

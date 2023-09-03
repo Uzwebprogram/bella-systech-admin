@@ -58,7 +58,7 @@ function CategoryAddForm({ Open, HandleClose }) {
     <ModalCommon width={400} open={Open} handleClose={HandleClose}>
       <>
         <Wrapper onSubmit={HandleSubmit}>
-          <h3>Добавить аппарат категорию</h3>
+          <h3>Добавить аппараты категорию</h3>
           <div className="input_wrap">
             <div className="scrool">
               <Row className="row">
@@ -93,7 +93,7 @@ function CategoryAddForm({ Open, HandleClose }) {
                       margin: "20px auto 0 auto",
                       padding: "12px 40px",
                       border: "2px solid #fff",
-                      background: "#03544c"
+                      background: "#F94144"
                     }}
                   >
                     Добавить

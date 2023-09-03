@@ -60,7 +60,7 @@ const AparatProduct = ({
                   </div>
                 </div>
                 <div>
-                  <h4>Выбрать категория апарат</h4>
+                  <h4>Выбрать категория аппараты</h4>
                   <div className="selects">
                     <SelectCommon
                       onChange={SelectChange2}

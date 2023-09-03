@@ -54,7 +54,7 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
     <>
       <ModalCommon width={500} open={openPut} handleClose={handleClosePut}>
         <Wrapper onSubmit={HandleSubmit}>
-          <h3>Изменение аппарат категории</h3>
+          <h3>Изменение аппараты категории</h3>
           <div className="input_wrap">
             <div className="scrool">
               <Row className="row">
@@ -62,19 +62,19 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
                   categoryGets.map(elem => elem.id == put_id ? (
                     <>
                       <Col className="col" lg={12}>
-                        <h5>Имя аппарат категорию русский</h5>
+                        <h5>Имя аппараты категорию русский</h5>
                         <InputCommon
                           type="text"
                           defaultValue={elem.title_ru}
                           onChange={(e) => setTitleRu(e.currentTarget.value)}
                         />
-                        <h5>Имя аппарат категорию английский</h5>
+                        <h5>Имя аппараты категорию английский</h5>
                         <InputCommon
                           type="text"
                           defaultValue={elem.title_en}
                           onChange={(e) => setTitleEn(e.currentTarget.value)}
                         />
-                        <h5>Имя аппарат категорию узбекский</h5>
+                        <h5>Имя аппараты категорию узбекский</h5>
                         <InputCommon
                           type="text"
                           defaultValue={elem.title_uz}
@@ -91,7 +91,7 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
                             margin: "20px auto 0 auto",
                             padding: "12px 40px",
                             border: "2px solid #fff",
-                            background: "#03544c",
+                            background: "#F94144",
                           }}
                         >
                           Добавить

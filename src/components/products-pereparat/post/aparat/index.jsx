@@ -36,7 +36,7 @@ const AparatProduct = ({ setTitleUz, setTitleRU, setTitleEn, setProductTypeUz, s
                   </div>
                 </div>
                 <div>
-                  <h4>Выбрать категория перепарат</h4>
+                  <h4>Выбрать категория косметика</h4>
                   <div className="selects">
                     <SelectCommon
                       onChange={SelectChange2}

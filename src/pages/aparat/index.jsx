@@ -25,18 +25,18 @@ function Aparat() {
     window.localStorage.getItem("checked") == 'false' ? <HorizontalSidebar>
       <WrapperContainer style={{ marginTop: "90px" }}>
         <HeaderTopCommon
-          title={"апарат"}
+          title={"Аппараты категория"}
           onClick={showDrawer}
-          textBtn={"Добавить апарат"}
+          textBtn={"Добавить категория"}
         />
         <AparatComponent handleClose={onClose} open={open} />
       </WrapperContainer>
     </HorizontalSidebar> : <VerticalSidebar>
       <WrapperContainer>
         <HeaderTopCommon
-          title={"апарат"}
+          title={"Аппараты категория"}
           onClick={showDrawer}
-          textBtn={"Добавить апарат"}
+          textBtn={"Добавить категория"}
         />
         <AparatComponent handleClose={onClose} open={open} />
       </WrapperContainer>

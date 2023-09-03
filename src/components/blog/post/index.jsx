@@ -132,7 +132,7 @@ function NewsForm({ Open, HandleClose }) {
                 </Col>
                 <Col className="col" lg={4}>
                   <div className="cl_bg">
-                    <h4>Выбрать апарат</h4>
+                    <h4>Выбрать aппараты</h4>
                     <div className="selects">
                       <SelectCommon
                         onChange={SelectChange}
