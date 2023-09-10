@@ -272,7 +272,7 @@ const CardAdd = ({ cols, contentWidth }) => {
                                                         </div>
                                                         <div className={styles.card_details_item}>
                                                             <span>Company</span>
-                                                            <h4>{elem.company.name}</h4>
+                                                            <h4>{elem?.company?.name}</h4>
                                                         </div>
                                                         <div className={styles.card_details_item}>
                                                             <span>Category</span>
@@ -378,7 +378,7 @@ const CardAdd = ({ cols, contentWidth }) => {
                                                         </div>
                                                         <div className={styles.card_details_item}>
                                                             <span>Company</span>
-                                                            <h4>{elem.company.name}</h4>
+                                                            <h4>{elem?.company?.name}</h4>
                                                         </div>
                                                         <div className={styles.card_details_item}>
                                                             <span>Category</span>
@@ -486,7 +486,7 @@ const CardAdd = ({ cols, contentWidth }) => {
                                                         </div>
                                                         <div className={styles.card_details_item}>
                                                             <span>Company</span>
-                                                            <h4>{elem.company.name}</h4>
+                                                            <h4>{elem?.company?.name}</h4>
                                                         </div>
                                                         <div className={styles.card_details_item}>
                                                             <span>Category</span>
@@ -596,7 +596,7 @@ const CardAdd = ({ cols, contentWidth }) => {
                                                         </div>
                                                         <div className={styles.card_details_item}>
                                                             <span>Company</span>
-                                                            <h4>{elem.company.name}</h4>
+                                                            <h4>{elem?.company?.name}</h4>
                                                         </div>
                                                         <div className={styles.card_details_item}>
                                                             <span>Category</span>
@@ -703,7 +703,7 @@ const CardAdd = ({ cols, contentWidth }) => {
                                                         </div>
                                                         <div className={styles.card_details_item}>
                                                             <span>Company</span>
-                                                            <h4>{elem.company.name}</h4>
+                                                            <h4>{elem?.company?.name}</h4>
                                                         </div>
                                                         <div className={styles.card_details_item}>
                                                             <span>Category</span>
