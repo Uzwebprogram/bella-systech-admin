@@ -15,9 +15,9 @@ export default function TableAdd({ HandleDelete, onClickPut }) {
     data.push({
       data: index + 1,
       key: elem.id,
-      Имякатегорииузб: elem.title_uz,
       Имякатегориирусский: elem.title_ru,
       Имякатегорииен: elem.title_en,
+      Имякатегорииузб: elem.title_uz,
 
       Действие: (
         <div className="boxx">
@@ -35,7 +35,7 @@ export default function TableAdd({ HandleDelete, onClickPut }) {
                   <p>Вы уверены, что хотите удалить эту категория?</p>
                   <p>Чтобы удалить категорию, необходимо удалить <br /> связанные с ней товары!</p>
                   <div className="btn_wrap_delete">
-  
+
                     <button onClick={HandleDelete} id={elem.id} className="yes_btn">
                       удалить
                     </button>
@@ -51,7 +51,7 @@ export default function TableAdd({ HandleDelete, onClickPut }) {
             >
               <div className="btn-wrap">
                 <button id={elem.id}>
-                <lord-icon
+                  <lord-icon
                     src="https://cdn.lordicon.com/jmkrnisz.json"
                     trigger="hover"
                     colors="primary:#121331"
@@ -77,11 +77,6 @@ export default function TableAdd({ HandleDelete, onClickPut }) {
     },
 
     {
-      title: "Имя категории узб",
-      dataIndex: "Имякатегорииузб",
-      key: "Имякатегорииузб",
-    },
-    {
       title: "Имя категории рус",
       dataIndex: "Имякатегориирусский",
       key: "Имякатегориирусский",
@@ -91,6 +86,11 @@ export default function TableAdd({ HandleDelete, onClickPut }) {
       dataIndex: "Имякатегорииен",
       key: "Имякатегорииен",
 
+    },
+    {
+      title: "Имя категории узб",
+      dataIndex: "Имякатегорииузб",
+      key: "Имякатегорииузб",
     },
     {
       title: "Действие",

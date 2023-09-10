@@ -149,21 +149,23 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
                     </Col>
                     <Col className="col" lg={8}>
                       <div className="cl_bg">
-                        <h4>Имя партнера</h4>
-                        <InputCommon
-                          type="text"
-                          defaultValue={partner.name_uz}
-                          onChange={(e) => setNameUz(e.currentTarget.value)}
-                        />
+                        <h4>Имя партнера русский</h4>
                         <InputCommon
                           type="text"
                           defaultValue={partner.name_ru}
                           onChange={(e) => setNameRU(e.currentTarget.value)}
                         />
+                        <h4>Имя партнера английский</h4>
                         <InputCommon
                           type="text"
                           defaultValue={partner.name_en}
                           onChange={(e) => setNameEn(e.currentTarget.value)}
+                        />
+                        <h4>Имя партнера узбекский</h4>
+                        <InputCommon
+                          type="text"
+                          defaultValue={partner.name_uz}
+                          onChange={(e) => setNameUz(e.currentTarget.value)}
                         />
                       </div>
                     </Col>
@@ -221,12 +223,6 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
                     </Col>
                     <Col className="col" lg={12}>
                       <div className="cl_bg">
-                        <h4 className="cl_bg_title">Описание узбекский</h4>
-                        <TextArea
-                          defaultValue={partner.description_uz}
-                          onChange={(e) => setDescriptionUz(e.currentTarget.value)}
-                          autoSize
-                        />
                         <h4 className="cl_bg_title">Описание русский</h4>
                         <TextArea
                           defaultValue={partner.description_ru}
@@ -237,6 +233,12 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
                         <TextArea
                           defaultValue={partner.description_en}
                           onChange={(e) => setDescriptionEn(e.currentTarget.value)}
+                          autoSize
+                        />
+                        <h4 className="cl_bg_title">Описание узбекский</h4>
+                        <TextArea
+                          defaultValue={partner.description_uz}
+                          onChange={(e) => setDescriptionUz(e.currentTarget.value)}
                           autoSize
                         />
                       </div>

@@ -25,6 +25,10 @@ select {
   margin-bottom: 20px;
 }
 
+.col > h5{
+  margin: 0 0 5px 10px;
+}
+
 input,
 select {
   font-family: "Ubuntu", sans-serif;

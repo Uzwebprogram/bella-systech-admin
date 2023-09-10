@@ -24,7 +24,7 @@ import {
 } from "@ant-design/icons";
 import { Button, Tooltip } from "antd";
 import './styles.css'
-import logo from "../../assets/image/logos.png";
+import logo from "../../assets/logo.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { adminGet } from "../../redux/admin_add/index";
 const { Header, Content, Footer } = Layout;
@@ -88,7 +88,9 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
           alignItems: 'center',
         }}
       >
-        <img src={logo} width={100} className="demo-logo" />
+        <div className="logo_Wrapp">
+          <img src={logo} width={100} className="demo-logo" />
+        </div>
         <Menu
           theme="dark"
           mode="horizontal"
@@ -127,7 +129,7 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
                       to={"/category-aparat"}
                       className={pathname == "/category-aparat" ? "active" : ""}
                     >
-                      <span class="title">Апарат</span>
+                      <span class="title">Аппараты</span>
                     </NavLink>
                   )
                 },
@@ -138,7 +140,18 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
                       to={"/category-pereparat"}
                       className={pathname == "/category-pereparat" ? "active" : ""}
                     >
-                      <span class="title">Препараты</span>
+                      <span class="title">Профессиональная косметика</span>
+                    </NavLink>
+                  )
+                },
+                {
+                  type: 'category',
+                  label: (
+                    <NavLink
+                      to={"/category-pereparat"}
+                      className={pathname == "/category-pereparat" ? "active" : ""}
+                    >
+                      <span class="title">Биостимуляторы</span>
                     </NavLink>
                   )
                 }
@@ -157,7 +170,7 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
                       to={"/aparat-product"}
                       className={pathname == "/aparat-product" ? "active" : ""}
                     >
-                      <span class="title">Апарат</span>
+                      <span class="title">Аппараты</span>
                     </NavLink>
                   )
                 },
@@ -168,7 +181,18 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
                       to={"/pereparat-product"}
                       className={pathname == "/pereparat-product" ? "active" : ""}
                     >
-                      <span class="title">Препараты</span>
+                      <span class="title">Профессиональная косметика</span>
+                    </NavLink>
+                  )
+                },
+                {
+                  type: 'category',
+                  label: (
+                    <NavLink
+                      to={"/pereparat-product"}
+                      className={pathname == "/pereparat-product" ? "active" : ""}
+                    >
+                      <span class="title">Биостимуляторы</span>
                     </NavLink>
                   )
                 }
@@ -234,21 +258,21 @@ const HorizontalSidebar = ({ children, setIsChecked }) => {
                   src="https://cdn.lordicon.com/dycatgju.json"
                   trigger="hover"
                   colors="primary:#fff"
-                  style={{width: "20px", height: "20px"}}>
+                  style={{ width: "20px", height: "20px" }}>
                 </lord-icon>
                 <span className="drop_span">Настройка</span>
               </Space>
             </a>
           </Dropdown>
-          <UserOutlined className="user-icon" />
-          <div className="profile-right">
+          {/* <UserOutlined className="user-icon" /> */}
+          {/* <div className="profile-right">
             {filterData.map((elem) => (
               <>
                 <p className="profile_name">{elem.name}</p>
                 <p className="profile_email">{elem.email}</p>
               </>
             ))}
-          </div>
+          </div> */}
         </div>
       </Header>
       <Content

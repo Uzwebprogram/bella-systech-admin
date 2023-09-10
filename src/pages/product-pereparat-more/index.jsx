@@ -24,7 +24,7 @@ function ProductPereparatMore() {
         window.localStorage.getItem("checked") == 'false' ? <HorizontalSidebar>
             <WrapperContainer style={{ marginTop: "90px" }}>
                 <HeaderTopCommon
-                    title={"Страница с подробностями об Перепараты"}
+                    title={"Страница с подробностями об Профессиональная косметика"}
                     isBtn={false}
                 />
                 <ProductPereparatMoreComponent />
@@ -32,7 +32,7 @@ function ProductPereparatMore() {
         </HorizontalSidebar> : <VerticalSidebar>
             <WrapperContainer>
                 <HeaderTopCommon
-                    title={"Страница с подробностями об Перепараты"}
+                    title={"Страница с подробностями об Профессиональная косметика"}
                     isBtn={false}
                 />
                 <ProductPereparatMoreComponent />

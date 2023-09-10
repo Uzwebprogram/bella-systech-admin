@@ -36,7 +36,7 @@ const AparatProduct = ({ setTitleUz, setTitleRU, setTitleEn, setProductTypeUz, s
                   </div>
                 </div>
                 <div>
-                  <h4>Выбрать категория перепарат</h4>
+                  <h4>Выбрать категория косметика</h4>
                   <div className="selects">
                     <SelectCommon
                       onChange={SelectChange2}
@@ -61,25 +61,25 @@ const AparatProduct = ({ setTitleUz, setTitleRU, setTitleEn, setProductTypeUz, s
                   <h4>Имя продукта</h4>
                   <InputCommon
                     type="text"
-                    placeholder="узбекский"
-                    required
-                    onChange={(e) => setTitleUz(e.currentTarget.value)}
-                  />
-                </div>
-                <div style={{ margin: "20px 0" }}>
-                  <InputCommon
-                    type="text"
                     placeholder="русский"
                     required
                     onChange={(e) => setTitleRU(e.currentTarget.value)}
                   />
                 </div>
-                <div>
+                <div style={{ margin: "20px 0" }}>
                   <InputCommon
                     type="text"
                     placeholder="английский"
                     required
                     onChange={(e) => setTitleEn(e.currentTarget.value)}
+                  />
+                </div>
+                <div>
+                  <InputCommon
+                    type="text"
+                    placeholder="узбекский"
+                    required
+                    onChange={(e) => setTitleUz(e.currentTarget.value)}
                   />
                 </div>
 
@@ -88,27 +88,27 @@ const AparatProduct = ({ setTitleUz, setTitleRU, setTitleEn, setProductTypeUz, s
                 <div>
                   <h4>Oписание</h4>
                   <TextArea
-                    placeholder="узбекский"
-                    required
-                    onChange={(e) => setProductTypeUz(e.currentTarget.value)}
-                    autoSize />
-                </div>
-              </Col>
-              <Col className="col" lg={12}>
-                <div style={{ margin: "20px 0" }}>
-                  <TextArea
-                    placeholder="русский"
+                    placeholder=" русский"
                     required
                     onChange={(e) => setProductTypeRu(e.currentTarget.value)}
                     autoSize />
                 </div>
               </Col>
               <Col className="col" lg={12}>
-                <div>
+                <div style={{ margin: "20px 0" }}>
                   <TextArea
                     placeholder="английский"
                     required
                     onChange={(e) => setProductTypeEn(e.currentTarget.value)}
+                    autoSize />
+                </div>
+              </Col>
+              <Col className="col" lg={12}>
+                <div>
+                  <TextArea
+                    placeholder="узбекский"
+                    required
+                    onChange={(e) => setProductTypeUz(e.currentTarget.value)}
                     autoSize />
                 </div>
               </Col>

@@ -106,7 +106,7 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
   CompanyGets.map((elem) =>
     optionsCompany.push({
       value: elem.id,
-      label: elem.title_ru,
+      label: elem.name,
     })
   );
 
@@ -124,109 +124,6 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
           <Wrapper onSubmit={HandlePut}>
             <div className="input_wrap">
               <div className="scrool">
-                {/* <Row className="row">
-                  <Col className="col" lg={12}>
-                    <div className='col_edit_item'>
-                      <ImageUpload
-                        HandleChange={HandleChange}
-                        HandleChange2={HandleChange2}
-                        HandleChange3={HandleChange3}
-                        imgSize={3 / 4}
-                        elem={elem}
-                      />
-                    </div>
-                  </Col>
-                  <Col className="col" lg={4}>
-                    <div lassName='col_edit_item'>
-                      <h4>Выбрать компания</h4>
-                      <div className="selects">
-                        <SelectCommon
-                          defaultValue={elem.company.name}
-                          onChange={SelectChange}
-                          placeholder="Выбрать"
-                          options={optionsCompany}
-                          required
-                        />
-                        <span style={{ color: "red", marginTop: "10px", marginLeft: "5px" }}>вы должны выбрать!</span>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col className="col" lg={4}>
-                    <div lassName='col_edit_item'>
-                      <h4>Выбрать категория апарат</h4>
-                      <div className="selects">
-                        <SelectCommon
-                          onChange={SelectChange2}
-                          defaultValue={elem.category_pereparat.title_ru}
-                          placeholder="Выбрать"
-                          options={options}
-                          required
-                        />
-                        <span style={{ color: "red", marginTop: "10px", marginLeft: "5px" }}>вы должны выбрать!</span>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col className="col" lg={8}>
-                    <div className='col_edit_item'>
-                      <h4>PDF-файл <span style={{ cursor: "pointer" }} onClick={() => window.location.href = elem.pdf}>(посмотреть старый пдф)</span></h4>
-                      <InputCommon
-                        className="file_input"
-                        type="file"
-                        id="fileupload"
-                        onChange={(e) => HandleChangePdf(e)}
-                      />
-                    </div>
-                  </Col>
-                  <Col className="col" lg={8}>
-                    <div className='col_edit_item'>
-                      <h4>Имя продукта</h4>
-                      <InputCommon
-                        type="text"
-                        defaultValue={elem.name_uz}
-                        onChange={(e) => setTitleUz(e.currentTarget.value)}
-                      />
-                    </div>
-                  </Col>
-                  <Col className="col" lg={8}>
-                    <div className='col_edit_item'>
-                      <h4>*</h4>
-                      <InputCommon
-                        type="text"
-                        defaultValue={elem.name_ru}
-                        onChange={(e) => setTitleRU(e.currentTarget.value)}
-                      />
-                    </div>
-                  </Col>
-                  <Col className="col" lg={8}>
-                    <div className='col_edit_item'>
-                      <h4>*</h4>
-                      <InputCommon
-                        type="text"
-                        defaultValue={elem.name_en}
-                        onChange={(e) => setTitleEn(e.currentTarget.value)}
-                      />
-                    </div>
-                  </Col>
-                  <Col className="col" lg={12}>
-                    <div className='col_edit_item'>
-                      <h4>Oписание</h4>
-                      <TextArea
-                        defaultValue={elem.description_uz}
-                        onChange={(e) => setProductTypeUz(e.currentTarget.value)}
-                        autoSize />
-                      <TextArea
-                        style={{ margin: "20px 0" }}
-                        defaultValue={elem.description_ru}
-                        onChange={(e) => setProductTypeRu(e.currentTarget.value)}
-                        autoSize />
-                      <TextArea
-                        defaultValue={elem.description_en}
-                        onChange={(e) => setProductTypeEn(e.currentTarget.value)}
-                        autoSize />
-                    </div>
-                  </Col>
-
-                </Row> */}
                 <Row className="row">
                   <Col className="col" lg={12}>
                     <div className='col_edit_item'>
@@ -263,20 +160,6 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
                       </div>
                     </div>
                   </Col>
-                  {/* <Col className="col" lg={4}>
-                    <div className='col_edit_item'>
-                      <h4>Выбрать категория апарат</h4>
-                      <div className="selects">
-                        <SelectCommon
-                          onChange={SelectChange2}
-                          defaultValue={elem.category_pereparat.title_ru}
-                          placeholder="Выбрать"
-                          options={options}
-                        />
-                        <span style={{ color: "red", marginTop: "10px", marginLeft: "5px" }}>вы должны выбрать!</span>
-                      </div>
-                    </div>
-                  </Col> */}
 
                   <Col className="col" lg={8}>
                     <div className='col_edit_item' style={{marginBottom: "20px"}}>
@@ -289,43 +172,46 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
                       />
                     </div>
                     <div className='col_edit_item'>
-                      <h4>Имя продукта</h4>
+                      <h4>Имя продукта русский</h4>
                       <InputCommon
                         type="text"
                         defaultValue={elem.name_uz}
-                        onChange={(e) => setTitleUz(e.currentTarget.value)}
+                        onChange={(e) => setTitleRU(e.currentTarget.value)}
                       />
-                      <div style={{margin: "20px 0"}}>
+                      <div>
+                         <h4>Имя продукта английский</h4>
                         <InputCommon
                           type="text"
                           defaultValue={elem.name_en}
                           onChange={(e) => setTitleEn(e.currentTarget.value)}
                         />
                       </div>
-                      <div >
+                      <div>
+                        <h4>Имя продукта узбекский</h4>
                         <InputCommon
                           type="text"
                           defaultValue={elem.name_ru}
-                          onChange={(e) => setTitleRU(e.currentTarget.value)}
+                          onChange={(e) => setTitleUz(e.currentTarget.value)}
                         />
                       </div>
                     </div>
                   </Col>
                   <Col className="col" lg={12}>
                     <div className='col_edit_item'>
-                      <h4>Oписание</h4>
+                      <h4>Oписание русский</h4>
                       <TextArea
-                        defaultValue={elem.description_uz}
-                        onChange={(e) => setProductTypeUz(e.currentTarget.value)}
-                        autoSize />
-                      <TextArea
-                        style={{ margin: "20px 0" }}
                         defaultValue={elem.description_ru}
                         onChange={(e) => setProductTypeRu(e.currentTarget.value)}
                         autoSize />
+                        <h4>Oписание английский</h4>
                       <TextArea
                         defaultValue={elem.description_en}
                         onChange={(e) => setProductTypeEn(e.currentTarget.value)}
+                        autoSize />
+                        <h4>Oписание узбекский</h4>
+                      <TextArea
+                        defaultValue={elem.description_uz}
+                        onChange={(e) => setProductTypeUz(e.currentTarget.value)}
                         autoSize />
                     </div>
                   </Col>

@@ -40,22 +40,24 @@ const SampleProductPuts = ({ putAparatId, openAparatProduct, setOpenAparatProduc
           {SampleProductGetsFilter.map(elem => <>
             <Col className="col" lg={12}>
               <div className={styles.col_edit_item}>
-                <h4>Применение товара</h4>
+                <h4>Применение товара русский</h4>
                 <InputCommon
                   type="text"
                   defaultValue={elem.name_ru}
                   onChange={(e) => setTitleru(e.currentTarget.value)}
                 />
+                <h4>Применение товара английский</h4>
                 <InputCommon
                   className={styles.sample_input}
                   type="text"
-                  defaultValue={elem.name_uz}
-                  onChange={(e) => setTitleuz(e.currentTarget.value)}
-                />
-                <InputCommon
-                  type="text"
                   defaultValue={elem.name_en}
                   onChange={(e) => setTitleen(e.currentTarget.value)}
+                />
+                <h4>Применение товара узбекский</h4>
+                <InputCommon
+                  type="text"
+                  defaultValue={elem.name_uz}
+                  onChange={(e) => setTitleuz(e.currentTarget.value)}
                 />
               </div>
             </Col>

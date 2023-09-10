@@ -8,7 +8,7 @@ function HeaderTopCommon({title ,textBtn , style , onClick, isBtn}) {
     <Wrapper>
         <h3>{title}</h3>
        {
-        isBtn === false ? null :  <CommonBtn style={{background: "#03544C"}} onClick={onClick}>{textBtn}</CommonBtn>
+        isBtn === false ? null :  <CommonBtn style={{background: "#F94144"}} onClick={onClick}>{textBtn}</CommonBtn>
        }
     </Wrapper>
   )

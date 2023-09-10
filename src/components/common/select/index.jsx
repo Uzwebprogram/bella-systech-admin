@@ -7,7 +7,6 @@ const SelectCommon = ({ placeholder, defaultValue, options, onChange, className 
     <>
       <div className="select_wrapp">
         <Select 
-          
           showSearch
           allowClear
           defaultValue={defaultValue}

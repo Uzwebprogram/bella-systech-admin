@@ -43,7 +43,26 @@ const DescriptionAparatProductPut = ({ openAparatProduct, setOpenAparatProduct, 
       <Wrapper onSubmit={HandlePutDescription}>
         {DescriptionProductGetsFilter.map(elem => <>
           <Row className={styles.row}>
-            <Col className={styles.col} lg={6}>
+            <Col className={styles.col} lg={12}>
+              <div className={styles.col_edit_item}>
+                <h4>Oписания русский</h4>
+                <TextArea
+                  defaultValue={elem.description_ru}
+                  onChange={(e) => setDescriptionRuYoutube(e.currentTarget.value)}
+                  autoSize />
+                <h4>Oписания английский</h4>
+                <TextArea
+                  defaultValue={elem.description_en}
+                  onChange={(e) => setDescriptionEnYoutube(e.currentTarget.value)}
+                  autoSize />
+                <h4>Oписания узбекский</h4>
+                <TextArea
+                  defaultValue={elem.description_uz}
+                  onChange={(e) => setDescriptionUzYoutube(e.currentTarget.value)}
+                  autoSize />
+              </div>
+            </Col>
+            <Col className={styles.col} lg={8}>
               <div className={styles.col_edit_item}>
                 <h4>Youtube линк</h4>
                 <InputCommon
@@ -53,24 +72,6 @@ const DescriptionAparatProductPut = ({ openAparatProduct, setOpenAparatProduct, 
                   required
                   onChange={(e) => setYouteLink(e.currentTarget.value)}
                 />
-              </div>
-            </Col>
-            <Col className={styles.col} lg={12}>
-              <div className={styles.col_edit_item}>
-                <h4>Oписания</h4>
-                <TextArea
-                  defaultValue={elem.description_ru}
-                  onChange={(e) => setDescriptionRuYoutube(e.currentTarget.value)}
-                  autoSize />
-                <TextArea
-                  style={{ margin: "20px 0" }}
-                  defaultValue={elem.description_uz}
-                  onChange={(e) => setDescriptionUzYoutube(e.currentTarget.value)}
-                  autoSize />
-                <TextArea
-                  defaultValue={elem.description_en}
-                  onChange={(e) => setDescriptionEnYoutube(e.currentTarget.value)}
-                  autoSize />
               </div>
             </Col>
           </Row>

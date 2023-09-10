@@ -60,7 +60,7 @@ const AparatProduct = ({
                   </div>
                 </div>
                 <div>
-                  <h4>Выбрать категория апарат</h4>
+                  <h4>Выбрать категория аппараты</h4>
                   <div className="selects">
                     <SelectCommon
                       onChange={SelectChange2}
@@ -95,25 +95,25 @@ const AparatProduct = ({
                   <h4>Имя продукта</h4>
                   <InputCommon
                     type="text"
-                    placeholder="узбекский"
-                    required
-                    onChange={(e) => setTitleUz(e.currentTarget.value)}
-                  />
-                </div>
-                <div style={{ margin: "20px 0" }}>
-                  <InputCommon
-                    type="text"
                     placeholder="русский"
                     required
                     onChange={(e) => setTitleRU(e.currentTarget.value)}
                   />
                 </div>
-                <div>
+                <div style={{ margin: "20px 0" }}>
                   <InputCommon
                     type="text"
                     placeholder="английский"
                     required
                     onChange={(e) => setTitleEn(e.currentTarget.value)}
+                  />
+                </div>
+                <div>
+                  <InputCommon
+                    type="text"
+                    placeholder="узбекский"
+                    required
+                    onChange={(e) => setTitleUz(e.currentTarget.value)}
                   />
                 </div>
 
@@ -122,15 +122,6 @@ const AparatProduct = ({
                 <div>
                   <h4>Oписание</h4>
                   <TextArea
-                    placeholder="узбекский"
-                    required
-                    onChange={(e) => setProductTypeUz(e.currentTarget.value)}
-                    autoSize />
-                </div>
-              </Col>
-              <Col className="col" lg={12}>
-                <div style={{ margin: "20px 0" }}>
-                  <TextArea
                     placeholder="русский"
                     required
                     onChange={(e) => setProductTypeRu(e.currentTarget.value)}
@@ -138,7 +129,7 @@ const AparatProduct = ({
                 </div>
               </Col>
               <Col className="col" lg={12}>
-                <div>
+                <div style={{ margin: "20px 0" }}>
                   <TextArea
                     placeholder="английский"
                     required
@@ -148,25 +139,34 @@ const AparatProduct = ({
               </Col>
               <Col className="col" lg={12}>
                 <div>
-                  <h4>Преимущества товара</h4>
                   <TextArea
                     placeholder="узбекский"
+                    required
+                    onChange={(e) => setProductTypeUz(e.currentTarget.value)}
+                    autoSize />
+                </div>
+              </Col>
+              <Col className="col" lg={12}>
+                <div>
+                  <h4>Преимущества товара</h4>
+                  <TextArea
+                    placeholder="русский"
                     required
                     onChange={(e) => setsalecount(e.currentTarget.value)}
                     autoSize />
                 </div>
-                <div style={{margin: "20px 0"}}>
-                  <TextArea
-                    placeholder="русский"
-                    required
-                    onChange={(e) => setsalecountuz(e.currentTarget.value)}
-                    autoSize />
-                </div>
-                <div>
+                <div style={{ margin: "20px 0" }}>
                   <TextArea
                     placeholder="английский"
                     required
                     onChange={(e) => setsalecounten(e.currentTarget.value)}
+                    autoSize />
+                </div>
+                <div>
+                  <TextArea
+                    placeholder=" узбекский"
+                    required
+                    onChange={(e) => setsalecountuz(e.currentTarget.value)}
                     autoSize />
                 </div>
               </Col>

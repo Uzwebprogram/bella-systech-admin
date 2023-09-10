@@ -22,7 +22,7 @@ function ProductAparatMore() {
         window.localStorage.getItem("checked") == 'false' ? <HorizontalSidebar>
             <WrapperContainer style={{ marginTop: "90px" }}>
                 <HeaderTopCommon
-                    title={"Страница с подробностями об Апарате"}
+                    title={"Страница с подробностями об Аппараты"}
                     isBtn={false}
                 />
                 <ProductAparatMoreComponent />
@@ -30,7 +30,7 @@ function ProductAparatMore() {
         </HorizontalSidebar> : <VerticalSidebar>
             <WrapperContainer>
                 <HeaderTopCommon
-                    title={"Страница с подробностями об Апарате"}
+                    title={"Страница с подробностями об Аппараты"}
                     isBtn={false}
                 />
                 <ProductAparatMoreComponent />

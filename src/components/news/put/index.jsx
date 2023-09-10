@@ -83,35 +83,27 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
                       </Col>
                       <Col className="col" lg={8}>
                         <div className="col_edit_item" >
-                          <h4>Новости титул</h4>
+                          <h4>Новости титул русский</h4>
                           <InputCommon
-                            type="text"
-                            defaultValue={elem.title_uz}
-                            onChange={(e) => setTitleUz(e.currentTarget.value)}
-                          />
-                          <InputCommon
-                            className='col_margin_input'
                             type="text"
                             defaultValue={elem.title_ru}
                             onChange={(e) => setTitleRu(e.currentTarget.value)}
                           />
+                          <h4>Новости титул английский</h4>
                           <InputCommon
                             type="text"
                             defaultValue={elem.title_en}
                             onChange={(e) => setTitleEn(e.currentTarget.value)}
                           />
+                          <h4>Новости титул узбекский</h4>
+                          <InputCommon
+                            type="text"
+                            defaultValue={elem.title_uz}
+                            onChange={(e) => setTitleUz(e.currentTarget.value)}
+                          />
                         </div>
                       </Col>
 
-                      <Col className="col" lg={12}>
-                        <div className="col_edit_item">
-                          <h4>Описание узбекский</h4>
-                          <TextArea
-                            onChange={(e) => setDescriptionUz(e.currentTarget.value)}
-                            defaultValue={elem.description_uz}
-                            autoSize />
-                        </div>
-                      </Col>
                       <Col className="col" lg={12}>
                         <div className="col_edit_item">
                           <h4>Описание русский</h4>
@@ -127,6 +119,15 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
                           <TextArea
                             onChange={(e) => setDescriptionEn(e.currentTarget.value)}
                             defaultValue={elem.description_en}
+                            autoSize />
+                        </div>
+                      </Col>
+                      <Col className="col" lg={12}>
+                        <div className="col_edit_item">
+                          <h4>Описание узбекский</h4>
+                          <TextArea
+                            onChange={(e) => setDescriptionUz(e.currentTarget.value)}
+                            defaultValue={elem.description_uz}
                             autoSize />
                         </div>
                       </Col>

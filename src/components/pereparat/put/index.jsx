@@ -55,51 +55,31 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
     <>
       <ModalCommon width={500} open={openPut} handleClose={handleClosePut}>
         <Wrapper onSubmit={HandleSubmit}>
-          <h3>Изменение категории</h3>
+          <h3>Изменение косметика категорию</h3>
           <div className="input_wrap">
             <div className="scrool">
               <Row className="row">
                 {
                   categoryGets.map(elem => elem.id == put_id ? (
                     <>
-
-                      {/* <Col className="col" lg={6}>
-
-                        {
-                          dataProject.Success == true ? (
-                            <Image
-                              width="100%"
-                              style={{ aspectRatio: "16 / 9", borderRadius: "20px", zIndex: "99999999" }}
-                              src={dataProject.data}
-                            />
-                          ) : (
-                            <Image
-                              width="100%"
-                              style={{ aspectRatio: "16 / 9", borderRadius: "20px", zIndex: "99999999" }}
-                              src={elem.image}
-                            />
-                          )
-                        }
-                        <div className="infor_box">
-                          <p><span>Формат: </span>PNG, JPEG, JPG, SVG. Рекомендуемое разрешение <span>1920×1080</span> или <span>1280×720</span></p>
-                          <p> <span>Размер: </span>размер файла не должен превышать 5 MB</p>
-                        </div>
-                      </Col> */}
                       <Col className="col" lg={12}>
-                        <InputCommon
-                          type="text"
-                          defaultValue={elem.title_uz}
-                          onChange={(e) => setTitleUz(e.currentTarget.value)}
-                        />
+                        <h5>Имя косметика категорию русский</h5>
                         <InputCommon
                           type="text"
                           defaultValue={elem.title_ru}
                           onChange={(e) => setTitleRu(e.currentTarget.value)}
                         />
+                         <h5>Имя косметика категорию английский</h5>
                         <InputCommon
                           type="text"
                           defaultValue={elem.title_en}
                           onChange={(e) => setTitleEn(e.currentTarget.value)}
+                        />
+                        <h5>Имя косметика категорию узбекский</h5>
+                        <InputCommon
+                          type="text"
+                          defaultValue={elem.title_uz}
+                          onChange={(e) => setTitleUz(e.currentTarget.value)}
                         />
                           <SelectCommon 
                             defaultValue={elem.company.name}
@@ -112,7 +92,7 @@ function Put({ openPut, handleClosePut, HandlePut, put_id }) {
                             margin: "20px auto 0 auto",
                             padding: "12px 40px",
                             border: "2px solid #fff",
-                            background: "#03544c",
+                            background: "#F94144",
                           }}
                         >
                           Добавить

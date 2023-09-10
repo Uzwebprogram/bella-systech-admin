@@ -5,7 +5,7 @@
   height: auto !important;
   width: auto !important;
   margin: 10px 16px 0 16px !important;
-  background-color: #000B3E!important;
+  background-color: #F94144!important;
   position: fixed !important;
   right: 0;
   left: 0;
@@ -14,8 +14,22 @@
   justify-content: space-between !important;
 }
 
+.logo_Wrapp{
+  background-color: #fff;
+  height: 100%;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
 .hori_sidebar .ant-menu {
-  background-color: #000B3E !important;
+  background-color: #F94144 !important;
 }
 
 .hori_sidebar .ant-menu .ant-menu-item {
@@ -31,7 +45,7 @@
 }
 
 .hori_sidebar > .site-layout-content {
-  background-color: red !important;
+  background-color: #F94144 !important;
   border-radius: 20px !important;
 }
 

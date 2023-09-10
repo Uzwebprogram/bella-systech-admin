@@ -13,8 +13,9 @@ function RouterComponent() {
       <div className="big_wrap">
         <Suspense
           fallback={
-            <div className="logo-wrap">
-              <img src={logo} alt="" />
+            <div className="spin_wrapp">
+              <div className='loader'></div>
+              {/* <img src={Logo} alt="" /> */}
             </div>
           }
         >

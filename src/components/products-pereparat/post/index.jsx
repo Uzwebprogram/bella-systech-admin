@@ -173,7 +173,7 @@ const DoneSubmit = async(e) => {
   CompanyGets.map((elem) =>
   optionsCompany.push({
       value: elem.id,
-      label: elem.title_ru,
+      label: elem.name,
     })
   );
 
@@ -188,7 +188,7 @@ const DoneSubmit = async(e) => {
   // STEPS CODE
   const steps = [
     {
-      title: "Перепарат",
+      title: "Профессиональная косметика",
       content: (
           <>
           <AparatProduct  setTitleUz={setTitleUz} setTitleRU={setTitleRU} setTitleEn={setTitleEn} setProductTypeUz={setProductTypeUz} setProductTypeRu={setProductTypeRu} setProductTypeEn={setProductTypeEn} setsalecount={setsalecount} HandleChange={HandleChange} HandleChange2={HandleChange2} HandleChange3={HandleChange3} options={options} optionsCompany={optionsCompany} OptionPartners={OptionPartners} SelectChange={SelectChange} SelectChange2={SelectChange2} SelectChange3={SelectChange3}  HandleChangePdf={HandleChangePdf}/>

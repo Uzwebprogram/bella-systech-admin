@@ -16,7 +16,11 @@ import {
     BellOutlined,
     QuestionCircleOutlined,
     UserOutlined,
-    SettingOutlined
+    SettingOutlined,
+    ProfileOutlined,
+    SafetyCertificateOutlined,
+    TeamOutlined,
+    FieldTimeOutlined
 
 } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
@@ -24,7 +28,7 @@ import { useLocation } from "react-router-dom";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Layout, Menu, theme } from "antd";
 import "./styles.css";
-import logo from "../../assets/image/logos.png";
+import logo from "../../assets/logo.svg";
 import { adminGet } from "../../redux/admin_add/index";
 import { padding } from "@mui/system";
 const { Header, Sider, Footer, Content } = Layout;
@@ -85,6 +89,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
 
     return (
         <Layout style={{ height: "100vh", position: "relative" }}>
+
             <Sider
                 style={{ backgroundColor: "#5A79E5" }}
                 width={240}
@@ -92,6 +97,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                 collapsible
                 collapsed={collapsed}
             >
+
                 <Menu
                     theme="dark"
                     mode="inline"
@@ -133,7 +139,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                                             to={"/category-aparat"}
                                             className={pathname == "/category-aparat" ? "active" : ""}
                                         >
-                                            <span class="title">Апарат</span>
+                                            <span class="title">Аппараты</span>
                                         </NavLink>
                                     )
                                 },
@@ -144,7 +150,18 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                                             to={"/category-pereparat"}
                                             className={pathname == "/category-pereparat" ? "active" : ""}
                                         >
-                                            <span class="title">Препараты</span>
+                                            <span class="title">Профессиональная косметика</span>
+                                        </NavLink>
+                                    )
+                                },
+                                {
+                                    type: 'category',
+                                    label: (
+                                        <NavLink
+                                            to={"/category-pereparat"}
+                                            className={pathname == "/category-pereparat" ? "active" : ""}
+                                        >
+                                            <span class="title">Биостимуляторы</span>
                                         </NavLink>
                                     )
                                 }
@@ -164,7 +181,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                                             to={"/aparat-product"}
                                             className={pathname == "/aparat-product" ? "active" : ""}
                                         >
-                                            <span class="title">Апарат</span>
+                                            <span class="title">Аппараты</span>
                                         </NavLink>
                                     )
                                 },
@@ -175,7 +192,18 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                                             to={"/pereparat-product"}
                                             className={pathname == "/pereparat-product" ? "active" : ""}
                                         >
-                                            <span class="title">Препараты</span>
+                                            <span class="title">Профессиональная косметика</span>
+                                        </NavLink>
+                                    )
+                                },
+                                {
+                                    type: 'category',
+                                    label: (
+                                        <NavLink
+                                            to={"/pereparat-product"}
+                                            className={pathname == "/pereparat-product" ? "active" : ""}
+                                        >
+                                            <span class="title">Биостимуляторы</span>
                                         </NavLink>
                                     )
                                 }
@@ -183,7 +211,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                         },
                         {
                             key: "5",
-                            icon: <ShoppingCartOutlined />,
+                            icon: <ProfileOutlined />,
                             label: (
                                 <NavLink
                                     to={"/news"}
@@ -195,7 +223,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                         },
                         {
                             key: "6",
-                            icon: <ShoppingCartOutlined />,
+                            icon: <TeamOutlined />,
                             label: (
                                 <NavLink
                                     to={"/partners"}
@@ -207,7 +235,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                         },
                         {
                             key: "6",
-                            icon: <ShoppingCartOutlined />,
+                            icon: <SafetyCertificateOutlined />,
                             label: (
                                 <NavLink
                                     to={"/sertfikat"}
@@ -219,7 +247,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                         },
                         {
                             key: "6",
-                            icon: <ShoppingCartOutlined />,
+                            icon: <FieldTimeOutlined />,
                             label: (
                                 <NavLink
                                     to={"/news-form"}
@@ -232,9 +260,6 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                     ]}
                     style={{ backgroundColor: "#000B3E" }}
                 />
-                <div className="logo_wrapp">
-                    MARDTRAVEL
-                </div>
             </Sider>
             <Layout className="site-layout">
                 <Header
@@ -254,6 +279,12 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                             }
                         )}
 
+                        {/* <div className="logo_Wrapp">
+                            <img src={logo} width={100} className="demo-logo" />
+                        </div> */}
+                        <div className="logo_title">
+                            <h4>Bella-Systech Uzbekistan</h4>
+                        </div>
                     </div>
                     <div className="left">
                         <div className="icons">
@@ -278,7 +309,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                                     </Space>
                                 </a>
                             </Dropdown>
-                            <UserOutlined className="user-icon" />
+                            {/* <UserOutlined className="user-icon" />
                             <div className="profile-right">
                                 {filterData.map((elem) => (
                                     <>
@@ -286,7 +317,7 @@ const VerticalSidebar = ({ children, setIsChecked }) => {
                                         <p className="profile_email">{elem.email}</p>
                                     </>
                                 ))}
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </Header>

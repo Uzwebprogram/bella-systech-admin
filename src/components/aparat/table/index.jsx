@@ -15,9 +15,9 @@ export default function TableAdd({ HandleDelete, onClickPut }) {
     data.push({
       data: index + 1,
       key: elem.id,
-      Имякатегорииузб: elem.title_uz,
       Имякатегориирусский: elem.title_ru,
       Имякатегорииен: elem.title_en,
+      Имякатегорииузб: elem.title_uz,
 
       Действие: (
         <div className="boxx">
@@ -77,11 +77,6 @@ export default function TableAdd({ HandleDelete, onClickPut }) {
     },
 
     {
-      title: "Имя категории узб",
-      dataIndex: "Имякатегорииузб",
-      key: "Имякатегорииузб",
-    },
-    {
       title: "Имя категории рус",
       dataIndex: "Имякатегориирусский",
       key: "Имякатегориирусский",
@@ -90,7 +85,12 @@ export default function TableAdd({ HandleDelete, onClickPut }) {
       title: "Имя категории ен",
       dataIndex: "Имякатегорииен",
       key: "Имякатегорииен",
-
+      
+    },
+    {
+      title: "Имя категории узб",
+      dataIndex: "Имякатегорииузб",
+      key: "Имякатегорииузб",
     },
     {
       title: "Действие",

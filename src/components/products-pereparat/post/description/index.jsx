@@ -12,29 +12,29 @@ const DescriptionAparatProduct = ({ setDescriptionRuYoutube, setDescriptionUzYou
       <Row className={styles.row}>
         <Col className={styles.col} lg={12}>
           <div>
-            <h4>Преимущества</h4>
+            <h4>Описание</h4>
             <TextArea
-              placeholder="печатание ру"
-              required
-              onChange={(e) => setDescriptionUzYoutube(e.currentTarget.value)}
-              autoSize />
-          </div>
-        </Col>
-        <Col className={styles.col} lg={12}>
-          <div style={{ margin: "20px 0" }}>
-            <TextArea
-              placeholder="печатание уз"
+              placeholder="русский"
               required
               onChange={(e) => setDescriptionRuYoutube(e.currentTarget.value)}
               autoSize />
           </div>
         </Col>
         <Col className={styles.col} lg={12}>
-          <div>
+          <div style={{ margin: "20px 0" }}>
             <TextArea
-              placeholder="печатание ен"
+              placeholder="английский"
               required
               onChange={(e) => setDescriptionEnYoutube(e.currentTarget.value)}
+              autoSize />
+          </div>
+        </Col>
+        <Col className={styles.col} lg={12}>
+          <div>
+            <TextArea
+              placeholder="узбекский"
+              required
+              onChange={(e) => setDescriptionUzYoutube(e.currentTarget.value)}
               autoSize />
           </div>
         </Col>

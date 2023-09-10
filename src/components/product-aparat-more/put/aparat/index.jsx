@@ -166,7 +166,7 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
                         />
                         <span style={{ color: "red", marginTop: "10px", marginLeft: "5px" }}>вы должны выбрать!</span>
                       </div>
-                      <h4>Выбрать категория апарат</h4>
+                      <h4>Выбрать категория aппараты</h4>
                       <div className="selects">
                         <SelectCommon
                           onChange={SelectChange2}
@@ -199,43 +199,46 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
                       />
                     </div>
                     <div className='col_edit_item'>
-                      <h4>Имя продукта</h4>
+                      <h4>Имя продукта русский</h4>
                       <InputCommon
                         type="text"
-                        defaultValue={elem.name_uz}
-                        onChange={(e) => setTitleUz(e.currentTarget.value)}
+                        defaultValue={elem.name_ru}
+                        onChange={(e) => setTitleRU(e.currentTarget.value)}
                       />
-                      <div style={{ margin: "20px 0" }}>
-                        <InputCommon
-                          type="text"
-                          defaultValue={elem.name_ru}
-                          onChange={(e) => setTitleRU(e.currentTarget.value)}
-                        />
-                      </div>
                       <div>
+                        <h4>Имя продукта английский</h4>
                         <InputCommon
                           type="text"
                           defaultValue={elem.name_en}
                           onChange={(e) => setTitleEn(e.currentTarget.value)}
                         />
                       </div>
+                      <div>
+                        <h4>Имя продукта узбекский</h4>
+                        <InputCommon
+                          type="text"
+                          defaultValue={elem.name_uz}
+                          onChange={(e) => setTitleUz(e.currentTarget.value)}
+                        />
+                      </div>
                     </div>
                   </Col>
                   <Col className="col" lg={12}>
                     <div className='col_edit_item'>
-                      <h4>Oписание</h4>
+                      <h4>Oписание русский</h4>
                       <TextArea
-                        defaultValue={elem.description_uz}
-                        onChange={(e) => setProductTypeUz(e.currentTarget.value)}
-                        autoSize />
-                      <TextArea
-                        style={{ margin: "20px 0" }}
                         defaultValue={elem.description_ru}
                         onChange={(e) => setProductTypeRu(e.currentTarget.value)}
                         autoSize />
+                      <h4>Oписание английский</h4>
                       <TextArea
                         defaultValue={elem.description_en}
                         onChange={(e) => setProductTypeEn(e.currentTarget.value)}
+                        autoSize />
+                      <h4>Oписание узбекский</h4>
+                      <TextArea
+                        defaultValue={elem.description_uz}
+                        onChange={(e) => setProductTypeUz(e.currentTarget.value)}
                         autoSize />
                     </div>
                   </Col>
@@ -251,21 +254,23 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
                   </Col> */}
                   <Col className="col" lg={12}>
                     <div className='col_edit_item'>
-                      <h4>Преимущества</h4>
+                      <h4>Преимущества русский</h4>
                       <TextArea
-                        defaultValue={elem.product_benefits_uz}
-                        onChange={(e) => setsalecountuz(e.currentTarget.value)}
+                        defaultValue={elem.product_benefits}
+                        onChange={(e) => setsalecount(e.currentTarget.value)}
                         autoSize />
-                      <div style={{ margin: "20px 0" }}>
+                      <div>
+                        <h4>Преимущества английский</h4>
                         <TextArea
                           defaultValue={elem.product_benefits_en}
                           onChange={(e) => setsalecounten(e.currentTarget.value)}
                           autoSize />
                       </div>
                       <div>
+                        <h4>Преимущества узбекский</h4>
                         <TextArea
-                          defaultValue={elem.product_benefits}
-                          onChange={(e) => setsalecount(e.currentTarget.value)}
+                          defaultValue={elem.product_benefits_uz}
+                          onChange={(e) => setsalecountuz(e.currentTarget.value)}
                           autoSize />
                       </div>
                     </div>

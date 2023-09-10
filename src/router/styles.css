@@ -1,36 +1,104 @@
-.wrappers{
-    display: flex;
-    align-items: top;
-    justify-content: space-between;
-    background-color: #E3E3E3;
-    height: 100vh;
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--red);
+  transform-origin: 0%;
+}
+.spin_wrapp {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 99999;
+  position: relative;
 }
 
-.headers{
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 23%;
+.loader {
+  width: 60px;
+  height: 60px;
+  margin: 0 0 30px 0;
+  position: relative;
 }
 
-.pages{
-    width: 77%;
-    padding: 10px;
+.loader:before {
+  content: "";
+  width: 60px;
+  height: 5px;
+  background: #f0808050;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow324 0.5s linear infinite;
+  -webkit-animation: shadow324 0.5s linear infinite;
 }
 
-.logo-wrap{
-    background-color: #E3E3E3;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+.loader:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #df2027;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  animation: jump7456 0.5s linear infinite;
+  -webkit-animation: jump7456 0.5s linear infinite;
 }
 
-/* .big_wrap{
-    height: 100vh;
-    padding: 10px;
-} */
+@keyframes jump7456 {
+  15% {
+    border-bottom-right-radius: 3px;
+  }
 
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
+
+  50% {
+    transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    border-bottom-right-radius: 40px;
+  }
+
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+
+@keyframes shadow324 {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .spin_wrapp > img {
+    width: 120px;
+    object-fit: cover;
+  }
+
+  .loader {
+    width: 38px;
+    height: 38px;
+  }
+
+  .loader:before {
+    top: 50px;
+    width: 40px;
+  }
+}
