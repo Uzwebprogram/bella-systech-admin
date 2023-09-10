@@ -27,6 +27,8 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
   const [categoryaparatstate, setCategoryAparatState] = useState();
   const [partnerstate, setPartnersState] = useState();
   const [salecount, setsalecount] = useState();
+  const [salecounten, setsalecounten] = useState();
+  const [salecountuz, setsalecountuz] = useState();
 
   const AparatCategoryGets = useSelector((state) => state.aparat.AparatGet.data);
   useEffect(() => {
@@ -60,6 +62,8 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
       image3: !dataImage3.data ? AparatProductFilter.map(elem => elem.image3)[0] : dataImage3?.data,
       pdf: !dataPdf.data ? AparatProductFilter.map(elem => elem.pdf)[0] : dataPdf.data,
       product_benefits: salecount,
+      product_benefits_en: salecounten,
+      product_benefits_uz: salecountuz,
       company: companystate,
       category_aparat: categoryaparatstate,
       partners: partnerstate
@@ -76,6 +80,8 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
     e.target[9].value = null
     e.target[10].value = null
     e.target[11].value = null
+    e.target[12].value = null
+    e.target[13].value = null
     await dispatch(AparatProductPut({ body, id: putAparatId }));
     dispatch(AparatProductGet());
     setOpenAparat();
@@ -117,7 +123,7 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
   CompanyGets.map((elem) =>
     optionsCompany.push({
       value: elem.id,
-      label: elem.title_ru,
+      label: elem.name,
     })
   );
 
@@ -149,7 +155,7 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
                     </div>
                   </Col>
                   <Col className="col" lg={4}>
-                    <div className='col_edit_item' style={{height: "93%"}}>
+                    <div className='col_edit_item' style={{ height: "93%" }}>
                       <h4>Выбрать компания</h4>
                       <div className="selects">
                         <SelectCommon
@@ -247,9 +253,21 @@ const AparatProductPuts = ({ putAparatId, openAparat, setOpenAparat }) => {
                     <div className='col_edit_item'>
                       <h4>Преимущества</h4>
                       <TextArea
-                        defaultValue={elem.product_benefits}
-                        onChange={(e) => setsalecount(e.currentTarget.value)}
+                        defaultValue={elem.product_benefits_uz}
+                        onChange={(e) => setsalecountuz(e.currentTarget.value)}
                         autoSize />
+                      <div style={{ margin: "20px 0" }}>
+                        <TextArea
+                          defaultValue={elem.product_benefits_en}
+                          onChange={(e) => setsalecounten(e.currentTarget.value)}
+                          autoSize />
+                      </div>
+                      <div>
+                        <TextArea
+                          defaultValue={elem.product_benefits}
+                          onChange={(e) => setsalecount(e.currentTarget.value)}
+                          autoSize />
+                      </div>
                     </div>
                   </Col>
 

@@ -63,6 +63,7 @@
 
 .card_more_col_item > p {
   color: #000;
+  white-space : pre-wrap;
 }
 
 .card_pdf {
